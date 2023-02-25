@@ -32,6 +32,15 @@
     extraSpecialArgs = {inherit inputs outputs;};
   };
 
+  nix = {
+    # weekly nix-store garbage collector, delete anything no longer used older than 30 days
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
+
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
