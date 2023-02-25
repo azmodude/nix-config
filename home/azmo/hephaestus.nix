@@ -8,6 +8,7 @@
     ./global
     ./features/cli/atuin.nix
     ./features/cli/direnv.nix
+    ./features/cli/fzf.nix
     ./features/cli/gpg.nix
     ./features/cli/git.nix
     ./features/cli/ssh.nix
@@ -20,6 +21,7 @@
     ./features/desktop/common/fonts.nix
     ./features/desktop/gnome
     ./features/nvim
+    ./features/emacs
     ./features/desktop/common/vscode.nix
   ];
   home.packages = with pkgs; [
