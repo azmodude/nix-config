@@ -146,6 +146,8 @@ with lib.hm.gvariant;
       dock-position = "LEFT";
       extend-height = false;
       height-fraction = 0.9;
+      hide-delay = 0.10000000000000002;
+      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
       isolate-workspaces = true;
       multi-monitor = false;
       preferred-monitor = -2;
