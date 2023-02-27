@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.wezterm = {
     enable = true;
@@ -19,4 +20,5 @@
     }
     '';
   };
+  home.sessionVariables.XCURSOR_THEME = "adwaita";
 }
