@@ -23,6 +23,7 @@ in {
     mouse = true;
     newSession = true;
     tmuxp.enable = true;
+    terminal = "tmux-256color";
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.prefix-highlight;
@@ -33,6 +34,7 @@ in {
       {
         plugin = catppuccin;
         extraConfig = ''
+          set-option -ga terminal-overrides ",*256col*:Tc:RGB"
           set -g @catppuccin_flavour 'macchiato';
           set -g @catppuccin_window_tabs_enabled on
         '';
