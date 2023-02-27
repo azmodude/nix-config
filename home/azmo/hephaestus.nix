@@ -20,6 +20,7 @@
     ./features/desktop/common/firefox.nix
     ./features/desktop/common/fonts.nix
     ./features/desktop/gnome
+    ./features/desktop/common/wezterm.nix
     ./features/nvim
     ./features/emacs
     ./features/desktop/common/vscode.nix
