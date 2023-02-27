@@ -23,6 +23,7 @@ in {
     mouse = true;
     newSession = true;
     tmuxp.enable = true;
+    sensibleOnTop = true;
     terminal = "tmux-256color";
     plugins = with pkgs; [
       {
@@ -30,6 +31,15 @@ in {
       }
       {
         plugin = tmuxPlugins.pain-control;
+      }
+      {
+        plugin = tmuxPlugins.yank;
+      }
+      {
+        plugin = tmuxPlugins.vim-tmux-navigator;
+      }
+      {
+        plugin = tmuxPlugins.vim-tmux-focus-events;
       }
       {
         plugin = catppuccin;
