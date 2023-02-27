@@ -3,6 +3,7 @@
     enable = true;
     fileWidgetCommand = "${pkgs.fd}/bin/fd --type f --exclude .git";
     changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d --exclude .git";
+    tmux.enableShellIntegration = true;
     colors = {
       # catppuccin-macchiato
       "bg+" = "#363a4f";
