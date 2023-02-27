@@ -44,7 +44,7 @@ with lib.hm.gvariant; {
         "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
         "espresso@coadmunkee.github.com"
       ];
-      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "Alacritty.desktop"];
+      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop"];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = true;
