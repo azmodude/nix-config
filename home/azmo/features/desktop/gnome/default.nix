@@ -1,104 +1,169 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{
-  lib,
-  pkgs,
-  ...
-}:
-with lib.hm.gvariant; {
-  dconf.settings = {
-    "org/gnome/system/location" = {
-      enabled = true;
-    };
-    "org/gnome/settings-daemon/plugins/color" = {
-      night-light-enabled = true;
-      night-light-last-coordinates = mkTuple [52.113598560115186 7.6032];
-      night-light-temperature = mkUint32 2700;
-    };
+{ lib, pkgs, ... }:
 
-    "org/gnome/desktop/input-sources" = {
-      sources = [(mkTuple ["xkb" "de+nodeadkeys"]) (mkTuple ["xkb" "us"])];
-      xkb-options = ["terminate:ctrl_alt_bksp"];
-    };
-    "org/gnome/desktop/interface" = {
-      "color-scheme" = "prefer-dark";
-      "enable-hot-corners" = false;
-      "gtk-theme" = "Adwaita-dark";
-    };
+with lib.hm.gvariant;
+
+{
+  dconf.settings = {
+
     "org/gnome/desktop/background" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
       picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
     };
+
+    "org/gnome/desktop/calendar" = {
+      show-weekdate = true;
+    };
+
+    "org/gnome/desktop/datetime" = {
+      automatic-timezone = true;
+    };
+
+    "org/gnome/desktop/input-sources" = {
+      remember-numlock-state = true;
+      sources = [ (mkTuple [ "xkb" "de+nodeadkeys" ]) (mkTuple [ "xkb" "us" ]) ];
+      xkb-options = [ "terminate:ctrl_alt_bksp" "caps:escape" ];
+    };
+
+    "org/gnome/desktop/interface" = {
+      clock-show-weekday = true;
+      color-scheme = "prefer-dark";
+      document-font-name = "Sans 11";
+      enable-hot-corners = false;
+      font-antialiasing = "rgba";
+      font-hinting = "slight";
+      font-name = "Inter 10";
+      gtk-theme = "Adwaita-dark";
+      monospace-font-name = "Monospace 10";
+      show-battery-percentage = true;
+    };
+
+    "org/gnome/desktop/peripherals/keyboard" = {
+      delay = mkUint32 250;
+      repeat-interval = mkUint32 30;
+    };
+
+    "org/gnome/desktop/peripherals/mouse" = {
+      natural-scroll = false;
+      speed = 0.33;
+    };
+
+    "org/gnome/desktop/peripherals/touchpad" = {
+      speed = 0.14529914529914523;
+      tap-to-click = true;
+      two-finger-scrolling-enabled = true;
+    };
+
+    "org/gnome/desktop/privacy" = {
+      disable-microphone = false;
+      old-files-age = mkUint32 30;
+      recent-files-max-age = -1;
+      remove-old-temp-files = true;
+      remove-old-trash-files = true;
+    };
+
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/odin.jpg";
     };
+
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 480;
+    };
+
+    "org/gnome/desktop/wm/keybindings" = {
+      close = [ "<Shift><Super>q" "<Alt>F4" ];
+      show-desktop = [ "<Super>d" ];
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      resize-with-right-button = true;
+      titlebar-font = "Inter Medium 10";
+    };
+
+    "org/gnome/mutter" = {
+      attach-modal-dialogs = true;
+      dynamic-workspaces = true;
+      edge-tiling = true;
+      focus-change-on-pointer-rest = true;
+      workspaces-only-on-primary = true;
+    };
+
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-temperature = mkUint32 3000;
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/" ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "wezterm";
+      name = "Terminal";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Shift><Super>f";
+      command = "nautilus";
+      name = "Files";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      binding = "<Shift><Control>space";
+      command = "1password --quick-access";
+      name = "1Password Quick Access";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+      binding = "<Shift><Super>p";
+      command = "1password --toggle";
+      name = "1Password Toggle";
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-timeout = 3600;
+      sleep-inactive-battery-timeout = 1800;
+    };
+
     "org/gnome/shell" = {
       disable-user-extensions = false;
-
-      # `gnome-extensions list` for a list
-      enabled-extensions = [
-        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
-        "dash-to-panel@jderose9.github.com"
-        "native-windows-placement@gnome-shell-extensions.gcampax.github.com"
-        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
-        "espresso@coadmunkee.github.com"
-      ];
-      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop"];
+      enabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "espresso@coadmunkee.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com" ];
+      favorite-apps = [ "firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop" ];
+      welcome-dialog-last-shown-version = "43.2";
     };
+
+    "org/gnome/shell/app-switcher" = {
+      current-workspace-only = true;
+    };
+
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = true;
       background-opacity = 0.8;
       custom-theme-shrink = true;
       dash-max-icon-size = 32;
-      dock-fixed = true;
+      dock-fixed = false;
       dock-position = "LEFT";
       extend-height = false;
       height-fraction = 0.9;
       isolate-workspaces = true;
+      multi-monitor = false;
+      preferred-monitor = -2;
+      preferred-monitor-by-connector = "eDP-1";
     };
 
-    "org/gnome/shell/extensions/dash-to-panel" = {
-      animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
-      appicon-margin = 6;
-      appicon-padding = 4;
-      available-monitors = [0];
-      dot-style-focused = "CILIORA";
-      dot-style-unfocused = "SQUARES";
-      focus-highlight-dominant = true;
-      hot-keys = true;
-      hotkeys-overlay-combo = "TEMPORARILY";
-      isolate-workspaces = true;
-      leftbox-padding = -1;
-      panel-anchors = ''
-        {"0":"MIDDLE"}
-      '';
-      panel-element-positions = ''
-        {"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
-      '';
-      panel-lengths = ''
-        {"0":100}
-      '';
-      panel-positions = ''
-        {"0":"TOP"}
-      '';
-      panel-sizes = ''
-        {"0":39}
-      '';
-      primary-monitor = 0;
-      shortcut-previews = true;
-      status-icon-padding = -1;
-      trans-panel-opacity = 0.4;
-      trans-use-custom-opacity = true;
-      trans-use-dynamic-opacity = true;
-      tray-padding = -1;
-      window-preview-title-position = "TOP";
+    "org/gnome/system/location" = {
+      enabled = true;
     };
+
+    "org/gnome/tweaks" = {
+      show-extensions-notice = false;
+    };
+
   };
-
   home.packages = with pkgs; [
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-panel
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
     gnomeExtensions.workspace-indicator
     gnomeExtensions.espresso
