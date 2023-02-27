@@ -83,7 +83,6 @@
     };
   };
 
-  # FIXME: Add the rest of your current configuration
   networking.hostName = "hephaestus";
   networking.domain = "hosts.gordonschulz.de";
   networking.networkmanager.enable = true;
@@ -102,9 +101,6 @@
       driSupport = true;
     };
   };
-
-  #  programs.neovim.enable = true;
-  programs.git.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
