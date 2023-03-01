@@ -10,8 +10,8 @@ with lib; let
   astronvim = pkgs.fetchFromGitHub {
     owner = "AstroNvim";
     repo = "AstroNvim";
-    rev = "e283d67";
-    sha256 = "sha256:X5Q2+QK0qKcqGCxGtRSgwJ4yJdiAUJwJ2PVtDhHJgYY=";
+    rev = "ea8957d";
+    sha256 = "sha256:+g1JHwA7T+cuiefSexnGIJAdisvh83nVaKi/Zz+ssJU=";
   };
 in {
   options.programs.astronvim = {
