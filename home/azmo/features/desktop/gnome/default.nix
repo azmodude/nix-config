@@ -1,11 +1,11 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, pkgs, ... }:
-
-with lib.hm.gvariant;
-
 {
+  lib,
+  pkgs,
+  ...
+}:
+with lib.hm.gvariant; {
   dconf.settings = {
-
     "org/gnome/desktop/background" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
       picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
@@ -21,8 +21,8 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/input-sources" = {
       remember-numlock-state = true;
-      sources = [ (mkTuple [ "xkb" "de+nodeadkeys" ]) (mkTuple [ "xkb" "us" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" "caps:escape" ];
+      sources = [(mkTuple ["xkb" "de+nodeadkeys"]) (mkTuple ["xkb" "us"])];
+      xkb-options = ["terminate:ctrl_alt_bksp" "caps:escape"];
     };
 
     "org/gnome/desktop/interface" = {
@@ -71,8 +71,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = [ "<Shift><Super>q" "<Alt>F4" ];
-      show-desktop = [ "<Super>d" ];
+      close = ["<Shift><Super>q" "<Alt>F4"];
+      show-desktop = ["<Super>d"];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -94,7 +94,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/" ];
+      custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -128,8 +128,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [ "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "espresso@coadmunkee.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com" ];
-      favorite-apps = [ "firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop" ];
+      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "espresso@coadmunkee.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com"];
+      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop"];
       welcome-dialog-last-shown-version = "43.2";
     };
 
@@ -161,7 +161,6 @@ with lib.hm.gvariant;
     "org/gnome/tweaks" = {
       show-extensions-notice = false;
     };
-
   };
   home.packages = with pkgs; [
     gnomeExtensions.blur-my-shell
