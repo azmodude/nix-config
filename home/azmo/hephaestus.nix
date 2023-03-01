@@ -31,7 +31,6 @@
     google-chrome
     intel-gpu-tools
     just
-    pkgs.inter
     ripgrep
     vivaldi
     vivaldi-ffmpeg-codecs
