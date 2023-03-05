@@ -59,6 +59,18 @@
   hardware.enableRedistributableFirmware = true;
   #  networking.domain = "m7.rs";
   boot.loader.systemd-boot.configurationLimit = 10;
+  boot.tmpOnTmpfs = true;
+
+  systemd = {
+    # ensure we making cgroupsv2 the default; e.g. lxd tries to disable it
+    enableUnifiedCgroupHierarchy = lib.mkForce true;
+    oomd = {
+      enable = true;
+      enableRootSlice = true;
+      enableSystemSlice = true;
+      enableUserServices = true;
+    };
+  };
 
   zramSwap = {
     enable = true;
