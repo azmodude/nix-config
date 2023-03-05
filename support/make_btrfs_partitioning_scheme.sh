@@ -39,6 +39,7 @@ btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@nix
 btrfs subvolume create /mnt/@persist
+btrfs subvolume create /mnt/@persist/games
 btrfs subvolume create /mnt/@snapshots
 btrfs subvolume create /mnt/@var-log
 
