@@ -82,6 +82,10 @@
       };
     };
   };
+  # ensure misc directories exist and/or are secure
+  systemd.user.tmpfiles.rules = [
+    "z /home/azmo/.config/1Password 0700 azmo azmo - -"
+  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

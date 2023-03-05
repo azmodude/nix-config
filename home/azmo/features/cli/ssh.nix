@@ -28,13 +28,13 @@ in {
     };
   };
 
-  # ensure secure controlPath exists
+  # ensure secure controlPath exists and secure ~/.ssh
   systemd.user.tmpfiles.rules = [
     "d /home/azmo/tmp/.ssh 0700 azmo azmo 10d -"
+    "z /home/azmo/.ssh 0700 azmo azmo - -"
   ];
 
   home.persistence."/persist/home/azmo" = {
     directories = [".ssh"];
-    allowOther = false;
   };
 }

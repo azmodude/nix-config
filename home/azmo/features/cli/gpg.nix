@@ -68,6 +68,11 @@ in {
     "/persist/home/azmo".directories = [".gnupg"];
   };
 
+  # ensure .gnupg is secure
+  systemd.user.tmpfiles.rules = [
+    "z /home/azmo/.gnupg 0700 azmo azmo - -"
+  ];
+
   #
   #  # Link /run/user/$UID/gnupg to ~/.gnupg-sockets
   #  # So that SSH config does not have to know the UID

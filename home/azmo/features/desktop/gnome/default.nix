@@ -174,4 +174,8 @@ with lib.hm.gvariant; {
       "/persist/home/azmo".directories = [".local/share/keyrings"];
     };
   };
+  # ensure keyrings are secured
+  systemd.user.tmpfiles.rules = [
+    "z /home/azmo/.local/share/keyrings 0700 azmo azmo - -"
+  ];
 }

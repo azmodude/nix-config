@@ -52,6 +52,12 @@ in {
     neededForUsers = true;
   };
 
+  # ensure persist home exists and is secure
+  systemd.tmpfiles.rules = [
+    "d /persist/home/azmo 0700 azmo azmo - -"
+    "z /persist/home/azmo 0700 azmo azmo - -"
+  ];
+
   # this triggers a home-manager run on nixos-rebuild - which ATM causes problems with our extraSpecialArgs passed to hm since
   # they do not get passed along
   #home-manager.users.azmo = import home/${config.networking.hostName}.nix;
