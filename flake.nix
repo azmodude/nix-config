@@ -79,12 +79,21 @@
           ./hosts/hephaestus
         ];
       };
+      artemis = nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs home-manager outputs;
+          desktop = "gnome";
+        };
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/artemis
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
       "azmo@hephaestus" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
@@ -95,6 +104,18 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/azmo/hephaestus.nix
+        ];
+      };
+      "azmo@artemis" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          desktop = "gnome";
+          pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
+        };
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/azmo/artemis.nix
         ];
       };
     };
