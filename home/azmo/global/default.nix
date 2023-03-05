@@ -77,8 +77,9 @@
           "Downloads"
           "Pictures"
           "Videos"
+          ".config/1Password"
         ];
-        allowOther = false;
+        allowOther = true;
       };
     };
   };
