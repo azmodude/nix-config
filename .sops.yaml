@@ -3,6 +3,7 @@ keys:
     - &azmo age1aph83gkdg83l6cf83nsdthp95dcd5natpa7527sd3p8rtlcj3dgstl502c
   - &hosts:
     - &hephaestus age19082075rmp926ajwg7ea4k0050tc4qvy7dtcehpe7hlvrdgr092qpkagqk
+    - &artemis age1ugpqj4nfgvq00k62kw93medzqyk4c7xj5pdy580j2xmy9pfq99tse0f8cj
 
 creation_rules:
   - path_regex: hosts/hephaestus/secrets.ya?ml$
@@ -10,15 +11,22 @@ creation_rules:
     - age:
       - *azmo
       - *hephaestus
+  - path_regex: hosts/artemis/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *azmo
+      - *artemis
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
     - age:
       - *azmo
       - *hephaestus
+      - *artemis
 
   - path_regex: home/azmo/secrets.ya?ml$
     key_groups:
     - age:
       - *azmo
       - *hephaestus
+      - *artemis
