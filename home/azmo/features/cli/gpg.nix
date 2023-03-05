@@ -57,7 +57,7 @@ in {
         {
           source = fetchKey {
             url = "https://github.com/azmodude.gpg";
-            sha256 = "sha256:0xhvsizaz1g8a2l6dvs8ikqah4yi42b4p0ipgvmqsibaphcmhy6l";
+            sha256 = "sha256:1s9y4k90hjl7k75is6lyp491hg1my3vm1kxxahyslj5wy7w09pi8";
           };
           trust = 5;
         }
