@@ -28,7 +28,6 @@
 
     ../common/global
     ../common/users
-    ../common/optional/laptop.nix
     ../common/optional/encrypted-root.nix
     ../common/optional/btrfs.nix
     ../common/optional/btrfs-optin-persistence.nix
