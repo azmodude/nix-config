@@ -86,6 +86,8 @@
   # ensure misc directories exist and/or are secure
   systemd.user.tmpfiles.rules = [
     "z /home/azmo/.config/1Password 0700 azmo azmo - -"
+    "Z /home/azmo/.config/sops 0700 azmo azmo - -"
+    "z /home/azmo/.config/sops/age/keys.txt 0600 azmo azmo - -"
   ];
 
   # Nicely reload system units when changing configs
