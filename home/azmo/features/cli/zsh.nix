@@ -72,20 +72,6 @@
             source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
             ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
             ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-            # autostart zellij
-            ZELLIJ_AUTO_ATTACH=true
-            if [[ -z "$ZELLIJ" ]]; then
-                if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
-                    zellij attach -c
-            else
-                    zellij
-            fi
-
-            if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
-              exit
-            fi
-      fi
-
     '';
   };
 }
