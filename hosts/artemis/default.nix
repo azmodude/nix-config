@@ -29,6 +29,7 @@
     ../common/global
     ../common/users
     ../common/optional/encrypted-root.nix
+    ../common/optional/encrypted-root-ssh-unlock.nix
     ../common/optional/btrfs.nix
     ../common/optional/btrfs-optin-persistence.nix
     ../common/optional/cups.nix
