@@ -17,6 +17,9 @@
 #in
 {
   home.packages = with pkgs; [
+    steam-run
+    steam-tui
+    steamcmd
     gamescope
     protontricks
   ];
