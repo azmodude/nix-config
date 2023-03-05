@@ -78,6 +78,8 @@
   };
   powerManagement.enable = true;
 
+  programs.git.enable = true;
+
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
