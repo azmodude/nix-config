@@ -34,6 +34,7 @@
     ../common/optional/cups.nix
     ../common/optional/fwupd.nix
     ../common/optional/gnome.nix
+    ../common/optional/steam.nix
     ../common/optional/wayland.nix
     ../common/optional/_1password.nix
     ../common/optional/pipewire.nix
