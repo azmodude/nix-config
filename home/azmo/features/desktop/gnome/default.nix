@@ -162,11 +162,16 @@ with lib.hm.gvariant; {
       show-extensions-notice = false;
     };
   };
-  home.packages = with pkgs; [
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.appindicator
-    gnomeExtensions.workspace-indicator
-    gnomeExtensions.espresso
-  ];
+  home = {
+    packages = with pkgs; [
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.appindicator
+      gnomeExtensions.workspace-indicator
+      gnomeExtensions.espresso
+    ];
+    persistence = {
+      "/persist/home/azmo".directories = [".local/share/keyrings"];
+    };
+  };
 }
