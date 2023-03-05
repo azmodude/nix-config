@@ -2,7 +2,7 @@
   home.packages = [ pkgs.lutris ];
 
   home.persistence = {
-    "/persist/games/misterio" = {
+    "/persist/games/azmo" = {
       allowOther = true;
       directories = [ "Games/Lutris" ".config/lutris" ".local/share/lutris" ];
     };
