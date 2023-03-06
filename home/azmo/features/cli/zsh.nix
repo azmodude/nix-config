@@ -60,18 +60,18 @@
     };
     localVariables = {
       # fire up ZVM initializing directly after sourcing, prevents stomping over other plugins' (like atuin) keybindings
-      ZVM_INIT_MODE="sourcing";
-  };
+      ZVM_INIT_MODE = "sourcing";
+    };
 
     initExtraFirst = ''
     '';
 
     initExtra = ''
-            # this is kind-of-hacky, but for now it works until a vivid module lands in hm
-            export LS_COLORS="$(${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)"
-            source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-            ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
-            ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+      # this is kind-of-hacky, but for now it works until a vivid module lands in hm
+      export LS_COLORS="$(${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)"
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+      ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
     '';
   };
 }

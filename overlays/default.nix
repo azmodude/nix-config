@@ -1,8 +1,7 @@
 # This file defines overlays
-{ inputs, ... }:
-{
+{inputs, ...}: {
   # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs { pkgs = final; };
+  additions = final: _prev: import ../pkgs {pkgs = final;};
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -24,8 +23,7 @@
         inherit src;
         outputHash = "sha256-P+Mecvhm5vXvbZLT/mDEBsfB/hoUfaaTg6glD+5HznY=";
       });
-
-      });
+    });
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
