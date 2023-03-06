@@ -99,7 +99,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "wezterm";
+      command = "kitty";
       name = "Terminal";
     };
 
@@ -129,7 +129,7 @@ with lib.hm.gvariant; {
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "espresso@coadmunkee.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com"];
-      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop"];
+      favorite-apps = ["firefox.desktop" "google-chrome.desktop" "kitty.desktop"];
       welcome-dialog-last-shown-version = "43.2";
     };
 

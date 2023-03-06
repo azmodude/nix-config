@@ -21,6 +21,7 @@
     ./features/desktop/common/fonts.nix
     ./features/desktop/gnome
     ./features/desktop/common/wezterm.nix
+    ./features/desktop/common/kitty.nix
     ./features/nvim
     ./features/emacs
     ./features/desktop/common/vscode.nix
