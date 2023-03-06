@@ -35,8 +35,8 @@
           activeBorderColor = ["#a6da95" "bold"];
           inactiveBorderColor = ["#cad3f5"];
           optionsTextColor = ["#8aadf4"];
-          selectedLineBgColor = ["#363a4f"];
-          selectedRangeBgColor = ["#363a4f"];
+          selectedLineBgColor = ["#363a4f" "reverse"];
+          selectedRangeBgColor = ["#363a4f" "reverse"];
           cherryPickedCommitBgColor = ["#8bd5ca"];
           cherryPickedCommitFgColor = ["#8aadf4"];
           unstagedChangesColor = ["red"];
