@@ -10,7 +10,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    kernelModules = ["kvm-intel" "amdgpu"];
+    kernelModules = ["kvm-intel" ];
     extraModulePackages = [];
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
