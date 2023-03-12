@@ -64,6 +64,20 @@
     git.enable = true;
   };
 
+  home.packages = with pkgs; [
+    bat
+    exa
+    google-chrome
+    just
+    lf
+    nvtop
+    ripgrep
+    vivaldi
+    vivaldi-ffmpeg-codecs
+    unrar
+    unzip
+  ];
+
   home = {
     username = lib.mkDefault "azmo";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";

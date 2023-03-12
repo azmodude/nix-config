@@ -27,16 +27,6 @@
     ./features/emacs
     ./features/desktop/common/vscode.nix
   ];
-  home.packages = with pkgs; [
-    bat
-    exa
-    google-chrome
-    intel-gpu-tools
-    just
-    ripgrep
-    vivaldi
-    vivaldi-ffmpeg-codecs
-  ];
 
   programs.zoxide = {
     enable = true;
