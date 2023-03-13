@@ -7,6 +7,7 @@
   imports = [
     ./global
     ./features/cli/atuin.nix
+    ./features/cli/btop.nix
     ./features/cli/direnv.nix
     ./features/cli/fzf.nix
     ./features/cli/gpg.nix
