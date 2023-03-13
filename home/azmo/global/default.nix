@@ -11,6 +11,7 @@
     [
       inputs.sops-nix.homeManagerModules.sops
       inputs.impermanence.nixosModules.home-manager.impermanence
+      ./packages.nix
 
       # If you want to use modules your own flake exports (from modules/home-manager):
       # outputs.homeManagerModules.example
@@ -63,20 +64,6 @@
     home-manager.enable = true;
     git.enable = true;
   };
-
-  home.packages = with pkgs; [
-    bat
-    exa
-    google-chrome
-    just
-    lf
-    nvtop
-    ripgrep
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    unrar
-    unzip
-  ];
 
   home = {
     username = lib.mkDefault "azmo";
