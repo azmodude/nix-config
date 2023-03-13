@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  home.packages = [pkgs.lutris];
+  home.packages = [(pkgs.lutris.override {  extraPkgs = pkgs: [ pkgs.libnghttp2 pkgs.curl pkgs.winetricks ]; })];
 
   home.persistence = {
     "/persist/games/azmo" = {
