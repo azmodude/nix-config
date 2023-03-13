@@ -6,6 +6,8 @@
     just
     lf
     nvtop
+    rclone
+    rsync
     ripgrep
     vivaldi
     vivaldi-ffmpeg-codecs
