@@ -4,9 +4,6 @@
   };
 
   home.packages = with pkgs; [
-    (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    iosevka-bin
-    inter
-    victor-mono
+    # Add extra font packages here
   ];
 }

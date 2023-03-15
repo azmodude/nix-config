@@ -33,6 +33,7 @@
     ../common/optional/btrfs.nix
     ../common/optional/btrfs-optin-persistence.nix
     ../common/optional/cups.nix
+    ../common/optional/fonts.nix
     ../common/optional/flatpak.nix
     ../common/optional/fwupd.nix
     ../common/optional/gnome.nix
