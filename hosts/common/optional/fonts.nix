@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
@@ -16,10 +16,10 @@
     fontconfig = {
       antialias = true;
       defaultFonts = {
-        serif = [ "Source Serif 4" "Joypixels" ];
-        sansSerif = [ "Source Sans 3" "Joypixels" ];
-        monospace = [ "Source Code Pro" "JoyPixels" ];
-        emoji = [ "Joypixels" ];
+        serif = ["Source Serif 4" "Joypixels"];
+        sansSerif = ["Source Sans 3" "Joypixels"];
+        monospace = ["Source Code Pro" "JoyPixels"];
+        emoji = ["Joypixels"];
       };
       hinting = {
         autohint = false;
@@ -35,6 +35,4 @@
 
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
-
-
-  }
+}

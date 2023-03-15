@@ -2,7 +2,7 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
-    extraPackages = with pkgs; [ nodejs gcc ];
+    extraPackages = with pkgs; [nodejs gcc];
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
