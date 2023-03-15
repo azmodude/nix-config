@@ -19,6 +19,7 @@
     ./features/cli/zsh.nix
     ./features/desktop/common/alacritty.nix
     ./features/desktop/common/firefox.nix
+    ./features/desktop/common/flatpak.nix
     ./features/desktop/common/fonts.nix
     ./features/desktop/common/kitty.nix
     ./features/desktop/gnome
