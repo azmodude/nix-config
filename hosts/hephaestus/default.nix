@@ -91,12 +91,6 @@
 
   services.udev.packages = [pkgs.yubikey-personalization];
 
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "de";
-    #  useXkbConfig = true; # use xkbOptions in tty.
-  };
-
   hardware = {
     opengl = {
       enable = true;

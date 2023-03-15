@@ -80,6 +80,13 @@
 
   programs.git.enable = true;
 
+  console = {
+    earlySetup = true;
+    font = "ter-powerline-v28n";
+    packages = [ pkgs.terminus_font pkgs.powerline-fonts ];
+    keyMap = "de";
+  };
+
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
