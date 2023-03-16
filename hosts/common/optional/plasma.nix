@@ -13,7 +13,10 @@
     geoclue2.enable = true;
   };
   programs.dconf.enable = true;
-  services.avahi.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  }
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
