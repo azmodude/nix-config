@@ -10,8 +10,8 @@
     };
   };
   sops = {
-    defaultSopsFile = ../../secrets.yaml;
     secrets.atuin-key = {
+      sopsFile = ../../secrets.yaml;
       path = "${config.xdg.dataHome}/atuin/key";
     };
   };
