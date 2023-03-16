@@ -1,4 +1,5 @@
 {
+  imports = [./btrbk.nix ./btrfs-optin-persistence.nix];
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/btrfs-root";

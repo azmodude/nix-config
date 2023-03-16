@@ -1,5 +1,6 @@
 # This file (and the global directory) holds config that i use on all hosts
 {
+  config,
   lib,
   inputs,
   pkgs,
@@ -11,13 +12,13 @@
       inputs.impermanence.nixosModules.impermanence
       inputs.home-manager.nixosModules.home-manager
       #    ./acme.nix
-      ./btrbk.nix
       ./editor.nix
       #    ./fish.nix
       ./locale.nix
       #    ./nix.nix
       ./openssh.nix
       ./containers.nix
+      ./networking.nix
       #    ./postgres.nix
       ./shells.nix
       ./sops.nix
@@ -33,19 +34,45 @@
     extraSpecialArgs = {inherit inputs outputs;};
   };
 
-  nix = {
-    # weekly nix-store garbage collector, delete anything no longer used older than 30 days
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+      outputs.overlays.additions
+
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
     };
   };
 
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
+  nix = {
+    # This will add each flake input as a registry
+    # To make nix3 commands consistent with your flake
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
     };
   };
 

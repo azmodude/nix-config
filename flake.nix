@@ -76,6 +76,7 @@
           hostname = "hephaestus";
           domain = "hosts.gordonschulz.de";
           hostid = "e120cab3";
+          user = "azmo";
         };
         modules = [
           # > Our main nixos configuration file <
@@ -89,10 +90,11 @@
           hostname = "artemis";
           domain = "hosts.gordonschulz.de";
           hostid = "b32cb9a7";
+          user = "azmo";
         };
         modules = [
           # > Our main nixos configuration file <
-          ./hosts/artemis
+          ./hosts
         ];
       };
     };

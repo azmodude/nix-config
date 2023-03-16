@@ -6,107 +6,40 @@
   lib,
   config,
   pkgs,
+  desktop,
   domain,
   hostname,
   hostid,
   ...
 }: {
   # You can import other NixOS modules here
-  imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
-    inputs.hardware.nixosModules.common-gpu-amd
-    inputs.hardware.nixosModules.common-pc-ssd
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+  imports =
+    [
+      # If you want to use modules your own flake exports (from modules/nixos):
+      # outputs.nixosModules.example
 
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
+      # Or modules from other flakes (such as nixos-hardware):
+      # inputs.hardware.nixosModules.common-cpu-amd
+      # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
+      # You can also split up your configuration and import pieces of it here:
+      # ./users.nix
 
-    # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
+      # Import your generated (nixos-generate-config) hardware configuration
+      ./hardware-configuration.nix
 
-    ../common/global
-    ../common/users
-    ../common/optional/encrypted-root.nix
-    ../common/optional/encrypted-root-ssh-unlock.nix
-    ../common/optional/btrfs.nix
-    ../common/optional/btrfs-optin-persistence.nix
-    ../common/optional/cups.nix
-    ../common/optional/fonts.nix
-    ../common/optional/flatpak.nix
-    ../common/optional/fwupd.nix
-    ../common/optional/gnome.nix
-    ../common/optional/steam.nix
-    ../common/optional/wayland.nix
-    ../common/optional/_1password.nix
-    ../common/optional/pipewire.nix
-    ../common/optional/lxd.nix
-    ../common/optional/libvirt.nix
-  ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-      outputs.overlays.additions
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
-  };
-
-  nix = {
-    # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
-    };
-  };
-
-  networking = {
-    hostName = hostname;
-    domain = domain;
-    hostId = hostid;
-  };
-  networking.networkmanager.enable = true;
-
-  services.udev.packages = [pkgs.yubikey-personalization];
-
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-  };
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "22.11";
+      ../common/users
+      ../common/optional/encrypted-root.nix
+      ../common/optional/encrypted-root-ssh-unlock.nix
+      ../common/optional/btrfs
+      ../common/optional/desktop
+      ../common/optional/desktop/steam.nix
+      ../common/optional/fwupd.nix
+      ../common/optional/lxd.nix
+      ../common/optional/libvirt.nix
+      # Only include desktop components if one is supplied.
+      # - https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
+    ]
+    ++ lib.optional (builtins.isString desktop) ../common/optional/desktop
+    ++ lib.optional (builtins.isString desktop) ../common/optional/desktop/${desktop};
 }

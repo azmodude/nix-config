@@ -16,7 +16,7 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
-  }
+  };
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
