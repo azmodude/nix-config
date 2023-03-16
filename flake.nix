@@ -73,6 +73,9 @@
         specialArgs = {
           inherit inputs home-manager outputs;
           desktop = "gnome";
+          hostname = "hephaestus";
+          domain = "hosts.gordonschulz.de";
+          hostid = "e120cab3";
         };
         modules = [
           # > Our main nixos configuration file <
@@ -83,6 +86,9 @@
         specialArgs = {
           inherit inputs home-manager outputs;
           desktop = "gnome";
+          hostname = "artemis";
+          domain = "hosts.gordonschulz.de";
+          hostid = "b32cb9a7";
         };
         modules = [
           # > Our main nixos configuration file <

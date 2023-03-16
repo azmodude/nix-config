@@ -6,6 +6,9 @@
   lib,
   config,
   pkgs,
+  domain,
+  hostname,
+  hostid,
   ...
 }: {
   # You can import other NixOS modules here
@@ -86,8 +89,12 @@
     };
   };
 
-  networking.hostName = "hephaestus";
-  networking.domain = "hosts.gordonschulz.de";
+  networking = {
+    hostName = hostname;
+    domain = domain;
+    hostId = hostid;
+  };
+
   networking.networkmanager.enable = true;
 
   services.udev.packages = [pkgs.yubikey-personalization];
