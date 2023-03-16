@@ -12,7 +12,9 @@
       inputs.impermanence.nixosModules.impermanence
       inputs.home-manager.nixosModules.home-manager
       #    ./acme.nix
+      ./boot.nix
       ./editor.nix
+      ./hardware.nix
       #    ./fish.nix
       ./locale.nix
       #    ./nix.nix
@@ -130,4 +132,7 @@
       value = "1048576";
     }
   ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "22.11";
 }
