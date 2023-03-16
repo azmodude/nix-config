@@ -69,9 +69,10 @@
     initExtra = ''
       # this is kind-of-hacky, but for now it works until a vivid module lands in hm
       export LS_COLORS="$(${pkgs.vivid}/bin/vivid generate catppuccin-macchiato)"
+      ZVM_VI_INSERT_ESCAPE_BINDKEY="jk"
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
-      ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+      ZVM_INSERT_MODE_CURSOR="$ZVM_CURSOR_BLINKING_BEAM"
+      ZVM_NORMAL_MODE_CURSOR="$ZVM_CURSOR_BLOCK"
     '';
   };
 }
