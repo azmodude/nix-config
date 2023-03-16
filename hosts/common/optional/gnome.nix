@@ -23,7 +23,7 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
-  }
+  };
   services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
   xdg.portal = {
