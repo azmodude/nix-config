@@ -15,6 +15,9 @@
     # nightly neovim awesomeness
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    # weekly nix-index database
+    nix-index-database.url = "github:Mic92/nix-index-database";
+
     hardware.url = "github:nixos/nixos-hardware";
     sops-nix = {
       url = "github:mic92/sops-nix";

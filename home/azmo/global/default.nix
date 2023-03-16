@@ -11,6 +11,8 @@
     [
       inputs.sops-nix.homeManagerModules.sops
       inputs.impermanence.nixosModules.home-manager.impermanence
+      inputs.nix-index-database.hmModules.nix-index
+
       ./packages.nix
 
       # If you want to use modules your own flake exports (from modules/home-manager):
@@ -63,6 +65,7 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
+    nix-index.enable = true;
   };
 
   home = {
