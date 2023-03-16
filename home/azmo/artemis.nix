@@ -6,24 +6,9 @@
 }: {
   imports = [
     ./global
-    ./features/cli/atuin.nix
-    ./features/cli/btop.nix
-    ./features/cli/direnv.nix
-    ./features/cli/fzf.nix
-    ./features/cli/gpg.nix
-    ./features/cli/git.nix
-    ./features/cli/ssh.nix
-    ./features/cli/starship.nix
-    ./features/cli/tmux.nix
-    ./features/cli/zellij.nix
-    ./features/cli/zsh.nix
-    ./features/desktop/common/alacritty.nix
-    ./features/desktop/common/firefox.nix
-    ./features/desktop/common/flatpak.nix
-    ./features/desktop/common/fonts.nix
-    ./features/desktop/common/kitty.nix
+    ./features/cli
+    ./features/desktop/common
     ./features/desktop/gnome
-    ./features/desktop/common/wezterm.nix
     ./features/gaming
     ./features/nvim
     ./features/emacs
