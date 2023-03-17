@@ -12,9 +12,11 @@
     extraConfig = {
       feature.manyFiles = true;
       init.defaultBranch = "main";
-      user.signing.key = "0xDEE550054AA972F6";
+      user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQh4341SBJaXdFAvDtAvS9zs4tiS5v8jod0OhgzBXpV";
       commit.gpgSign = true;
       gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+      gpg.format = "ssh";
+      gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
     };
     lfs.enable = true;
     ignores = [".direnv" "result"];
