@@ -7,7 +7,10 @@
     ./pipewire.nix
     ./wayland.nix
   ];
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   services.udev.packages = [pkgs.yubikey-personalization];
 
