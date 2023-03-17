@@ -83,7 +83,7 @@
         };
         modules = [
           # > Our main nixos configuration file <
-          ./hosts/hephaestus
+          ./hosts
         ];
       };
       artemis = nixpkgs-unstable.lib.nixosSystem {

@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  desktop,
   domain,
   hostname,
   hostid,
