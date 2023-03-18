@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   imports = [
     ./_1password.nix
     ./cups.nix
@@ -11,6 +11,8 @@
     enable = true;
     wifi.backend = "iwd";
   };
+  # work around bug https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   services.udev.packages = [pkgs.yubikey-personalization];
 
