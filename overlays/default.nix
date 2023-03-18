@@ -9,21 +9,21 @@
   modifications = final: prev: {
     # override vivid until new version is cut.
     # catppuccin-theme is only in recent git commits
-    vivid = prev.vivid.overrideAttrs (oldAttrs: rec {
-      pname = "vivid";
-      version = "0.8.0-4d7fb24";
-      src = prev.fetchFromGitHub {
-        owner = "sharkdp";
-        repo = "${pname}";
-        rev = "4d7fb24";
-        sha256 = "sha256:rfEkeNrC5LHmUnTGv3tpIzpF+aSDCNmsnNsBQ/GC3Q4=";
-      };
-      cargoDeps = oldAttrs.cargoDeps.overrideAttrs (prev.lib.const {
-        name = "${pname}-vendor.tar.gz";
-        inherit src;
-        outputHash = "sha256-P+Mecvhm5vXvbZLT/mDEBsfB/hoUfaaTg6glD+5HznY=";
-      });
-    });
+    # vivid = prev.vivid.overrideAttrs (oldAttrs: rec {
+    #   pname = "vivid";
+    #   version = "0.8.0-4d7fb24";
+    #   src = prev.fetchFromGitHub {
+    #     owner = "sharkdp";
+    #     repo = "${pname}";
+    #     rev = "4d7fb24";
+    #     sha256 = "sha256:rfEkeNrC5LHmUnTGv3tpIzpF+aSDCNmsnNsBQ/GC3Q4=";
+    #   };
+    #   cargoDeps = oldAttrs.cargoDeps.overrideAttrs (prev.lib.const {
+    #     name = "${pname}-vendor.tar.gz";
+    #     inherit src;
+    #     outputHash = "sha256-P+Mecvhm5vXvbZLT/mDEBsfB/hoUfaaTg6glD+5HznY=";
+    #   });
+    # });
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
