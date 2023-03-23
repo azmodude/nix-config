@@ -3,6 +3,7 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      dejavu_fonts
       inter
       iosevka-bin
       joypixels
@@ -30,8 +31,15 @@
         rgba = "rgb";
         lcdfilter = "light";
       };
+      localConf = ''
+        <!-- Replace Verdana with DejaVu Sans -->
+        <match target="pattern">
+          <test qual="any" name="family"><string>Verdana</string></test>
+          <edit name="family" mode="assign" binding="same"><string>DejaVu Sans</string></edit>
+        </match>
+      '';
+      };
     };
-  };
 
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
