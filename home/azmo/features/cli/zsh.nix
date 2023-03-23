@@ -11,6 +11,7 @@
       enable = true;
       plugins = [
         "git"
+        "rsync"
         "sudo"
       ];
     };
