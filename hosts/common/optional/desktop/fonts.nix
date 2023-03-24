@@ -8,6 +8,11 @@
       iosevka-bin
       joypixels
       liberation_ttf
+      noto-fonts
+      roboto
+      roboto-serif
+      roboto-slab
+      roboto-mono
       source-sans
       source-serif
       source-code-pro
@@ -38,8 +43,8 @@
           <edit name="family" mode="assign" binding="same"><string>DejaVu Sans</string></edit>
         </match>
       '';
-      };
     };
+  };
 
   # Accept the joypixels license
   nixpkgs.config.joypixels.acceptLicense = true;
