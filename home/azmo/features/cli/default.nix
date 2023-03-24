@@ -1,8 +1,10 @@
 {
   imports = [
     ./atuin.nix
+    ./bat.nix
     ./btop.nix
     ./direnv.nix
+    ./exa.nix
     ./fzf.nix
     ./git.nix
     ./gpg.nix
