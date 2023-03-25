@@ -36,7 +36,7 @@ in {
         "podman"
         "git"
         "libvirtd"
-        "deluge"
+        "syncthing"
       ];
 
     openssh.authorizedKeys.keys = [

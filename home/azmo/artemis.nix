@@ -13,5 +13,6 @@
     ./features/nvim
     ./features/emacs
     ./features/sops.nix
+    ./features/syncthing.nix
   ];
 }

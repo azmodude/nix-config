@@ -31,15 +31,26 @@
       ../common/users
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix
+      ../common/optional/borgbackup.nix
+      ../common/optional/restic.nix
       ../common/optional/btrfs
       ../common/optional/desktop
       ../common/optional/desktop/steam.nix
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
       ../common/optional/libvirt.nix
+      ../common/optional/syncthing.nix
       # Only include desktop components if one is supplied.
       # - https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
     ]
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop/${desktop};
+
+    services.syncthing = {
+      devices = {
+          ${config.networking.hostName} = {
+            id = "MAX6UIX-AMT37KO-6J73NWB-DLO6CR7-X3PCVQU-X4BIH5V-EJMVBKX-2VI2AQD";
+            };
+        };
+      };
 }
