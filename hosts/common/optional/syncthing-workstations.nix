@@ -25,4 +25,9 @@
             };
         };
       };
+  environment.persistence = {
+    "/persist".directories = [
+      "/home/${user}/sync"
+    ];
+  };
 }
