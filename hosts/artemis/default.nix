@@ -47,11 +47,4 @@
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop/${desktop};
 
-    services.syncthing = {
-      devices = {
-          ${config.networking.hostName} = {
-            id = "MAX6UIX-AMT37KO-6J73NWB-DLO6CR7-X3PCVQU-X4BIH5V-EJMVBKX-2VI2AQD";
-            };
-        };
-      };
 }
