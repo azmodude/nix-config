@@ -46,4 +46,12 @@
       };
     };
   };
+  programs.gh = {
+    enable = true;
+    extensions = with pkgs; [gh-markdown-preview gh-dash];
+    settings = {
+      git_protocol = "ssh";
+      prompt = "enabled";
+    };
+  };
 }
