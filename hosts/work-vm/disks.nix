@@ -1,4 +1,8 @@
-{disks ? ["/dev/vda"], lib, ...}: {
+{
+  disks ? ["/dev/vda"],
+  swapsize ? "4G",
+  ...
+}: {
   disk = {
     disk0 = {
       type = "disk";
@@ -31,7 +35,6 @@
               type = "luks";
               name = "crypt-system";
               extraOpenArgs = ["--allow-discards"];
-              keyFile = lib.optional passphrase;
               content = {
                 type = "lvm_pv";
                 vg = "lvm-crypt-system";
@@ -42,24 +45,49 @@
       };
     };
   };
-  lvm-crypt-system = {
-    pool = {
+  lvm_vg = {
+    lvm-crypt-system = {
       type = "lvm_vg";
       lvs = {
-        swap = {
+        a-swap = {
           type = "lvm_lv";
-          size = "2G";
+          size = swapsize;
           content = {
             type = "swap";
           };
         };
-        root = {
+        b-root = {
           type = "lvm_lv";
           size = "100%FREE";
           content = {
-            type = "filesystem";
-            format = "ext4";
-            mountpoint = "/";
+            type = "btrfs";
+            extraArgs = ["-f"];
+            subvolumes = {
+              "@" = {
+                mountpoint = "/";
+                mountOptions = ["defaults" "compress=zstd" "noatime"];
+              };
+              "@home" = {
+                mountpoint = "/home";
+                mountOptions = ["defaults" "compress=zstd" "relatime"];
+              };
+              "@nix" = {
+                mountpoint = "/nix";
+                mountOptions = ["defaults" "compress=zstd" "noatime"];
+              };
+              "@persist" = {
+                mountpoint = "/persist";
+                mountOptions = ["defaults" "compress=zstd" "noatime"];
+              };
+              "@var-log" = {
+                mountpoint = "/var/log";
+                mountOptions = ["defaults" "compress=zstd" "noatime"];
+              };
+              "@snapshots" = {
+                mountpoint = "/.snapshots";
+                mountOptions = ["defaults" "compress=zstd" "noatime"];
+              };
+            };
           };
         };
       };
