@@ -32,7 +32,6 @@
       ../common/optional/laptop.nix
       ../common/optional/encrypted-root.nix
       ../common/optional/btrfs
-      ../common/optional/desktop
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
       ../common/optional/libvirt.nix

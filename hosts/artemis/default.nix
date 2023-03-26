@@ -34,7 +34,6 @@
       ../common/optional/borgbackup.nix
       ../common/optional/restic.nix
       ../common/optional/btrfs
-      ../common/optional/desktop
       ../common/optional/desktop/steam.nix
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
