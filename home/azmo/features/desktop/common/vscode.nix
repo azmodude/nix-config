@@ -4,6 +4,7 @@
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       golang.go
+      mkhl.direnv
     ];
   };
   # enable Wayland
