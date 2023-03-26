@@ -10,7 +10,7 @@
   };
 
   # add management packages if we have a desktop set
-  environment.systemPackages = [ ] ++ lib.lists.optionals (builtins.isString desktop) [pkgs.virt-manager pkgs.freerdp];
+  environment.systemPackages = lib.mkIf (builtins.isString desktop) [pkgs.virt-manager pkgs.freerdp];
 
   # easier access to most common ovmf files
   environment.etc = {
