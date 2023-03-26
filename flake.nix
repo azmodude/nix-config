@@ -10,6 +10,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # declarative paritioning
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     # persistance (or not)
     impermanence.url = "github:nix-community/impermanence";
     # nightly neovim awesomeness
@@ -72,7 +76,6 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       hephaestus = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {
           inherit inputs home-manager outputs;
@@ -95,6 +98,20 @@
           domain = "hosts.gordonschulz.de";
           hostid = "b32cb9a7";
           user = "azmo";
+        };
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts
+        ];
+      };
+      work-vm = nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs home-manager outputs;
+          desktop = "sway";
+          hostname = "work-vm";
+          domain = "f-i.de";
+          hostid = "d6fb2da4";
+          user = "j525980";
         };
         modules = [
           # > Our main nixos configuration file <
