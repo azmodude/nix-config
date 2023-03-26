@@ -46,5 +46,4 @@
     ]
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop/${desktop};
-
 }
