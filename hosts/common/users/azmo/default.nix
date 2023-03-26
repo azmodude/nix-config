@@ -13,6 +13,8 @@ in {
     };
   };
 
+  programs.zsh.enable = true;
+
   users.users.azmo = {
     uid = 1000;
     group = "azmo";
