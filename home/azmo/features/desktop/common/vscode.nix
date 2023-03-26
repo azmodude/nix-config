@@ -5,6 +5,7 @@
       vscodevim.vim
       golang.go
       mkhl.direnv
+      github.copilot
     ];
   };
   # enable Wayland
