@@ -128,6 +128,7 @@
         };
         modules = [
           # > Our main home-manager configuration file <
+          ./home/azmo/default.nix
           ./home/azmo/hephaestus.nix
         ];
       };
@@ -140,6 +141,7 @@
         };
         modules = [
           # > Our main home-manager configuration file <
+          ./home/azmo/default.nix
           ./home/azmo/artemis.nix
         ];
       };
@@ -153,6 +155,7 @@
         };
         modules = [
           # > Our main home-manager configuration file <
+          ./home/j525980/default.nix
           ./home/j525980/work-vm.nix
         ];
       };
