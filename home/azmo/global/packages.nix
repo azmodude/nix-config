@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     comma
+    fd
     flameshot
     google-chrome
     just
