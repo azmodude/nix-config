@@ -1,6 +1,7 @@
 {
   outputs,
   lib,
+  user,
   ...
 }: let
   hostnames = builtins.attrNames outputs.nixosConfigurations;
@@ -38,12 +39,16 @@ in {
 
   # ensure secure controlPath exists and secure ~/.ssh
   systemd.user.tmpfiles.rules = [
-    "d /home/azmo/tmp/.ssh 0700 azmo azmo 10d -"
-    "z /home/azmo/.ssh 0700 azmo azmo - -"
-    "z /home/azmo/.ssh/*.pub 0600 azmo azmo - -"
+    "d /home/${user}/tmp/.ssh 0700 ${user} ${user} 10d -"
+    "z /home/${user}/.ssh 0700 ${user} ${user} - -"
+    "z /home/${user}/.ssh/*.pub 0600 ${user} ${user} - -"
   ];
+  sops.secrets.ssh-config-personal = {
+    sopsFile = ../../../${user}/secrets.yaml;
+    path = ".ssh/config.d/ssh-config-personal";
+  };
 
-  home.persistence."/persist/home/azmo" = {
+  home.persistence."/persist/home/${user}" = {
     directories = [".ssh"];
   };
 }

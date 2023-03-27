@@ -2,6 +2,7 @@
 {
   lib,
   pkgs,
+  user,
   ...
 }:
 with lib.hm.gvariant; {
@@ -171,11 +172,11 @@ with lib.hm.gvariant; {
       gnomeExtensions.espresso
     ];
     persistence = {
-      "/persist/home/azmo".directories = [".local/share/keyrings"];
+      "/persist/home/${user}".directories = [".local/share/keyrings"];
     };
   };
   # ensure keyrings are secured
   systemd.user.tmpfiles.rules = [
-    "z /home/azmo/.local/share/keyrings 0700 azmo azmo - -"
+    "z /home/${user}/.local/share/keyrings 0700 ${user} ${user} - -"
   ];
 }

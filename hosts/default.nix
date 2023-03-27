@@ -12,6 +12,7 @@
     #    (./. + "/${hostname}/boot.nix")
     (./. + "/${hostname}")
     ./common/global
+    ./common/users
     ./common/users/root
     ./common/users/${user}
     #    ./_mixins/base

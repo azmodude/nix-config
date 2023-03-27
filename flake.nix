@@ -143,6 +143,19 @@
           ./home/azmo/artemis.nix
         ];
       };
+      "j525980@work-vm" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          desktop = "sway";
+          user = "j525980";
+          pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
+        };
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/j525980/work-vm.nix
+        ];
+      };
     };
   };
 }

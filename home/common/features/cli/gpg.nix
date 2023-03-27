@@ -3,6 +3,7 @@
   config,
   lib,
   desktop,
+  user,
   ...
 }: let
   fetchKey = {
@@ -65,12 +66,12 @@ in {
     };
   };
   home.persistence = {
-    "/persist/home/azmo".directories = [".gnupg"];
+    "/persist/home/${user}".directories = [".gnupg"];
   };
 
   # ensure .gnupg is secure
   systemd.user.tmpfiles.rules = [
-    "z /home/azmo/.gnupg 0700 azmo azmo - -"
+    "z /home/${user}/.gnupg 0700 ${user} ${user} - -"
   ];
 
   #

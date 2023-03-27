@@ -4,6 +4,7 @@
   lib,
   config,
   pkgs,
+  user,
   ...
 }: {
   # You can import other home-manager modules here
@@ -69,13 +70,13 @@
   };
 
   home = {
-    username = lib.mkDefault "azmo";
+    username = lib.mkDefault user;
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = lib.mkDefault "22.11";
 
     persistence = {
-      "/persist/home/azmo" = {
+      "/persist/home/${user}" = {
         directories = [
           "Documents"
           "Downloads"
@@ -89,9 +90,9 @@
   };
   # ensure misc directories exist and/or are secure
   systemd.user.tmpfiles.rules = [
-    "z /home/azmo/.config/1Password 0700 azmo azmo - -"
-    "Z /home/azmo/.config/sops 0700 azmo azmo - -"
-    "z /home/azmo/.config/sops/age/keys.txt 0600 azmo azmo - -"
+    "z /home/${user}/.config/1Password 0700 ${user} ${user} - -"
+    "Z /home/${user}/.config/sops 0700 ${user} ${user} - -"
+    "z /home/${user}/.config/sops/age/keys.txt 0600 ${user} ${user} - -"
   ];
 
   # Nicely reload system units when changing configs

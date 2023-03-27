@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
+  # TODO:: Maybe wrap this into a variable and not use xdg.config.homeDir?
   home.file.".config/alacritty/themes/catppuccin" = {
     source = pkgs.fetchFromGitHub {
       owner = "catppuccin";
@@ -10,7 +11,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = ["/home/azmo/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml"];
+      import = ["${config.xdg.configHome}/alacritty/themes/catppuccin/catppuccin-macchiato.yml"];
       window.padding = {
         x = 5;
         y = 0;

@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  user,
   ...
 }:
 #let
@@ -28,7 +29,7 @@
     protontricks
   ];
   home.persistence = {
-    "/persist/games/azmo" = {
+    "/persist/games/${user}" = {
       allowOther = true;
       directories = [
         {

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, user, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland.override {
@@ -36,7 +36,7 @@
       BROWSER = "firefox";
     };
     persistence = {
-      "/persist/home/azmo".directories = [".mozilla/firefox"];
+      "/persist/home/${user}".directories = [".mozilla/firefox"];
     };
   };
 
