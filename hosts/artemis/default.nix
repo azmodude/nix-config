@@ -28,7 +28,6 @@
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
 
-      ../common/users
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix
       ../common/optional/borgbackup.nix

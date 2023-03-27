@@ -4,7 +4,7 @@
   lib,
   modulesPath,
   pkgs,
-  username,
+  user,
   ...
 }: {
   # Import host specific boot and hardware configurations.
@@ -12,9 +12,12 @@
     #    (./. + "/${hostname}/boot.nix")
     (./. + "/${hostname}")
     ./common/global
+    ./common/users/root
+    ./common/users/${user}
     #    ./_mixins/base
     #    ./_mixins/boxes
     #    ./_mixins/users/root
     #    ./_mixins/users/${username}
   ];
+  users.mutableUsers = false;
 }
