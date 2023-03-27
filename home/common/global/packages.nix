@@ -6,7 +6,6 @@
     google-chrome
     just
     lf
-    nvtop
     rclone
     rsync
     ripgrep
