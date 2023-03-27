@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 DISK=/dev/disk/by-id/nvme-SAMSUNG_MZVLW512HMJP-000L7_S359NX0HC16935
 SWAPSIZE=$(free -g | grep Mem: | awk '{print $2}') # swap size, defaults to available memory for hibernation
 CRYPT_NAME="crypt-system"
