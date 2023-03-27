@@ -1,6 +1,6 @@
 {config, ...}: {
   # make syncthing related links for workstations
   systemd.user.tmpfiles.rules = [
-    "L+ ${config.home.homeDirectory}/Documents/synced - - - - ${config.home.homeDirectory}/sync/workstations/documents"
+    "L+ /persist/home/azmo/Documents/synced - - - - /persist/home/azmo/sync/workstations/documents"
   ];
 }
