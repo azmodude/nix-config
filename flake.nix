@@ -10,10 +10,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # declarative paritioning
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
     # persistance (or not)
     impermanence.url = "github:nix-community/impermanence";
     # nightly neovim awesomeness
