@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs, lib, config, ...}:
+# we don't want GDM to suspend artemis - it's sometimes running headless
+let autosuspend = { artemis = false; };
+in
+{
   services = {
     xserver = {
       enable = true;
@@ -8,7 +12,7 @@
       displayManager.gdm = {
         wayland = true;
         enable = true;
-        autoSuspend = true;
+        autoSuspend = if (builtins.hasAttr config.networking.hostName autosuspend) then (builtins.getAttr config.networking.hostName autosuspend) else true;
       };
     };
     geoclue2.enable = true;
