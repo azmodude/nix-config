@@ -4,6 +4,7 @@ keys:
   - &hosts:
     - &hephaestus age19082075rmp926ajwg7ea4k0050tc4qvy7dtcehpe7hlvrdgr092qpkagqk
     - &artemis age1ugpqj4nfgvq00k62kw93medzqyk4c7xj5pdy580j2xmy9pfq99tse0f8cj
+    - &workvm age13nje3juh4p823ww2vn0k225c64n45x4qveucxlhh00frp9xsjysqrjj4fy
 
 creation_rules:
   - path_regex: hosts/hephaestus/secrets.ya?ml$
@@ -16,6 +17,11 @@ creation_rules:
     - age:
       - *azmo
       - *artemis
+  - path_regex: hosts/work-vm/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *azmo
+      - *workvm
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
@@ -23,6 +29,7 @@ creation_rules:
       - *azmo
       - *hephaestus
       - *artemis
+      - *workvm
 
   - path_regex: home/azmo/secrets.ya?ml$
     key_groups:
@@ -30,3 +37,4 @@ creation_rules:
       - *azmo
       - *hephaestus
       - *artemis
+      - *workvm
