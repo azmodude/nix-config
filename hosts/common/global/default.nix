@@ -112,7 +112,7 @@
 
   console = {
     earlySetup = true;
-    font = "ter-powerline-v28n";
+    font = "ter-powerline-v18n";
     packages = [pkgs.terminus_font pkgs.powerline-fonts];
     keyMap = "de";
   };
