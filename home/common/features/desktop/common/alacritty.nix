@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # TODO:: Maybe wrap this into a variable and not use xdg.config.homeDir?
   home.file.".config/alacritty/themes/catppuccin" = {
     source = pkgs.fetchFromGitHub {

@@ -1,4 +1,8 @@
-{pkgs, user, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland.override {

@@ -47,5 +47,4 @@ in {
     "d ${prefix}/etc/ssh 0700 root root - -"
     "z ${prefix}/etc/ssh/ssh* 0600 root root - -"
   ];
-
 }

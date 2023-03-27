@@ -9,41 +9,41 @@
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   users.groups.${user} = {
-      gid = 1000;
-    };
+    gid = 1000;
+  };
 
   users.users.${user} = {
-      uid = 1000;
-      group = user;
-      isNormalUser = true;
-      shell = pkgs.zsh;
-      extraGroups =
-        [
-          "wheel"
-          "video"
-          "audio"
-          "users"
-        ]
-        ++ ifTheyExist [
-          "network"
-          "networkmanager"
-          "wireshark"
-          "i2c"
-          "mysql"
-          "docker"
-          "lxd"
-          "podman"
-          "git"
-          "libvirtd"
-          "syncthing"
-        ];
-
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"
+    uid = 1000;
+    group = user;
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups =
+      [
+        "wheel"
+        "video"
+        "audio"
+        "users"
+      ]
+      ++ ifTheyExist [
+        "network"
+        "networkmanager"
+        "wireshark"
+        "i2c"
+        "mysql"
+        "docker"
+        "lxd"
+        "podman"
+        "git"
+        "libvirtd"
+        "syncthing"
       ];
-      # TODO: is it possible to have a variable that chooses secrets based on hostname?
-      passwordFile = config.sops.secrets.azmo-password.path;
-      packages = [pkgs.home-manager];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"
+    ];
+    # TODO: is it possible to have a variable that chooses secrets based on hostname?
+    passwordFile = config.sops.secrets.azmo-password.path;
+    packages = [pkgs.home-manager];
   };
 
   programs.zsh.enable = true;
