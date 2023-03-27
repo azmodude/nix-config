@@ -28,7 +28,6 @@
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
 
-      ../common/users
       ../common/optional/encrypted-root.nix
       ../common/optional/btrfs
       # Only include desktop components if one is supplied.
