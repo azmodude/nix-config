@@ -10,6 +10,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
     # persistance (or not)
     impermanence.url = "github:nix-community/impermanence";
     # nightly neovim awesomeness
@@ -31,6 +33,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    nix-doom-emacs,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -143,6 +146,7 @@
         };
         modules = [
           # > Our main home-manager configuration file <
+          nix-doom-emacs.hmModule
           ./home/azmo/default.nix
           ./home/azmo/artemis.nix
         ];
