@@ -7,6 +7,7 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 flatpak install --user -y flathub com.discordapp.Discord
 flatpak install --user -y flathub com.usebottles.bottles
 flatpak install --user -y flathub com.hamrick.VueScan
+flatpak install --user -y md.obsidian.Obsidian
 
 case "${XDG_CURRENT_DESKTOP}" in
   GNOME)
