@@ -45,7 +45,4 @@ in {
     ];
     xdgOpenUsePortal = true;
   };
-
-  # TODO: workaround https://github.com/NixOS/nixpkgs/issues/223458 for now
-  hardware.opengl.mesaPackage = pkgs.mesa;
 }
