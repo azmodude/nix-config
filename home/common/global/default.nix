@@ -82,6 +82,7 @@
           "Downloads"
           "Pictures"
           "Videos"
+          "projects"
           ".config/1Password"
         ];
         allowOther = true;

@@ -14,6 +14,19 @@
         devices = ["artemis" "hephaestus"];
         ignorePerms = false;
       };
+      "workstations-projects" = {
+        path = "/home/${user}/sync/workstations/projects";
+        id = "workstations-projects";
+        versioning = {
+          type = "staggered";
+          params = {
+            cleanInterval = "3600";
+            maxAge = "7776000"; # 90 days
+          };
+        };
+        devices = ["artemis" "hephaestus"];
+        ignorePerms = false;
+      };
     };
     devices = {
       artemis = {
