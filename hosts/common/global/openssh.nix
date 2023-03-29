@@ -43,7 +43,7 @@ in {
   security.pam.enableSSHAgentAuth = true;
 
   # ensure hostkeys are secure
-  systemd.user.tmpfiles.rules = [
+  systemd.tmpfiles.rules = [
     "d ${prefix}/etc/ssh 0700 root root - -"
     "z ${prefix}/etc/ssh/ssh* 0600 root root - -"
   ];
