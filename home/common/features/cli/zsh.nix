@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   programs.zsh = {
     enable = true;
     enableSyntaxHighlighting = true;
@@ -6,6 +6,12 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     autocd = true;
+    dirHashes = {
+        docs = config.home.homeDirectory + "/Documents";
+        dl = config.home.homeDirectory + "/Downloads";
+        vids = config.home.homeDirectory + "/Videos";
+        projects = config.home.homeDirectory + "/projects";
+      };
     #defaultKeymap = "viins"; # handled by zsh-vi-mode
     oh-my-zsh = {
       enable = true;
@@ -74,6 +80,9 @@
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       ZVM_INSERT_MODE_CURSOR="$ZVM_CURSOR_BLINKING_BEAM"
       ZVM_NORMAL_MODE_CURSOR="$ZVM_CURSOR_BLOCK"
+    '';
+
+    loginExtra = ''
     '';
   };
 }
