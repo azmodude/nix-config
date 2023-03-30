@@ -9,6 +9,7 @@
     ./fzf.nix
     ./git.nix
     ./gpg.nix
+    ./neofetch.nix
     ./ssh.nix
     ./starship.nix
     ./tmux.nix
