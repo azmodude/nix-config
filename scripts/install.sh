@@ -45,9 +45,10 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-if [[ ! -e "/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
+if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
   echo "ERROR! No ssh_host_ed25519_key found in /persist/etc/ssh."
   echo "ERROR! Ensure sops-nix configuration for host is correct."
+  exit 1
 fi
 
 echo "WARNING! The disks in ${TARGET_HOST} are about to get wiped"
