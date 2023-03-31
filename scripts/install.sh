@@ -46,6 +46,7 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
+  sudo mkdir -p "/mnt/persist/etc/ssh"
   echo "ERROR! No ssh_host_ed25519_key found in /persist/etc/ssh."
   echo "ERROR! Ensure sops-nix configuration for host is correct."
   exit 1
