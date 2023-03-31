@@ -25,8 +25,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      # TODO: workaround NixOS#223458 for now
-      mesaPackage = pkgs.mesa;
     };
   };
 }
