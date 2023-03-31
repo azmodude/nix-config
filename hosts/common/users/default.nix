@@ -41,17 +41,10 @@ in {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"
     ];
-    # TODO: is it possible to have a variable that chooses secrets based on hostname?
-    passwordFile = config.sops.secrets.azmo-password.path;
     packages = [pkgs.home-manager];
   };
 
   programs.zsh.enable = true;
-
-  sops.secrets.azmo-password = {
-    sopsFile = ../secrets.yaml;
-    neededForUsers = true;
-  };
 
   # ensure persist home exists and is secure
   systemd.tmpfiles.rules = [

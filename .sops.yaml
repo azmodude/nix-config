@@ -15,6 +15,17 @@ creation_rules:
       - *hephaestus
       - *artemis
       - *workvm
+  - path_regex: hosts/common/users/azmo/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *azmo
+      - *hephaestus
+      - *artemis
+  - path_regex: hosts/common/users/j525980/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *j525980
+      - *workvm
   - path_regex: hosts/hephaestus/secrets.ya?ml$
     key_groups:
     - age:
