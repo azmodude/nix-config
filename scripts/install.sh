@@ -28,7 +28,7 @@ else
 fi
 
 case "${TARGET_USER}" in
-  azmo) true;;
+  azmo|j525980) true;;
   *)
     echo "ERROR! ${TARGET_USER} is not a supported user"
     exit 1
