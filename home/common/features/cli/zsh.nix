@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableSyntaxHighlighting = true;
@@ -7,11 +11,11 @@
     enableCompletion = true;
     autocd = true;
     dirHashes = {
-        docs = config.home.homeDirectory + "/Documents";
-        dl = config.home.homeDirectory + "/Downloads";
-        vids = config.home.homeDirectory + "/Videos";
-        projects = config.home.homeDirectory + "/projects";
-      };
+      docs = config.home.homeDirectory + "/Documents";
+      dl = config.home.homeDirectory + "/Downloads";
+      vids = config.home.homeDirectory + "/Videos";
+      projects = config.home.homeDirectory + "/projects";
+    };
     #defaultKeymap = "viins"; # handled by zsh-vi-mode
     oh-my-zsh = {
       enable = true;
