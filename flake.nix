@@ -12,6 +12,8 @@
 
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+
     # persistance (or not)
     impermanence.url = "github:nix-community/impermanence";
     # nightly neovim awesomeness
@@ -30,10 +32,11 @@
 
   outputs = {
     self,
-    nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     nix-doom-emacs,
+    nixpkgs,
+    nixpkgs-unstable,
+    pre-commit-hooks,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -58,8 +61,16 @@
     devShells = forAllSystems (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              alejandra.enable = true;
+            };
+          };
+        };
       in
-        import ./shell.nix {inherit pkgs;}
+        import ./shell.nix {inherit pkgs checks;}
     );
     formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.alejandra;
 

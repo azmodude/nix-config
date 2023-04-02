@@ -1,5 +1,6 @@
 # Shell for bootstrapping flake-enabled nix and other tooling
 {
+  checks,
   pkgs ?
   # If pkgs is not defined, instanciate nixpkgs from locked commit
   let
@@ -14,6 +15,7 @@
 }: {
   default = pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
+    inherit (checks.pre-commit-check) shellHook;
     nativeBuildInputs = with pkgs; [
       nix
       home-manager
