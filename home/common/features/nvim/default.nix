@@ -2,7 +2,7 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
-    extraPackages = with pkgs; [nodejs gcc fzf];
+    extraPackages = with pkgs; [nodejs gcc fzf python3 gdu bottom];
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
