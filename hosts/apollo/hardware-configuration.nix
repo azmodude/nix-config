@@ -18,10 +18,10 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-    kernelModules = ["kvm-intel"];
+    kernelModules = ["kvm-amd"];
     extraModulePackages = [];
     initrd = {
-      availableKernelModules = ["xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
+      availableKernelModules = ["xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci"];
       kernelModules = ["dm-snapshot"];
     };
   };
