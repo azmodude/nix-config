@@ -20,13 +20,21 @@
         "*.qcow2"
         "*.iso"
       ];
+      pruneOpts = [
+        "--keep-hourly=6"
+        "--keep-daily=7"
+        "--keep-weekly=4"
+        "--keep-monthly=6"
+      ];
+      checkOpts = ["--with-cache"];
       extraBackupArgs = [
         "--verbose --exclude-if-present=.nobackup"
       ];
 
+      # fire backup job every 3 hours, randomized by 30 minutes
       timerConfig = {
-        OnCalendar = "daily";
-        RandomizedDelaySec = "1h";
+        OnCalendar = "00/3:00";
+        RandomizedDelaySec = "30minutes";
       };
     };
   };
