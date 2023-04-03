@@ -2,14 +2,15 @@
   services.restic.backups = {
     home = {
       initialize = true;
-      repository = "rest:https://n9hn9osp:BhSCAZTq4D8H8rWI@n9hn9osp.repo.borgbase.com";
-      passwordFile = config.sops.secrets.restic-workstations.path;
+      repositoryFile = config.sops.secrets."restic/repository_url".path;
+      passwordFile = config.sops.secrets."restic/repository_password".path;
       paths = ["/home"];
       exclude = [
         "/home/*/Downloads"
         "/home/*/Games"
         "/home/*/.cache"
         "/home/*/.local/state"
+        "/home/*/.local/share/containers"
         "/home/*/.local/share/bottles"
         "/home/*/.local/share/flatpak"
         "/home/*/.local/share/lutris"
@@ -20,7 +21,7 @@
         "*.iso"
       ];
       extraBackupArgs = [
-        "--exclude-if-present=.nobackup"
+        "--verbose --exclude-if-present=.nobackup"
       ];
 
       timerConfig = {
@@ -29,7 +30,10 @@
       };
     };
   };
-  sops.secrets.restic-workstations = {
-    sopsFile = ../secrets.yaml;
+  sops.secrets."restic/repository_url" = {
+    sopsFile = ../../${config.networking.hostName}/secrets.yaml;
+  };
+  sops.secrets."restic/repository_password" = {
+    sopsFile = ../../${config.networking.hostName}/secrets.yaml;
   };
 }
