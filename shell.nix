@@ -1,6 +1,9 @@
 # Shell for bootstrapping flake-enabled nix and other tooling
 {
-  checks,
+  checks ? {
+    pre-commit-check = {
+    };
+  },
   pkgs ?
   # If pkgs is not defined, instanciate nixpkgs from locked commit
   let
