@@ -6,6 +6,7 @@
       golang.go
       mkhl.direnv
       github.copilot
+      github.vscode-github-actions
     ];
   };
   # enable Wayland
