@@ -30,7 +30,6 @@
 
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix
-      ../common/optional/borgbackup.nix
       ../common/optional/restic.nix
       ../common/optional/btrfs
       ../common/optional/desktop/steam.nix
