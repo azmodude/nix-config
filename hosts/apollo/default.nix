@@ -30,6 +30,7 @@
 
       ../common/optional/laptop.nix
       ../common/optional/encrypted-root.nix
+      ../common/optional/restic.nix
       ../common/optional/btrfs
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
