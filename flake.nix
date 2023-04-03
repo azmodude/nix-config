@@ -91,7 +91,7 @@
           desktop = "gnome";
           hostname = "apollo";
           domain = "hosts.gordonschulz.de";
-          hostid = "gafab9c4";
+          hostid = "b39cf9a8";
           user = "azmo";
         };
         modules = [
