@@ -64,6 +64,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     sudo nixos-install --no-root-password --flake ".#${TARGET_HOST}"
 
     # Rsync my nix-config to the target install
-    mkdir -p "/mnt/home/${TARGET_USER}/nix-config"
-    rsync -a --delete "${PWD}/" "/mnt/home/${TARGET_USER}/nix-config/"
+    sudo mkdir -p "/mnt/home/${TARGET_USER}/nix-config"
+    sudo rsync -a --delete "${PWD}/" "/mnt/home/${TARGET_USER}/nix-config/"
 fi
