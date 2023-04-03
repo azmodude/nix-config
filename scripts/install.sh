@@ -12,7 +12,7 @@ else
 fi
 
 case "${TARGET_HOST}" in
-  hephaestus|artemis|work-vm) true;;
+  apollo|artemis|hephaestus|work-vm) true;;
   *)
     echo "ERROR! ${TARGET_HOST} is not a supported host"
     exit 1
