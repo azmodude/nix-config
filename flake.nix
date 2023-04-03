@@ -85,13 +85,13 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      hephaestus = nixpkgs-unstable.lib.nixosSystem {
+      apollo = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {
           inherit inputs home-manager outputs;
           desktop = "gnome";
-          hostname = "hephaestus";
+          hostname = "apollo";
           domain = "hosts.gordonschulz.de";
-          hostid = "e120cab3";
+          hostid = "grfak9w4"
           user = "azmo";
         };
         modules = [
@@ -106,6 +106,20 @@
           hostname = "artemis";
           domain = "hosts.gordonschulz.de";
           hostid = "b32cb9a7";
+          user = "azmo";
+        };
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts
+        ];
+      };
+      hephaestus = nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs home-manager outputs;
+          desktop = "gnome";
+          hostname = "hephaestus";
+          domain = "hosts.gordonschulz.de";
+          hostid = "e120cab3";
           user = "azmo";
         };
         modules = [
@@ -132,7 +146,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "azmo@hephaestus" = home-manager.lib.homeManagerConfiguration {
+      "azmo@apollo" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -142,8 +156,9 @@
         };
         modules = [
           # > Our main home-manager configuration file <
+          nix-doom-emacs.hmModule
           ./home/azmo/default.nix
-          ./home/azmo/hephaestus.nix
+          ./home/azmo/apollo.nix
         ];
       };
       "azmo@artemis" = home-manager.lib.homeManagerConfiguration {
@@ -159,6 +174,20 @@
           nix-doom-emacs.hmModule
           ./home/azmo/default.nix
           ./home/azmo/artemis.nix
+        ];
+      };
+      "azmo@hephaestus" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          user = "azmo";
+          desktop = "gnome";
+          pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
+        };
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/azmo/default.nix
+          ./home/azmo/hephaestus.nix
         ];
       };
       "j525980@work-vm" = home-manager.lib.homeManagerConfiguration {
