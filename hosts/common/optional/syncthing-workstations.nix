@@ -11,7 +11,7 @@
             maxAge = "7776000"; # 90 days
           };
         };
-        devices = ["artemis" "hephaestus"];
+        devices = ["artemis" "hephaestus" "apollo"];
         ignorePerms = false;
       };
       "workstations-projects" = {
@@ -24,11 +24,14 @@
             maxAge = "7776000"; # 90 days
           };
         };
-        devices = ["artemis" "hephaestus"];
+        devices = ["artemis" "hephaestus" "apollo"];
         ignorePerms = false;
       };
     };
     devices = {
+      apollo = {
+        id = "5RKIJKF-JXHBALB-DJMLNSH-PNE653J-7QKC4YL-33KJCCF-ZPVECMD-A7RKWQG";
+      };
       artemis = {
         id = "MAX6UIX-AMT37KO-6J73NWB-DLO6CR7-X3PCVQU-X4BIH5V-EJMVBKX-2VI2AQD";
       };
@@ -39,7 +42,17 @@
   };
   environment.persistence = {
     "/persist".directories = [
-      "/home/${user}/sync"
+      {
+        directory = "/home/${user}/sync";
+        user = "${user}";
+        group = "${user}";
+        mode = "u=rwx,g=,o=";
+      }
     ];
   };
+  # workaround a race condition that might happen if /home/${user}/sync already exists
+  # impermanence does not change ownership if directory already exists
+  systemd.tmpfiles.rules = [
+    "d /persist/home/${user}/sync 0700 azmo azmo - - "
+  ];
 }
