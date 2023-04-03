@@ -35,10 +35,10 @@ case "${TARGET_USER}" in
     ;;
 esac
 
-if [ ! -e "hosts/${TARGET_HOST}/disks.nix" ]; then
-  echo "ERROR! $(basename "${0}") could not find the required hosts/${TARGET_HOST}/disks.nix"
-  exit 1
-fi
+# if [ ! -e "hosts/${TARGET_HOST}/disks.nix" ]; then
+#   echo "ERROR! $(basename "${0}") could not find the required hosts/${TARGET_HOST}/disks.nix"
+#   exit 1
+# fi
 
 if [ "$(id -u)" -eq 0 ]; then
   echo "ERROR! $(basename "${0}") should be run as a regular user"
