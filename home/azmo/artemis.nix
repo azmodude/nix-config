@@ -11,7 +11,6 @@
     ../common/features/desktop/gnome
     ../common/features/gaming
     ../common/features/nvim
-    ../common/features/emacs
     ../common/features/sops.nix
     ../common/features/syncthing.nix
   ];

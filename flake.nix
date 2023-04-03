@@ -10,8 +10,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     # persistance (or not)
@@ -33,7 +31,6 @@
   outputs = {
     self,
     home-manager,
-    nix-doom-emacs,
     nixpkgs,
     nixpkgs-unstable,
     pre-commit-hooks,
@@ -156,7 +153,6 @@
         };
         modules = [
           # > Our main home-manager configuration file <
-          nix-doom-emacs.hmModule
           ./home/azmo/default.nix
           ./home/azmo/apollo.nix
         ];
@@ -171,7 +167,6 @@
         };
         modules = [
           # > Our main home-manager configuration file <
-          nix-doom-emacs.hmModule
           ./home/azmo/default.nix
           ./home/azmo/artemis.nix
         ];
