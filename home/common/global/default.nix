@@ -91,6 +91,7 @@
   };
   # ensure misc directories exist and/or are secure
   systemd.user.tmpfiles.rules = [
+    "d /home/${user}/bin 0755 ${user} ${user} - -"
     "z /home/${user}/.config/1Password 0700 ${user} ${user} - -"
     "Z /home/${user}/.config/sops 0700 ${user} ${user} - -"
     "z /home/${user}/.config/sops/age/keys.txt 0600 ${user} ${user} - -"
