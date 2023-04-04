@@ -87,6 +87,8 @@
     '';
 
     loginExtra = ''
+      # Set SSH_AUTH_SOCK to use 1Password as SSH Agent when not ssh'd in remotely.
+      [ -z $SSH_TTY ] && export SSH_AUTH_SOCK=~/.1password/agent.sock
     '';
   };
 }

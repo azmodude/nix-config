@@ -13,10 +13,6 @@ in {
     # we cannot use the default of ~/.ssh because that is bind-mounted and openSSH - rightfully so - does not like that
     controlPath = "~/tmp/.ssh/master-%r@%n:%p";
     includes = ["config.d/*"];
-    # enable 1password integration
-    extraConfig = ''
-      IdentityAgent "~/.1password/agent.sock"
-    '';
     matchBlocks = {
       net = {
         host = builtins.concatStringsSep " " hostnames;
