@@ -1,13 +1,13 @@
 {pkgs, ...}: {
-  home.file.".config/zellij/themes/catppuccin.yaml" = {
+  home.file.".config/zellij/themes/catppuccin.kdl" = {
     source =
       pkgs.fetchFromGitHub {
-        owner = "catppuccin";
+        owner = "zellij-org";
         repo = "zellij";
-        rev = "c378e28";
-        sha256 = "iEFLJenbdzs37MBz+l84ihkTACXDuYEf+xaLGetNL44=";
+        rev = "9d4e60e";
+        sha256 = "sha256-sShp4bZhvBN/EhfVuKinktr5bwXlWlUhj++vgGeHTfg=";
       }
-      + "/catppuccin.yaml";
+      + "/example/themes/catppuccin.kdl";
   };
   programs.zellij = {
     enable = true;
