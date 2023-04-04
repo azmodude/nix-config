@@ -27,6 +27,32 @@
         devices = ["artemis" "hephaestus" "apollo"];
         ignorePerms = false;
       };
+      "workstations-obsidian" = {
+        path = "/home/${user}/sync/workstations/obsidian";
+        id = "workstations-obsidian";
+        versioning = {
+          type = "staggered";
+          params = {
+            cleanInterval = "3600";
+            maxAge = "7776000"; # 90 days
+          };
+        };
+        devices = ["artemis" "hephaestus" "apollo"];
+        ignorePerms = false;
+      };
+      "workstations-calibre" = {
+        path = "/home/${user}/sync/workstations/calibre";
+        id = "workstations-calibre";
+        versioning = {
+          type = "staggered";
+          params = {
+            cleanInterval = "3600";
+            maxAge = "7776000"; # 90 days
+          };
+        };
+        devices = ["artemis" "hephaestus" "apollo"];
+        ignorePerms = false;
+      };
     };
     devices = {
       apollo = {
