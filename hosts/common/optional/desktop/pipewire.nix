@@ -12,5 +12,5 @@
   # disable pulseaudio, but...
   hardware.pulseaudio.enable = false;
   # ... pull in cli utils
-  environment.systemPackages = with pkgs; [pulseaudio];
+  environment.systemPackages = with pkgs; [pulseaudio easyeffects];
 }

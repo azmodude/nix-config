@@ -28,6 +28,7 @@ in {
   };
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
+    gnome.gnome-sound-recorder
     pantheon.elementary-wallpapers
   ];
 
