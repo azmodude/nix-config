@@ -36,7 +36,7 @@
       outputs.overlays.additions
 
       # You can also add overlays exported from other flakes:
-      inputs.neovim-nightly-overlay.overlay
+      #inputs.neovim-nightly-overlay.overlay
 
       # Or define it inline, for example:
       # (final: prev: {

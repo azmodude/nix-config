@@ -59,7 +59,7 @@ in {
       inactive_text_alpha = "0.9";
 
       scrollback_lines = "10000";
-      scrollback_pager = "${pkgs.neovim-nightly}/bin/nvim -u ${nvim-minimal} -c 'set signcolumn=no showtabline=0' -c 'silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - '";
+      scrollback_pager = "${pkgs.neovim}/bin/nvim -u ${nvim-minimal} -c 'set signcolumn=no showtabline=0' -c 'silent write! /tmp/kitty_scrollback_buffer | te cat /tmp/kitty_scrollback_buffer - '";
       scrollback_pager_history_size = "20";
     };
   };
