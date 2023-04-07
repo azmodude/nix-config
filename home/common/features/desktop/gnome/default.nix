@@ -42,6 +42,7 @@ with lib.hm.gvariant; {
     "org/gnome/desktop/peripherals/keyboard" = {
       delay = mkUint32 250;
       repeat-interval = mkUint32 30;
+      remember-numlock-state = true;
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
