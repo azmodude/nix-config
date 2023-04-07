@@ -10,6 +10,7 @@
     ./fonts.nix
     ./pipewire.nix
     ./wayland.nix
+    ./xdg.nix
   ];
   networking.networkmanager = {
     enable = true;
