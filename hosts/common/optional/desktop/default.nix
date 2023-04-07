@@ -9,6 +9,7 @@
     ./flatpak.nix
     ./fonts.nix
     ./pipewire.nix
+    ./sane.nix
     ./wayland.nix
     ./xdg.nix
   ];
