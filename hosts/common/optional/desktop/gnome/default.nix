@@ -32,6 +32,12 @@ in {
     pantheon.elementary-wallpapers
   ];
 
+  # enable gsconnect
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
+
   programs.dconf.enable = true;
   services.avahi = {
     enable = true;
