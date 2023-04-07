@@ -13,12 +13,12 @@
     builtins.fetchurl {inherit sha256 url;};
 
   pinentry =
-    if desktop == "plasma"
+    if desktop.environment == "plasma"
     then {
       package = pkgs.pinentry-qt;
       name = "qt";
     }
-    else if desktop == "gnome"
+    else if desktop.environment == "gnome"
     then {
       package = pkgs.pinentry-gnome;
       name = "gnome3";

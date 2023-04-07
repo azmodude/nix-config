@@ -148,7 +148,10 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           user = "azmo";
-          desktop = "gnome";
+          desktop = {
+            environment = "gnome";
+            logitech = true;
+          };
           pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
         };
         modules = [
@@ -162,7 +165,10 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           user = "azmo";
-          desktop = "gnome";
+          desktop = {
+            environment = "gnome";
+            logitech = true;
+          };
           pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
         };
         modules = [
@@ -176,7 +182,10 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           user = "azmo";
-          desktop = "gnome";
+          desktop = {
+            environment = "gnome";
+            logitech = false;
+          };
           pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
         };
         modules = [
@@ -189,7 +198,10 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
-          desktop = "sway";
+          desktop = {
+            environment = "sway";
+            logitech = false;
+          };
           user = "j525980";
           pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
         };

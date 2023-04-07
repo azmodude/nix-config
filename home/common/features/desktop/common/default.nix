@@ -1,6 +1,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./autostart.nix
     ./firefox.nix
     ./flatpak.nix
     ./fonts.nix
