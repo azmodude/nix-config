@@ -35,6 +35,7 @@ with lib.hm.gvariant; {
       font-hinting = "slight";
       font-name = "Inter 10";
       gtk-theme = "Adwaita-dark";
+      icon-theme = "Papirus";
       monospace-font-name = "Monospace 10";
       show-battery-percentage = true;
     };
@@ -172,6 +173,10 @@ with lib.hm.gvariant; {
       gnomeExtensions.workspace-indicator
       gnomeExtensions.espresso
       gnomeExtensions.gsconnect
+      (catppuccin-papirus-folders.override {
+        flavor = "macchiato";
+        accent = "lavender";
+      })
     ];
     persistence = {
       "/persist/home/${user}".directories = [".local/share/keyrings"];
