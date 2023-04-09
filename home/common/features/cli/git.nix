@@ -17,6 +17,9 @@
       gpg.program = "${config.programs.gpg.package}/bin/gpg2";
       gpg.format = "ssh";
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
+      pull.rebase = true;
+      fetch.prune = true;
+      diff.colorMoved = "dimmed-zebra";
     };
     lfs.enable = true;
     ignores = [".direnv" "result"];
