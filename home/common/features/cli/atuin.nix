@@ -7,6 +7,8 @@
       filter_mode = "global";
       filter_mode_shell_up_key_binding = "host";
       update_check = "false";
+      show_preview = "true";
+      inline_height = "40";
     };
   };
   sops = {
