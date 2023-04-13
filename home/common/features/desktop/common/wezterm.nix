@@ -15,7 +15,7 @@
        color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
         font = wezterm.font_with_fallback(
         {
-          "Iosevka",
+          "Iosevka Medium",
           "Symbols Nerd Font"
         }),
         font_size = 10.5,
