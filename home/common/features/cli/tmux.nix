@@ -41,6 +41,9 @@
         plugin = tmuxPlugins.yank;
       }
       {
+        plugin = tmuxPlugins.tmux-fzf;
+      }
+      {
         plugin = tmuxPlugins.vim-tmux-navigator;
       }
       {
