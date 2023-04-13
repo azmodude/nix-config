@@ -2,12 +2,12 @@
 # let
 #   catppuccin = pkgs.tmuxPlugins.mkTmuxPlugin {
 #     pluginName = "catppuccin";
-#     version = "unstable-2022-12-14";
+#     version = "unstable-4348b09";
 #     src = pkgs.fetchFromGitHub {
 #       owner = "catppuccin";
 #       repo = "tmux";
-#       rev = "e2561de";
-#       sha256 = "sha256:6UmFGkUDoIe8k+FrzdzsKrDHHMNfkjAk0yyc+HV199M=";
+#       rev = "4e48b09";
+#       sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
 #     };
 #     postInstall = ''
 #       sed -i -e 's|sed|${pkgs.gnused}/bin/sed|g;s|/bin/cat|${pkgs.coreutils}/bin/cat|g' $target/catppuccin.tmux
@@ -16,8 +16,17 @@
 #       sed -i -r "39s/\\$\{PLUGIN_DIR\}/\/tmp/g" $target/catppuccin.tmux
 #     '';
 #   };
-# in {
-{
+let
+  catppuccin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (oldAttrs: rec {
+    version = "unstable-4348b09";
+    src = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "tmux";
+      rev = "4e48b09";
+      sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
+    };
+  });
+in {
   programs.tmux = {
     enable = true;
     customPaneNavigationAndResize = true;
@@ -50,10 +59,13 @@
         plugin = tmuxPlugins.vim-tmux-focus-events;
       }
       {
-        plugin = tmuxPlugins.catppuccin;
+        plugin = catppuccin;
         extraConfig = ''
-          set -g @catppuccin_flavour 'macchiato';
-          set -g @catppuccin_window_tabs_enabled on
+          set -g @catppuccin_flavour "macchiato"
+          set -g @catppuccin_window_tabs_enabled "on"
+          set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+          set -g @catppuccin_user "on"
+          set -g @catppuccin_host "on"
         '';
       }
     ];
