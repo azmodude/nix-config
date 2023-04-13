@@ -8,14 +8,15 @@ flatpak install --user -y flathub com.discordapp.Discord
 flatpak install --user -y flathub com.usebottles.bottles
 flatpak install --user -y flathub com.hamrick.VueScan
 flatpak install --user -y md.obsidian.Obsidian
+flatpak install --user -y org.flameshot.Flameshot
 
 case "${XDG_CURRENT_DESKTOP}" in
-  GNOME)
-    #flatpak override --user --env=GTK_THEME=io.elementary.stylesheet.bubblegum:dark
-    #flatpak remote-add --user --if-not-exists appcenter  https://flatpak.elementary.io/appcenter.flatpakrepo
-    #flatpak remote-add --user --if-not-exists elementary https://flatpak.elementary.io/elementary.flatpakrepo
-    ;;
-  MATE)
-    # flatpak override --user --env=GTK_THEME=Yaru-magenta-dark
-    ;;
+GNOME)
+	#flatpak override --user --env=GTK_THEME=io.elementary.stylesheet.bubblegum:dark
+	#flatpak remote-add --user --if-not-exists appcenter  https://flatpak.elementary.io/appcenter.flatpakrepo
+	#flatpak remote-add --user --if-not-exists elementary https://flatpak.elementary.io/elementary.flatpakrepo
+	;;
+MATE)
+	# flatpak override --user --env=GTK_THEME=Yaru-magenta-dark
+	;;
 esac
