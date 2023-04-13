@@ -5,7 +5,6 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 # install common flatpaks
 flatpak install --user -y flathub com.discordapp.Discord
-flatpak install --user -y flathub com.usebottles.bottles
 flatpak install --user -y flathub com.hamrick.VueScan
 flatpak install --user -y md.obsidian.Obsidian
 flatpak install --user -y org.flameshot.Flameshot
@@ -18,5 +17,14 @@ GNOME)
 	;;
 MATE)
 	# flatpak override --user --env=GTK_THEME=Yaru-magenta-dark
+	;;
+esac
+
+case "$(hostname)" in
+artemis)
+	flatpak install --user -y net.lutris.Lutris
+	flatpak install --user -y com.valvesoftware.Steam
+	flatpak install --user -y com.valvesoftware.Steam.Utility.gamescope
+	flatpak install --user -y com.usebottles.bottles
 	;;
 esac
