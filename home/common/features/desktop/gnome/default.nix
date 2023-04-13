@@ -173,10 +173,11 @@ with lib.hm.gvariant; {
       gnomeExtensions.workspace-indicator
       gnomeExtensions.espresso
       gnomeExtensions.gsconnect
-      (catppuccin-papirus-folders.override {
-        flavor = "macchiato";
-        accent = "lavender";
-      })
+      papirus-icon-theme
+      # (catppuccin-papirus-folders.override {
+      #   flavor = "macchiato";
+      #   accent = "lavender";
+      # })
     ];
     persistence = {
       "/persist/home/${user}".directories = [".local/share/keyrings"];
