@@ -33,7 +33,7 @@
 
       # fire backup job every 3 hours, randomized by 30 minutes
       timerConfig = {
-        OnCalendar = "00/3:00";
+        OnCalendar = "00/1:30";
         RandomizedDelaySec = "30minutes";
       };
     };
