@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   systemd.user = {
     services = {
       flatpak-update = {
@@ -33,5 +37,8 @@
         };
       };
     };
+  };
+  home.persistence = {
+    "/persist/home/${user}".directories = [".var"];
   };
 }
