@@ -3,7 +3,6 @@
     bcompare
     google-chrome
     thunderbird
-    vivaldi
-    vivaldi-ffmpeg-codecs
+    (vivaldi.override {proprietaryCodecs = true;})
   ];
 }
