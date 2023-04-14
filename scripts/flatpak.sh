@@ -26,5 +26,7 @@ artemis)
 	flatpak install --user -y com.valvesoftware.Steam
 	flatpak install --user -y com.valvesoftware.Steam.Utility.gamescope
 	flatpak install --user -y com.usebottles.bottles
+	flatpak install --user -y com.valvesoftware.Steam.Utility.steamtinkerlaunch
+	flatpak install --user -y net.davidotek.pupgui2
 	;;
 esac
