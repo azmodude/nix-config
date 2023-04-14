@@ -101,20 +101,27 @@
   };
 
   # Increase open file limit for sudoers
-  security.pam.loginLimits = [
-    {
-      domain = "@wheel";
-      item = "nofile";
-      type = "soft";
-      value = "524288";
-    }
-    {
-      domain = "@wheel";
-      item = "nofile";
-      type = "hard";
-      value = "1048576";
-    }
-  ];
+  security = {
+    sudo = {
+      enable = true;
+      execWheelOnly = true;
+      wheelNeedsPassword = true;
+    };
+    pam.loginLimits = [
+      {
+        domain = "@wheel";
+        item = "nofile";
+        type = "soft";
+        value = "524288";
+      }
+      {
+        domain = "@wheel";
+        item = "nofile";
+        type = "hard";
+        value = "1048576";
+      }
+    ];
+  };
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
