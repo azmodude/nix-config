@@ -12,7 +12,7 @@
       [Desktop Entry]
       Name=Solaar
       Comment=Logitech Unifying Receiver peripherals manager
-      Exec=${pkgs.solaar}/bin/solaar -w hide --restart-on-wake-up
+      Exec=${pkgs.solaar}/bin/solaar -w hide --restart-on-wake-up --battery-icons solaar
       StartupNotify=false
       Terminal=false
       Type=Application
