@@ -29,6 +29,7 @@
          left = 5,
          right = 5,
         },
+        front_end = "WebGpu"
       }
     '';
   };
