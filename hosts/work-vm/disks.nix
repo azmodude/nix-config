@@ -46,48 +46,48 @@
         };
       };
     };
-  };
-  lvm_vg = {
-    lvm-crypt-system = {
-      type = "lvm_vg";
-      lvs = {
-        a-swap = {
-          type = "lvm_lv";
-          size = swapsize;
-          content = {
-            type = "swap";
+    lvm_vg = {
+      lvm-crypt-system = {
+        type = "lvm_vg";
+        lvs = {
+          a-swap = {
+            type = "lvm_lv";
+            size = swapsize;
+            content = {
+              type = "swap";
+            };
           };
-        };
-        b-root = {
-          type = "lvm_lv";
-          size = "100%FREE";
-          content = {
-            type = "btrfs";
-            extraArgs = ["-f"];
-            subvolumes = {
-              "@" = {
-                mountpoint = "/";
-                mountOptions = ["defaults" "compress=zstd" "noatime"];
-              };
-              "@home" = {
-                mountpoint = "/home";
-                mountOptions = ["defaults" "compress=zstd" "relatime"];
-              };
-              "@nix" = {
-                mountpoint = "/nix";
-                mountOptions = ["defaults" "compress=zstd" "noatime"];
-              };
-              "@persist" = {
-                mountpoint = "/persist";
-                mountOptions = ["defaults" "compress=zstd" "noatime"];
-              };
-              "@var-log" = {
-                mountpoint = "/var/log";
-                mountOptions = ["defaults" "compress=zstd" "noatime"];
-              };
-              "@snapshots" = {
-                mountpoint = "/.snapshots";
-                mountOptions = ["defaults" "compress=zstd" "noatime"];
+          b-root = {
+            type = "lvm_lv";
+            size = "100%FREE";
+            content = {
+              type = "btrfs";
+              extraArgs = ["-f"];
+              subvolumes = {
+                "@" = {
+                  mountpoint = "/";
+                  mountOptions = ["defaults" "compress=zstd" "noatime"];
+                };
+                "@home" = {
+                  mountpoint = "/home";
+                  mountOptions = ["defaults" "compress=zstd" "relatime"];
+                };
+                "@nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = ["defaults" "compress=zstd" "noatime"];
+                };
+                "@persist" = {
+                  mountpoint = "/persist";
+                  mountOptions = ["defaults" "compress=zstd" "noatime"];
+                };
+                "@var-log" = {
+                  mountpoint = "/var/log";
+                  mountOptions = ["defaults" "compress=zstd" "noatime"];
+                };
+                "@snapshots" = {
+                  mountpoint = "/.snapshots";
+                  mountOptions = ["defaults" "compress=zstd" "noatime"];
+                };
               };
             };
           };
