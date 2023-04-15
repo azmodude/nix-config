@@ -48,13 +48,6 @@ if [ "$(id -u)" -eq 0 ]; then
 	exit 1
 fi
 
-if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
-	sudo mkdir -p "/mnt/persist/etc/ssh"
-	echo "ERROR! No ssh_host_ed25519_key found in /persist/etc/ssh."
-	echo "ERROR! Ensure sops-nix configuration for host is correct."
-	exit 1
-fi
-
 echo "WARNING! The disks in ${TARGET_HOST} are about to get wiped"
 echo "         NixOS will be re-installed"
 echo "         This is a destructive operation"
@@ -65,6 +58,18 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	sudo true
 
 	[[ ${HAS_DISKO} -eq 1 ]] && sudo nix run github:nix-community/disko --extra-experimental-features 'nix-command flakes' --no-write-lock-file -- --mode zap_create_mount "hosts/${TARGET_HOST}/disks.nix"
+
+	if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
+		sudo mkdir -p "/mnt/persist/etc/ssh"
+		echo "ERROR! No ssh_host_ed25519_key found in /mnt/persist/etc/ssh."
+		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_ed25519_key for sops-nix to work."
+		read -p "Did you copy the key? [y/N]" -n 1 -r
+		if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
+			echo "ERROR! Ensure sops-nix configuration for host is correct."
+			exit 1
+		fi
+	fi
+
 	sudo nixos-install --no-root-password --flake ".#${TARGET_HOST}"
 
 	# Rsync my nix-config to the target install
