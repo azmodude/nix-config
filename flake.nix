@@ -6,22 +6,36 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # declarative disk partitioning
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # additional hardware declarations
+    hardware.url = "github:nixos/nixos-hardware";
 
+    # Home manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # pre-commit awesomeness
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     # persistance (or not)
     impermanence.url = "github:nix-community/impermanence";
+
     # nightly neovim awesomeness
     #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    # weekly nix-index database
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # weekly nix-index database for nix-locate
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
-    hardware.url = "github:nixos/nixos-hardware";
+    # secret management
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
