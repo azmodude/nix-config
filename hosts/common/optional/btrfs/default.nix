@@ -34,7 +34,7 @@
       options = ["subvol=@nix" "compress=zstd" "noatime"];
     };
     "/boot" = {
-      device = "/dev/disk/by-label/EFI";
+      device = "/dev/disk/by-label/ESP";
       fsType = "vfat";
     };
   };

@@ -14,11 +14,11 @@ sgdisk -n2:0:0 -c2:"root" -t2:8300 ${DISK}
 
 partprobe && sleep 3
 for wipe in 1 2; do
-  wipefs -a ${DISK}-part${wipe}
+	wipefs -a ${DISK}-part${wipe}
 done
 
 # create /boot
-mkfs.vfat -n EFI ${DISK}-part1
+mkfs.vfat -n ESP ${DISK}-part1
 # setup disk encryption
 cryptsetup --verify-passphrase -v luksFormat --label crypt-system ${DISK}-part2
 cryptsetup open ${DISK}-part2 ${CRYPT_NAME}
