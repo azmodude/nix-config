@@ -131,7 +131,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "espresso@coadmunkee.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io"];
+      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "caffeine@patapon.info" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io"];
       favorite-apps = ["firefox.desktop" "google-chrome.desktop" "kitty.desktop"];
       welcome-dialog-last-shown-version = "43.2";
     };
@@ -171,7 +171,7 @@ with lib.hm.gvariant; {
       gnomeExtensions.dash-to-dock
       gnomeExtensions.appindicator
       gnomeExtensions.workspace-indicator
-      gnomeExtensions.espresso
+      gnomeExtensions.caffeine
       gnomeExtensions.gsconnect
       papirus-icon-theme
       # (catppuccin-papirus-folders.override {
