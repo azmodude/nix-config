@@ -1,4 +1,32 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
+  home.file."${config.xdg.configHome}/i3/colors" = {
+    text =
+      ''
+        # catppuccin-macchiato
+      ''
+      + (builtins.readFile (pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "i3";
+          rev = "df1a972";
+          sha256 = "sha256-9K5j2/dCZb6Z4jHLorRnNL8eQ2/m9NVbCY1+W3SYeKQ=";
+        }
+        + "/themes/catppuccin-macchiato"))
+      + ''
+        # catppuccin
+        # target                 border    bg    text   indicator  childBorder
+        client.focused           $pink     $base $text  $rosewater $pink
+        client.focused_inactive  $mauve    $base $text  $rosewater $mauve
+        client.unfocused         $mauve    $base $text  $rosewater $mauve
+        client.urgent            $peach    $base $peach $overlay0  $peach
+        client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+        client.background        $base
+      '';
+  };
+
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -11,6 +39,9 @@
           }
         ];
       };
+      extraConfig = ''
+        include ${config.xdg.configHome}/i3/colors
+      '';
     };
   };
   programs.i3status-rust = {
