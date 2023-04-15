@@ -35,4 +35,6 @@
     ]
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop
     ++ lib.optional (builtins.isString desktop) ../common/optional/desktop/${desktop};
+
+  virtualisation.vmware.guest.enable = true;
 }
