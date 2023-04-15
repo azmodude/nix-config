@@ -35,6 +35,7 @@
               content = {
                 type = "luks";
                 name = "crypt-system";
+                extraFormatArgs = ["--label crypt-system"];
                 extraOpenArgs = ["--allow-discards"];
                 content = {
                   type = "lvm_pv";
