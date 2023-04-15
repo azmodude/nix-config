@@ -72,7 +72,10 @@
   hardware.enableRedistributableFirmware = true;
   #  networking.domain = "m7.rs";
   boot.loader.systemd-boot.configurationLimit = 10;
-  boot.tmpOnTmpfs = true;
+  boot.tmp = {
+    useTmpfs = true;
+    cleanOnBoot = true;
+  };
 
   systemd = {
     # ensure we making cgroupsv2 the default; e.g. lxd tries to disable it
