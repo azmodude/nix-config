@@ -62,7 +62,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
 		sudo mkdir -p "/mnt/persist/etc/ssh"
 		echo "ERROR! No ssh_host_ed25519_key found in /mnt/persist/etc/ssh."
-		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_ed25519_key for sops-nix to work."
+		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_ed25519_key for sops-nix to work its magic."
 		read -p "Did you copy the key? [y/N]" -n 1 -r
 		if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
 			echo "ERROR! Ensure sops-nix configuration for host is correct."
