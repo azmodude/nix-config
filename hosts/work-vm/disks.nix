@@ -54,6 +54,7 @@
           a-swap = {
             type = "lvm_lv";
             size = swapsize;
+            name = "swap";
             content = {
               type = "swap";
             };
@@ -61,6 +62,7 @@
           b-root = {
             type = "lvm_lv";
             size = "100%FREE";
+            name = "root";
             content = {
               type = "btrfs";
               extraArgs = ["-f"];
