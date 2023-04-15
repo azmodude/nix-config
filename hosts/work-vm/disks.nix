@@ -13,7 +13,6 @@
           format = "gpt";
           partitions = [
             {
-              type = "partition";
               name = "ESP";
               start = "1MiB";
               end = "100MiB";
@@ -29,7 +28,6 @@
               };
             }
             {
-              type = "partition";
               name = "luks";
               start = "100MiB";
               end = "100%";
@@ -53,7 +51,6 @@
         type = "lvm_vg";
         lvs = {
           a-swap = {
-            type = "lvm_lv";
             size = swapsize;
             name = "swap";
             content = {
@@ -61,7 +58,6 @@
             };
           };
           b-root = {
-            type = "lvm_lv";
             size = "100%FREE";
             name = "root";
             content = {
