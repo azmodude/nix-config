@@ -1,11 +1,15 @@
-{pkgs, ...}: {
-  home.file.".config/zellij/themes/catppuccin.kdl" = {
+{
+  pkgs,
+  config,
+  ...
+}: {
+  home.file."${config.xdg.configHome}/zellij/themes/catppuccin.kdl" = {
     source =
       pkgs.fetchFromGitHub {
         owner = "zellij-org";
         repo = "zellij";
-        rev = "9d4e60e";
-        sha256 = "sha256-sShp4bZhvBN/EhfVuKinktr5bwXlWlUhj++vgGeHTfg=";
+        rev = "d0a780d";
+        sha256 = "sha256-Xj3On5xgMEB1ArL1OWigPxJjkYXT0xaFdFD7pAabh8k=";
       }
       + "/example/themes/catppuccin.kdl";
   };
