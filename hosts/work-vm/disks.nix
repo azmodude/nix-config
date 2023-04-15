@@ -65,7 +65,7 @@
             name = "root";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = ["-f" "--label btrfs-root"];
               subvolumes = {
                 "@" = {
                   mountpoint = "/";
