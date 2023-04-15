@@ -5,11 +5,9 @@
 }: {
   imports = [
     ./_1password.nix
-    ./cups.nix
     ./flatpak.nix
     ./fonts.nix
     ./pipewire.nix
-    ./sane.nix
     ./wayland.nix
     ./xdg.nix
   ];

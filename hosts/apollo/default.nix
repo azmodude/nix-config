@@ -35,7 +35,9 @@
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
       ../common/optional/libvirt.nix
+      ../common/optional/desktop/cups.nix
       ../common/optional/desktop/logitech.nix
+      ../common/optional/desktop/sane.nix
       ../common/optional/syncthing-common.nix
       ../common/optional/syncthing-workstations.nix
       # Only include desktop components if one is supplied.
