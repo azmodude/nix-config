@@ -143,7 +143,7 @@
       work-vm = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {
           inherit inputs home-manager outputs;
-          desktop = "sway";
+          desktop = "i3";
           hostname = "work-vm";
           domain = "f-i.de";
           hostid = "d6fb2da4";
