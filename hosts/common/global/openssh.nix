@@ -40,7 +40,7 @@ in {
   };
 
   # Passwordless sudo when SSH'ing with keys
-  security.pam.enableSSHAgentAuth = true;
+  # security.pam.enableSSHAgentAuth = true;
 
   # ensure hostkeys are secure
   systemd.tmpfiles.rules = [
