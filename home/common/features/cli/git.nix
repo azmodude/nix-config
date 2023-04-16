@@ -7,16 +7,15 @@
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    userName = "Gordon Schulz";
-    userEmail = "gordon@gordonschulz.de";
+    signing = {
+      signByDefault = true;
+      gpgPath = "${config.programs.gpg.package}/bin/gpg2";
+    };
     extraConfig = {
-      feature.manyFiles = true;
-      init.defaultBranch = "main";
-      user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQh4341SBJaXdFAvDtAvS9zs4tiS5v8jod0OhgzBXpV";
-      commit.gpgSign = true;
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
       gpg.format = "ssh";
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
+      feature.manyFiles = true;
+      init.defaultBranch = "main";
       pull.rebase = true;
       fetch.prune = true;
       diff.colorMoved = "dimmed-zebra";
