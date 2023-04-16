@@ -173,7 +173,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/azmo/default.nix
-          ./home/azmo/apollo.nix
+          ./home/azmo/hosts/apollo.nix
         ];
       };
       "azmo@artemis" = home-manager.lib.homeManagerConfiguration {
@@ -190,7 +190,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/azmo/default.nix
-          ./home/azmo/artemis.nix
+          ./home/azmo/hosts/artemis.nix
         ];
       };
       "azmo@hephaestus" = home-manager.lib.homeManagerConfiguration {
@@ -207,7 +207,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/azmo/default.nix
-          ./home/azmo/hephaestus.nix
+          ./home/azmo/hosts/hephaestus.nix
         ];
       };
       "j525980@work-vm" = home-manager.lib.homeManagerConfiguration {
@@ -224,7 +224,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/j525980/default.nix
-          ./home/j525980/work-vm.nix
+          ./home/j525980/hosts/work-vm.nix
         ];
       };
     };
