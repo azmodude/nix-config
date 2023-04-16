@@ -93,6 +93,9 @@
 
     shellAliases = {
       man = "${pkgs.bat-extras.batman}/bin/batman";
+      cp = "cp -i --reflink=auto --sparse=auto";
+      mv = "mv -i";
+      rm = "rm -i";
     };
   };
 }
