@@ -1,3 +1,0 @@
-[submodule "work"]
-	path = work
-	url = git@github.com:azmodude/nix-config-work
