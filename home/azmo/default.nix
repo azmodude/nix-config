@@ -1,6 +1,7 @@
 {
   imports = [
-    ./git.nix
-    ./packages.nix
+    ./features/git.nix
+    ./features/packages.nix
+    ./features/ssh.nix
   ];
 }
