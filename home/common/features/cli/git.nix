@@ -20,6 +20,7 @@
       pull.rebase = true;
       fetch.prune = true;
       diff.colorMoved = "dimmed-zebra";
+      submodule.recurse = true;
     };
     lfs.enable = true;
     ignores = [".direnv" "result"];
