@@ -8,13 +8,13 @@ install-hm:
     "$(nix path-info .#homeConfigurations.{{user}}@{{host}}.activationPackage)"/activate
 # switch home-manager for user=<user@host>
 hm-switch:
-    home-manager switch --flake .#{{user}}@{{host}}
+    home-manager switch --flake .?submodules=1#{{user}}@{{host}}
 # update flakes
 update-flake-only:
     nix flake update
 # update for host=<host>
 switch:
-    sudo nixos-rebuild switch --flake .#{{host}}
+    sudo nixos-rebuild switch --flake .?submodules=1#{{host}}
 # update flakes and rebuild-switch for host=<host>
 update: update-flake-only && switch hm-switch
 
