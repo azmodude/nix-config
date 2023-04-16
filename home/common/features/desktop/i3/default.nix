@@ -24,44 +24,84 @@
       client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
       client.background        $base
     '';
+  catppuccin-macchiato-polybar = builtins.readFile (pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "polybar";
+      rev = "a9ea53b";
+      sha256 = "sha256-WrN9lO9ElVK6fbv9Jf9vDZ5uNpXYRtGHdLTl8sPPtcY=";
+    }
+    + "/themes/macchiato.ini");
 in {
   xsession = {
     enable = true;
     windowManager.i3 = {
       enable = true;
       config = {
+        bars = [];
+        gaps = {
+          inner = 5;
+          smartBorders = "on";
+          smartGaps = true;
+        };
         terminal = "${pkgs.kitty}/bin/kitty";
-        bars = [
-          {
-            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs config-bottom.toml";
-          }
-        ];
       };
       extraConfig = ''
         ${catppuccin-macchiato-i3}
       '';
     };
   };
-  programs.i3status-rust = {
+  services.polybar = {
     enable = true;
-    bars = {
-      bottom = {
-        icons = "awesome6";
-        blocks = [
-          {
-            block = "cpu";
-          }
-          {
-            block = "load";
-            format = " $icon $1m ";
-          }
-          {
-            block = "memory";
-            format = " $icon $mem_total_used_percents.eng(w:2) ";
-            format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
-          }
-        ];
+    package = pkgs.polybarFull;
+    settings = {
+      "bar/top" = {
+        width = "100%";
+        height = "3%";
+        background = "\${colors.base}";
+        foreground = "\${colors.text}";
+        radius = 0;
+        font-0 = "Inter:size=9";
+        font-1 = "Symbols Nerd Font:size=9";
+        modules-left = "i3";
+        modules-center = "title";
+        modules-right = "cpu memory filesystem date";
+      };
+      "module/i3" = {
+        type = "internal/i3";
+      };
+      "module/title" = {
+        type = "internal/xwindow";
+      };
+      "module/cpu" = {
+        type = "internal/cpu";
+        label = "  %percentage%%";
+        label-minlen = 8;
+        interval = 5;
+      };
+      "module/memory" = {
+        type = "internal/memory";
+        label = "󰍛  %percentage_used%%";
+        interval = 5;
+        label-minlen = 10;
+      };
+      "module/filesystem" = {
+        type = "internal/fs";
+        mount-0 = "/";
+        label-mounted = "  %mountpoint% %percentage_used%%";
+        label-mounted-minlen = 15;
+      };
+      "module/date" = {
+        type = "internal/date";
+        internal = 5;
+        date = "%Y-%m-%d";
+        time = "%H:%M";
+        label = "%time%  %date%";
+        format-foreground = "\${colors.rosewater}";
       };
     };
+    extraConfig = ''
+      ${catppuccin-macchiato-polybar}
+    '';
+    script = "polybar top &";
   };
 }
