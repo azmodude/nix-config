@@ -215,7 +215,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           desktop = {
-            environment = "sway";
+            environment = "i3";
             logitech = false;
           };
           user = "j525980";
