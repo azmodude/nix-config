@@ -6,3 +6,5 @@ My personal nixos and home-manager configurations, heavily based on [misterio77'
 - wipes all filesystems and creates a ESP /boot partition as well as encrypted LVM for swap and root.
 ## scripts/flatpak.sh
 - Install flatpaks until they can be declaratively managed by nix.
+
+## TODO: Document all the other directories/features once this repository has settled a bit
