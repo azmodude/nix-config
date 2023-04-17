@@ -38,6 +38,7 @@
       ../common/optional/desktop/cups.nix
       ../common/optional/desktop/sane.nix
       ../common/optional/desktop/logitech.nix
+      ../common/optional/desktop/hyprland
       ../common/optional/syncthing-common.nix
       ../common/optional/syncthing-workstations.nix
       # Only include desktop components if one is supplied.
