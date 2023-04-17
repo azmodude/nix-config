@@ -12,13 +12,14 @@
       gpgPath = "${config.programs.gpg.package}/bin/gpg2";
     };
     extraConfig = {
+      diff.colorMoved = "dimmed-zebra";
+      feature.manyFiles = true;
+      fetch.prune = true;
       gpg.format = "ssh";
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
-      feature.manyFiles = true;
       init.defaultBranch = "main";
       pull.rebase = true;
-      fetch.prune = true;
-      diff.colorMoved = "dimmed-zebra";
+      push.autoSetupRemote = true;
       submodule.recurse = true;
     };
     lfs.enable = true;
