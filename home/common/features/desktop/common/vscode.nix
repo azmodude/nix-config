@@ -9,6 +9,4 @@
       github.vscode-github-actions
     ];
   };
-  # enable Wayland
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
 }
