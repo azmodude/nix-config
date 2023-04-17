@@ -14,6 +14,19 @@
         devices = ["artemis" "hephaestus" "apollo"];
         ignorePerms = false;
       };
+      "workstations-pictures" = {
+        path = "/home/${user}/sync/workstations/pictures";
+        id = "workstations-pictures";
+        versioning = {
+          type = "staggered";
+          params = {
+            cleanInterval = "3600";
+            maxAge = "7776000"; # 90 days
+          };
+        };
+        devices = ["artemis" "hephaestus" "apollo"];
+        ignorePerms = false;
+      };
       "workstations-projects" = {
         path = "/home/${user}/sync/workstations/projects";
         id = "workstations-projects";
