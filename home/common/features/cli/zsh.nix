@@ -96,6 +96,10 @@
       cp = "cp -i --reflink=auto --sparse=auto";
       mv = "mv -i";
       rm = "rm -i";
+      nrun = "NIXPKGS_ALLOW_UNFREE=1 nix run --impure";
+      nsh = "nix shell";
+    };
+    shellGlobalAliases = {
     };
   };
 }
