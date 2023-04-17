@@ -78,7 +78,6 @@
             hooks = {
               alejandra.enable = true;
               commitizen.enable = true;
-              gptcommit.enable = true;
             };
           };
         };
