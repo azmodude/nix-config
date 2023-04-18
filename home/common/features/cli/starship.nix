@@ -45,7 +45,7 @@
         show_always = true;
       };
       hostname = {
-        format = "[@$hostname]($style) ";
+        format = "[@$hostname]($style) in ";
         style = "#8aadf4";
         ssh_only = false;
       };
@@ -55,6 +55,7 @@
         disabled = false;
       };
       cmd_duration = {
+        format = "🕙 [$duration]($style) ";
         show_notifications = true;
         min_time_to_notify = 180000;
         disabled = false;
