@@ -1,35 +1,37 @@
-{pkgs, ...}: let
-  nix-inspect = pkgs.writeShellScriptBin "nix-inspect" ''
-    read -ra EXCLUDED <<< "$@"
-
-    IFS=":" read -ra PATHS <<< "$PATH"
-
-    read -ra PROGRAMS <<< \
-      "$(printf "%s\n" "''${PATHS[@]}" | ${pkgs.gnugrep}/bin/grep "\/nix\/store" | ${pkgs.gnugrep}/bin/grep -v "\-man" | ${pkgs.perl}/bin/perl -pe 's/^\/nix\/store\/\w{32}-([^\/]*)\/bin$/\1/' | ${pkgs.findutils}/bin/xargs)"
-
-    for to_remove in "''${EXCLUDED[@]}"; do
-        to_remove_full="$(printf "%s\n" "''${PROGRAMS[@]}" | grep "$to_remove" )"
-        PROGRAMS=("''${PROGRAMS[@]/$to_remove_full}")
-    done
-
-    read -ra PROGRAMS <<< "''${PROGRAMS[@]}"
-    echo "''${PROGRAMS[@]}"
-  '';
-in {
+{pkgs, ...}:
+# let
+#   nix-inspect = pkgs.writeShellScriptBin "nix-inspect" ''
+#     read -ra EXCLUDED <<< "$@"
+#
+#     IFS=":" read -ra PATHS <<< "$PATH"
+#
+#     read -ra PROGRAMS <<< \
+#       "$(printf "%s\n" "''${PATHS[@]}" | ${pkgs.gnugrep}/bin/grep "\/nix\/store" | ${pkgs.gnugrep}/bin/grep -v "\-man" | ${pkgs.perl}/bin/perl -pe 's/^\/nix\/store\/\w{32}-([^\/]*)\/bin$/\1/' | ${pkgs.findutils}/bin/xargs)"
+#
+#     for to_remove in "''${EXCLUDED[@]}"; do
+#         to_remove_full="$(printf "%s\n" "''${PROGRAMS[@]}" | grep "$to_remove" )"
+#         PROGRAMS=("''${PROGRAMS[@]/$to_remove_full}")
+#     done
+#
+#     read -ra PROGRAMS <<< "''${PROGRAMS[@]}"
+#     echo "''${PROGRAMS[@]}"
+#   '';
+# in {
+{
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
     settings = {
-      format = let
-        git = "$git_branch$git_commit$git_state$git_status";
-        cloud = "$aws$gcloud$openstack";
-      in ''
-        $username$hostname($shlvl)($cmd_duration) $fill ($nix_shell)$custom
-        $directory(${git})(- ${cloud}) $fill $time
-        $jobs$character
-      '';
-
+      # format = let
+      #   git = "$git_branch$git_commit$git_state$git_status";
+      #   cloud = "$aws$gcloud$openstack";
+      # in ''
+      #   $username$hostname($shlvl)($cmd_duration) $fill ($nix_shell)$custom
+      #   $directory(${git})(- ${cloud}) $fill $time
+      #   $jobs$character
+      # '';
+      #
       fill = {
         symbol = " ";
         disabled = false;
@@ -38,43 +40,79 @@ in {
       # Core
       username = {
         format = "[$user]($style)";
+        style_root = "#ed8796";
+        style_user = "#f4dbd6";
         show_always = true;
       };
       hostname = {
         format = "[@$hostname]($style) ";
+        style = "#8aadf4";
         ssh_only = false;
-        style = "bold green";
       };
       shlvl = {
-        format = "[$shlvl]($style) ";
-        style = "bold cyan";
         threshold = 2;
-        repeat = true;
+        repeat = false;
         disabled = false;
       };
       cmd_duration = {
-        format = "took [$duration]($style) ";
+        show_notifications = true;
+        min_time_to_notify = 180000;
+        disabled = false;
       };
-
+      git_branch = {
+        disabled = false;
+      };
+      git_status = {
+        disabled = false;
+      };
+      git_metrics = {
+        disabled = false;
+      };
+      git_commit = {
+        disabled = false;
+        tag_disabled = false;
+        only_detached = false;
+      };
       directory = {
-        format = "[$path]($style)( [$read_only]($read_only_style)) ";
+        truncation_symbol = "…/";
+        truncation_length = 3;
+        fish_style_pwd_dir_length = 1;
       };
       nix_shell = {
-        format = "[($name \\(develop\\) <- )$symbol]($style) ";
+        disabled = false;
         impure_msg = "";
-        symbol = " ";
-        style = "bold red";
       };
-      custom = {
-        nix_inspect = {
-          disabled = false;
-          when = "test -z $IN_NIX_SHELL";
-          command = "${nix-inspect}/bin/nix-inspect kitty imagemagick ncurses";
-          format = "[($output <- )$symbol]($style) ";
-          symbol = " ";
-          style = "bold blue";
-        };
+      docker_context = {
+        disabled = false;
       };
+      os = {
+        disabled = false;
+      };
+      status = {
+        disabled = false;
+        map_symbol = true;
+      };
+      time = {
+        disabled = true;
+      };
+
+      # Cloud
+      gcloud = {
+        disabled = false;
+      };
+      aws = {
+        disabled = false;
+      };
+      # custom = {
+      #   nix_inspect = {
+      #     disabled = false;
+      #     when = "test -z $IN_NIX_SHELL";
+      #     command = "${nix-inspect}/bin/nix-inspect kitty imagemagick ncurses";
+      #     format = "[($output <- )$symbol]($style) ";
+      #     symbol = " ";
+      #     style = "bold blue";
+      #   };
+      # };
 
       character = {
         error_symbol = "[~~>](bold red)";
@@ -83,19 +121,6 @@ in {
         vimcmd_visual_symbol = "[<<-](bold cyan)";
         vimcmd_replace_symbol = "[<<-](bold purple)";
         vimcmd_replace_one_symbol = "[<<-](bold purple)";
-      };
-
-      time = {
-        format = "\\\[[$time]($style)\\\]";
-        disabled = false;
-      };
-
-      # Cloud
-      gcloud = {
-        format = "on [$symbol$active(/$project)(\\($region\\))]($style)";
-      };
-      aws = {
-        format = "on [$symbol$profile(\\($region\\))]($style)";
       };
 
       # Icon changes only \/
@@ -114,6 +139,7 @@ in {
       julia.symbol = " ";
       memory_usage.symbol = " ";
       nim.symbol = " ";
+      nix_shell.symbol = " ";
       nodejs.symbol = " ";
       package.symbol = " ";
       perl.symbol = " ";
@@ -122,7 +148,8 @@ in {
       ruby.symbol = " ";
       rust.symbol = " ";
       scala.symbol = " ";
-      shlvl.symbol = "";
+      shlvl.symbol = "溜";
+      ssh.symbol = "旅";
       swift.symbol = "ﯣ ";
       terraform.symbol = "行";
     };
