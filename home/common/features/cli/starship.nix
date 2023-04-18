@@ -48,6 +48,7 @@
         format = "[@$hostname]($style) in ";
         style = "#8aadf4";
         ssh_only = false;
+        ssh_symbol = "旅";
       };
       shlvl = {
         threshold = 2;
@@ -150,7 +151,6 @@
       rust.symbol = " ";
       scala.symbol = " ";
       shlvl.symbol = "溜";
-      ssh.symbol = "旅";
       swift.symbol = "ﯣ ";
       terraform.symbol = "行";
     };
