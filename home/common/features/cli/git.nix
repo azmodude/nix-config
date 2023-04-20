@@ -20,6 +20,7 @@
       init.defaultBranch = "main";
       pull.rebase = true;
       push.autoSetupRemote = true;
+      rebase.autosquash = true;
       submodule.recurse = true;
     };
     lfs.enable = true;
