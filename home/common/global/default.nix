@@ -73,7 +73,7 @@
     username = lib.mkDefault user;
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    stateVersion = lib.mkDefault "22.11";
+    stateVersion = lib.mkDefault "23.05";
 
     persistence = {
       "/persist/home/${user}" = {
