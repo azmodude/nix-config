@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       dejavu_fonts
       inter
-      iosevka-bin
-      joypixels
+      # Iosevka Jetbrains Mono Variant
+      (iosevka-bin.override {variant = "ss14";})
       liberation_ttf
       noto-fonts
       roboto
@@ -30,7 +30,7 @@
       hinting = {
         autohint = false;
         enable = true;
-        style = "hintslight";
+        style = "slight";
       };
       subpixel = {
         rgba = "rgb";
