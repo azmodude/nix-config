@@ -38,7 +38,7 @@ in {
   programs.kitty = {
     enable = true;
     font = {
-      name = "Iosevka Medium";
+      name = "Iosevka";
       size = 11.0;
     };
     theme = "Catppuccin-Macchiato";
