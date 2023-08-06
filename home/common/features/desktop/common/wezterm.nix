@@ -15,10 +15,10 @@
        color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
         font = wezterm.font_with_fallback(
         {
-          "Iosevka Medium",
+          "Iosevka SS14",
           "Symbols Nerd Font"
         }),
-        font_size = 10.5,
+        font_size = 11,
         hide_tab_bar_if_only_one_tab = true,
         xcursor_theme = "Adwaita",
         window_frame = {
