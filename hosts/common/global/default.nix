@@ -12,6 +12,7 @@
       inputs.impermanence.nixosModules.impermanence
       inputs.home-manager.nixosModules.home-manager
       #    ./acme.nix
+      ./auto-upgrade.nix
       ./boot.nix
       ./editor.nix
       ./hardware.nix
