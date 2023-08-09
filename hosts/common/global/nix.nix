@@ -28,4 +28,5 @@
     # Very useful when using legacy commands
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
   };
+  environment.systemPackages = with pkgs; [nix-prefetch-scripts];
 }
