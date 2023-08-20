@@ -11,7 +11,7 @@ hm-switch:
     home-manager switch --flake .?submodules=1#{{user}}@{{host}}
 # update flakes
 update-flake-only:
-    nix flake update
+    nix flake update --commit-lock-file
 # update for host=<host>
 switch:
     sudo nixos-rebuild switch --flake .?submodules=1#{{host}}
