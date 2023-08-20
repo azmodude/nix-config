@@ -27,6 +27,7 @@
 
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
+      ./games.nix
 
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix
@@ -40,6 +41,7 @@
       ../common/optional/desktop/logitech.nix
       ../common/optional/syncthing-common.nix
       ../common/optional/syncthing-workstations.nix
+
       # Only include desktop components if one is supplied.
       # - https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
     ]
