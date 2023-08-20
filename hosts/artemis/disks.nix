@@ -29,7 +29,7 @@
             }
             {
               name = "luks";
-              start = "100MiB";
+              start = "10GiB";
               end = "100%";
               content = {
                 type = "luks";
