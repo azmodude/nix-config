@@ -48,7 +48,7 @@
     userConfig = pkgs.fetchFromGitHub {
       owner = "azmodude";
       repo = "astronvim";
-      rev = "f1051f8";
+      rev = "ae4bc3eb6e80439bda8deaab844c41d4cb00692a";
       sha256 = "12rahza1gbxddhidfjkr5x20w31hzv5ikjz9fcqz082ckiisa0ic";
     };
   };
