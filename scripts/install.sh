@@ -4,7 +4,7 @@ HAS_DISKO=0
 TARGET_HOST=""
 TARGET_USER=""
 
-if [ -n "${1}" ]; then
+if [ "${1}" != "" ]; then
 	TARGET_HOST="${1}"
 else
 	echo "ERROR! $(basename "${0}") requires a host name:"
@@ -12,7 +12,7 @@ else
 	exit 1
 fi
 
-case "${TARGET_HOST}" in
+case "$TARGET_HOST" in
 apollo | artemis | hephaestus | work-vm) true ;;
 *)
 	echo "ERROR! ${TARGET_HOST} is not a supported host"
@@ -20,7 +20,7 @@ apollo | artemis | hephaestus | work-vm) true ;;
 	;;
 esac
 
-if [ -n "${2}" ]; then
+if [ "${2}" != "" ]; then
 	TARGET_USER="${2}"
 else
 	echo "ERROR! $(basename "${0}") requires a user name"
@@ -28,7 +28,7 @@ else
 	exit 1
 fi
 
-case "${TARGET_USER}" in
+case "$TARGET_USER" in
 azmo | j525980) true ;;
 *)
 	echo "ERROR! ${TARGET_USER} is not a supported user"
@@ -65,7 +65,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_ed25519_key for sops-nix to work its magic."
 		read -p "Did you copy the key? [y/N] " -n 1 -r
 		if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_ed25519_key" ]]; then
-			echo "ERROR! Ensure sops-nix configuration for host is correct."
+			echo "ERROR! Ensure sops-nix/SSH Key configuration for host is correct."
+			exit 1
+		fi
+	fi
+	if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_rsa_key" ]]; then
+		sudo mkdir -p "/mnt/persist/etc/ssh"
+		echo "ERROR! No ssh_host_rsa_key found in /mnt/persist/etc/ssh."
+		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_rsa_key to ensure proper functionality."
+		read -p "Did you copy the key? [y/N] " -n 1 -r
+		if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_rsa_key" ]]; then
+			echo "ERROR! Ensure SSH Key configuration for host is correct."
 			exit 1
 		fi
 	fi
