@@ -34,7 +34,7 @@ in {
     "/persist" = {
       device = "/dev/disk/by-label/btrfs-root";
       fsType = "btrfs";
-      options = ["subvol=@persist" "compress=zstd"];
+      options = ["subvol=data/@persist" "compress=zstd"];
       # /persist needs to be mounted early so sops-nix can access the host_key for decryption
       neededForBoot = true;
     };

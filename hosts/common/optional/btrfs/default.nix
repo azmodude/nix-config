@@ -4,7 +4,7 @@
     "/" = {
       device = "/dev/disk/by-label/btrfs-root";
       fsType = "btrfs";
-      options = ["subvol=@" "compress=zstd"];
+      options = ["subvol=system/@" "compress=zstd"];
     };
     "/.btrfs-root" = {
       device = "/dev/disk/by-label/btrfs-root";
@@ -14,25 +14,25 @@
     "/.snapshots" = {
       device = "/dev/disk/by-label/btrfs-root";
       fsType = "btrfs";
-      options = ["subvol=@snapshots" "compress=zstd" "noatime"];
+      options = ["subvol=system/@snapshots" "compress=zstd" "noatime"];
+    };
+    "/var/log" = {
+      device = "/dev/disk/by-label/btrfs-root";
+      fsType = "btrfs";
+      options = ["subvol=system/@var-log" "compress=zstd" "noatime"];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-label/btrfs-root";
+      fsType = "btrfs";
+      options = ["subvol=system/@nix" "compress=zstd" "noatime"];
     };
 
     "/home" = {
       device = "/dev/disk/by-label/btrfs-root";
       fsType = "btrfs";
-      options = ["subvol=@home" "compress=zstd"];
-    };
-    "/var/log" = {
-      device = "/dev/disk/by-label/btrfs-root";
-      fsType = "btrfs";
-      options = ["subvol=@var-log" "compress=zstd" "noatime"];
+      options = ["subvol=data/@home" "compress=zstd"];
     };
 
-    "/nix" = {
-      device = "/dev/disk/by-label/btrfs-root";
-      fsType = "btrfs";
-      options = ["subvol=@nix" "compress=zstd" "noatime"];
-    };
     "/boot" = {
       device = "/dev/disk/by-label/ESP";
       fsType = "vfat";
