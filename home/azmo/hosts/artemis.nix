@@ -20,7 +20,7 @@
     ++ lib.optional (builtins.isString desktop.environment) ../../common/features/desktop/${desktop.environment};
 
   home.persistence = {
-    "/persist/games" = {
+    "/persist/home/${user}" = {
       directories = [
         "Games"
       ];
