@@ -5,7 +5,9 @@
 }: {
   programs.zsh = {
     enable = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting = {
+      enable = true;
+    };
     enableVteIntegration = true;
     enableAutosuggestions = true;
     enableCompletion = true;
