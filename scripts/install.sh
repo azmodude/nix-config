@@ -87,5 +87,4 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	# Rsync my nix-config to the target install
 	sudo mkdir -p "/mnt/home/${TARGET_USER}/nix-config"
 	sudo rsync -a --delete "${PWD}/" "/mnt/home/${TARGET_USER}/nix-config/"
-	sudo chown -R "${TARGET_USER}:${TARGET_USER}" "/mnt/home/${TARGET_USER}"
 fi
