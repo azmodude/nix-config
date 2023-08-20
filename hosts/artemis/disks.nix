@@ -70,7 +70,7 @@
                   mountOptions = ["defaults" "compress=zstd" "noatime"];
                 };
                 "system/@snapshots" = {
-                  mountpoint = "/btrfs-root/snapshots";
+                  mountpoint = "/.snapshots";
                   mountOptions = ["defaults" "compress=zstd" "noatime"];
                 };
                 "system/@nix" = {

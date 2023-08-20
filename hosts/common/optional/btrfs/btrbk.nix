@@ -9,15 +9,15 @@
         volume = {
           "/.btrfs-root" = {
             subvolume = {
-              "@home" = {
+              "system/@home" = {
                 snapshot_create = "always";
-                snapshot_dir = "@snapshots/home";
+                snapshot_dir = "/.snapshots/data/home";
               };
             };
             subvolume = {
-              "@persist" = {
+              "system/@persist" = {
                 snapshot_create = "always";
-                snapshot_dir = "@snapshots/persist";
+                snapshot_dir = "/.snapshots/data/persist";
               };
             };
           };
@@ -30,7 +30,7 @@
   };
   # ensure snapshots_dir exists
   systemd.tmpfiles.rules = [
-    "d /.btrfs-root/@snapshots/home 0755 root root - -"
-    "d /.btrfs-root/@snapshots/persist 0755 root root - -"
+    "d /.snapshots/data/home 0755 root root - -"
+    "d /.snapshots/data/persist 0755 root root - -"
   ];
 }
