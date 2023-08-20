@@ -20,7 +20,8 @@
       pyright
       # docker
       nodePackages.dockerfile-language-server-nodejs
-      hadolint
+      # broken as of 08/20
+      #hadolint
       # shell
       shellcheck
       shfmt
