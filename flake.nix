@@ -140,20 +140,20 @@
           ./hosts
         ];
       };
-      work-vm = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs home-manager outputs;
-          desktop = "i3";
-          hostname = "work-vm";
-          domain = "f-i.de";
-          hostid = "d6fb2da4";
-          user = "j525980";
-        };
-        modules = [
-          # > Our main nixos configuration file <
-          ./hosts
-        ];
-      };
+      # work-vm = nixpkgs-unstable.lib.nixosSystem {
+      #   specialArgs = {
+      #     inherit inputs home-manager outputs;
+      #     desktop = "i3";
+      #     hostname = "work-vm";
+      #     domain = "f-i.de";
+      #     hostid = "d6fb2da4";
+      #     user = "j525980";
+      #   };
+      #   modules = [
+      #     # > Our main nixos configuration file <
+      #     ./hosts
+      #   ];
+      # };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -210,23 +210,23 @@
           ./home/azmo/hosts/hephaestus.nix
         ];
       };
-      "j525980@work-vm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          desktop = {
-            environment = "i3";
-            logitech = false;
-          };
-          user = "j525980";
-          pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
-        };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/j525980/default.nix
-          ./home/j525980/hosts/work-vm.nix
-        ];
-      };
+      # "j525980@work-vm" = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      #   extraSpecialArgs = {
+      #     inherit inputs outputs;
+      #     desktop = {
+      #       environment = "i3";
+      #       logitech = false;
+      #     };
+      #     user = "j525980";
+      #     pkgs-stable = nixpkgs.legacyPackages.x86_64-linux;
+      #   };
+      #   modules = [
+      #     # > Our main home-manager configuration file <
+      #     ./home/j525980/default.nix
+      #     ./home/j525980/hosts/work-vm.nix
+      #   ];
+      # };
     };
   };
 }
