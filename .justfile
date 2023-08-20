@@ -3,7 +3,7 @@ host := `hostname`
 default:
     just --list
 # install home-manager for user=<user@host>
-install-hm:
+hm-install:
     nix build --no-link .#homeConfigurations.{{user}}@{{host}}.activationPackage
     "$(nix path-info .#homeConfigurations.{{user}}@{{host}}.activationPackage)"/activate
 # switch home-manager for user=<user@host>
