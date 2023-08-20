@@ -1,4 +1,5 @@
 # Shell for bootstrapping flake-enabled nix and other tooling
+# Enter using nix develop
 {
   checks ? {
     pre-commit-check = {
