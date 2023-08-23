@@ -35,7 +35,7 @@ with lib.hm.gvariant; {
       font-hinting = "slight";
       font-name = "Inter 10";
       gtk-theme = "Adwaita-dark";
-      icon-theme = "Papirus";
+      icon-theme = "Yaru";
       monospace-font-name = "Monospace 10";
       show-battery-percentage = true;
     };
@@ -174,6 +174,7 @@ with lib.hm.gvariant; {
       gnomeExtensions.caffeine
       gnomeExtensions.gsconnect
       papirus-icon-theme
+      yaru-theme
       # (catppuccin-papirus-folders.override {
       #   flavor = "macchiato";
       #   accent = "lavender";
