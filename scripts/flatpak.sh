@@ -44,3 +44,7 @@ artemis)
 	done
 	;;
 esac
+
+# allow flatpaks access to our symlink'ed icons and fonts
+flatpak --user override --filesystem=$HOME/.local/share/fonts
+flatpak --user override --filesystem=$HOME/.icons
