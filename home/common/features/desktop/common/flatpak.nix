@@ -40,12 +40,8 @@
     };
   };
 
-  # create symbolic link for flatpaks
-  systemd.user.tmpfiles.rules = [
-    "L ${config.home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
-  ];
-
-  home.persistence = {
-    "/persist/home/${user}".directories = [".var"];
-  };
+  # disabled for now, Bottles (or wine-Games for that matter) don't like being bind-mounted
+  # home.persistence = {
+  #   "/persist/home/${user}".directories = [".var"];
+  # };
 }
