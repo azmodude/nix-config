@@ -131,7 +131,8 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "caffeine@patapon.info" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io"];
+      disabled-extensions = ["drive-menu@gnome-shell-extensions.gcampax.github.com"];
+      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "caffeine@patapon.info" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io" "dash-to-dock@micxgx.gmail.com" "pano@elhan.io" "places-menu@gnome-shell-extensions.gcampax.github.com"];
       favorite-apps = ["firefox.desktop" "google-chrome.desktop" "org.wezfurlong.wezterm.desktop"];
       welcome-dialog-last-shown-version = "43.2";
     };
@@ -143,18 +144,30 @@ with lib.hm.gvariant; {
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = true;
       background-opacity = 0.8;
+      click-action = "focus-minimize-or-previews";
       custom-theme-shrink = true;
-      dash-max-icon-size = 32;
+      dash-max-icon-size = 48;
+      disable-overview-on-startup = true;
       dock-fixed = false;
-      dock-position = "LEFT";
+      dock-position = "BOTTOM";
       extend-height = false;
       height-fraction = 0.9;
       hide-delay = 0.10000000000000002;
       intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+      isolate-monitors = false;
       isolate-workspaces = true;
-      multi-monitor = false;
+      multi-monitor = true;
       preferred-monitor = -2;
       preferred-monitor-by-connector = "eDP-1";
+      preview-size-scale = 0.5;
+      scroll-action = "cycle-windows";
+      show-show-apps-button = true;
+    };
+
+    "org/gnome/shell/extensions/pano" = {
+      history-length = 20;
+      play-audio-on-copy = false;
+      send-notification-on-copy = false;
     };
 
     "org/gnome/system/location" = {
@@ -173,6 +186,7 @@ with lib.hm.gvariant; {
       gnomeExtensions.workspace-indicator
       gnomeExtensions.caffeine
       gnomeExtensions.gsconnect
+      gnomeExtensions.pano
       papirus-icon-theme
       yaru-theme
       # (catppuccin-papirus-folders.override {
