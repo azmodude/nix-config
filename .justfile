@@ -1,5 +1,6 @@
 user := env_var('USER')
 host := `hostname`
+
 default:
     just --list
 # install home-manager for user=<user@host>
@@ -11,7 +12,7 @@ hm-switch:
     home-manager switch --flake .?submodules=1#{{user}}@{{host}}
 # update flakes
 update-flake-only:
-    nix flake update --commit-lock-file
+    nix flake update
 # update for host=<host>
 switch:
     sudo nixos-rebuild switch --flake .?submodules=1#{{host}}
