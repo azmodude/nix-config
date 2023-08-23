@@ -16,6 +16,8 @@ update-flake-only:
 # update for host=<host>
 switch:
     sudo nixos-rebuild switch --flake .?submodules=1#{{host}}
+boot:
+    sudo nixos-rebuild boot --flake .?submodules=1#{{host}}
 # update flakes and rebuild-switch for host=<host>
 update: update-flake-only && switch hm-switch
 
