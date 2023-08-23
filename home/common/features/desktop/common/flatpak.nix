@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   user,
   ...
 }: {
@@ -38,6 +39,12 @@
       };
     };
   };
+
+  # create symbolic link for flatpaks
+  systemd.user.tmpfiles.rules = [
+    "L ${config.home.homeDirectory}/.icons - - - - /run/current-system/sw/share/icons"
+  ];
+
   home.persistence = {
     "/persist/home/${user}".directories = [".var"];
   };
