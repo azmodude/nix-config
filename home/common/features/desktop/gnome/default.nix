@@ -195,11 +195,11 @@ with lib.hm.gvariant; {
       # })
     ];
     persistence = {
-      "/persist/home/${user}".directories = [".local/share/keyrings"];
+      "/persist/home/${user.name}".directories = [".local/share/keyrings"];
     };
   };
   # ensure keyrings are secured
   systemd.user.tmpfiles.rules = [
-    "z /home/${user}/.local/share/keyrings 0700 ${user} ${user} - -"
+    "z /home/${user.name}/.local/share/keyrings 0700 ${user.name} ${user.name} - -"
   ];
 }

@@ -42,6 +42,6 @@
 
   # disabled for now, Bottles (or wine-Games for that matter) don't like being bind-mounted
   # home.persistence = {
-  #   "/persist/home/${user}".directories = [".var"];
+  #   "/persist/home/${user.name}".directories = [".var"];
   # };
 }

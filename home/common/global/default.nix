@@ -70,13 +70,13 @@
   };
 
   home = {
-    username = lib.mkDefault user;
+    username = lib.mkDefault user.name;
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = lib.mkDefault "23.05";
 
     persistence = {
-      "/persist/home/${user}" = {
+      "/persist/home/${user.name}" = {
         directories = [
           "Documents"
           "Downloads"
@@ -91,10 +91,10 @@
   };
   # ensure misc directories exist and/or are secure
   systemd.user.tmpfiles.rules = [
-    "d /home/${user}/bin 0755 ${user} ${user} - -"
-    "z /home/${user}/.config/1Password 0700 ${user} ${user} - -"
-    "Z /home/${user}/.config/sops 0700 ${user} ${user} - -"
-    "z /home/${user}/.config/sops/age/keys.txt 0600 ${user} ${user} - -"
+    "d /home/${user.name}/bin 0755 ${user.name} ${user.name} - -"
+    "z /home/${user.name}/.config/1Password 0700 ${user.name} ${user.name} - -"
+    "Z /home/${user.name}/.config/sops 0700 ${user.name} ${user.name} - -"
+    "z /home/${user.name}/.config/sops/age/keys.txt 0600 ${user.name} ${user.name} - -"
   ];
 
   # Nicely reload system units when changing configs

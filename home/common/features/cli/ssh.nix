@@ -29,16 +29,16 @@ in {
 
   # ensure secure controlPath exists and secure ~/.ssh
   systemd.user.tmpfiles.rules = [
-    "d /home/${user}/tmp/.ssh 0700 ${user} ${user} 10d -"
-    "z /home/${user}/.ssh 0700 ${user} ${user} - -"
-    "z /home/${user}/.ssh/*.pub 0600 ${user} ${user} - -"
+    "d /home/${user.name}/tmp/.ssh 0700 ${user.name} ${user.name} 10d -"
+    "z /home/${user.name}/.ssh 0700 ${user.name} ${user.name} - -"
+    "z /home/${user.name}/.ssh/*.pub 0600 ${user.name} ${user.name} - -"
   ];
   sops.secrets.ssh-config-personal = {
-    sopsFile = ../../../${user}/secrets.yaml;
+    sopsFile = ../../../${user.name}/secrets.yaml;
     path = ".ssh/config.d/ssh-config-personal";
   };
 
-  home.persistence."/persist/home/${user}" = {
+  home.persistence."/persist/home/${user.name}" = {
     directories = [".ssh"];
   };
 }

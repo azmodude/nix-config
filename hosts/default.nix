@@ -14,7 +14,7 @@
     ./common/global
     ./common/users
     ./common/users/root
-    ./common/users/${user}
+    ./common/users/${user.name}
     #    ./_mixins/base
     #    ./_mixins/boxes
     #    ./_mixins/users/root

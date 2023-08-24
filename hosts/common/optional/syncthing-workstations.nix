@@ -3,7 +3,7 @@
     settings = {
       folders = {
         "workstations-documents" = {
-          path = "/home/${user}/sync/workstations/documents";
+          path = "/home/${user.name}/sync/workstations/documents";
           id = "workstations-documents";
           versioning = {
             type = "staggered";
@@ -16,7 +16,7 @@
           ignorePerms = false;
         };
         "workstations-pictures" = {
-          path = "/home/${user}/sync/workstations/pictures";
+          path = "/home/${user.name}/sync/workstations/pictures";
           id = "workstations-pictures";
           versioning = {
             type = "staggered";
@@ -29,7 +29,7 @@
           ignorePerms = false;
         };
         "workstations-projects" = {
-          path = "/home/${user}/sync/workstations/projects";
+          path = "/home/${user.name}/sync/workstations/projects";
           id = "workstations-projects";
           versioning = {
             type = "staggered";
@@ -42,7 +42,7 @@
           ignorePerms = false;
         };
         "workstations-obsidian" = {
-          path = "/home/${user}/sync/workstations/obsidian";
+          path = "/home/${user.name}/sync/workstations/obsidian";
           id = "workstations-obsidian";
           versioning = {
             type = "staggered";
@@ -55,7 +55,7 @@
           ignorePerms = false;
         };
         "workstations-calibre" = {
-          path = "/home/${user}/sync/workstations/calibre";
+          path = "/home/${user.name}/sync/workstations/calibre";
           id = "workstations-calibre";
           versioning = {
             type = "staggered";
@@ -84,16 +84,16 @@
   environment.persistence = {
     "/persist".directories = [
       {
-        directory = "/home/${user}/sync";
-        user = "${user}";
-        group = "${user}";
+        directory = "/home/${user.name}/sync";
+        user = "${user.name}";
+        group = "${user.name}";
         mode = "u=rwx,g=,o=";
       }
     ];
   };
-  # workaround a race condition that might happen if /home/${user}/sync already exists
+  # workaround a race condition that might happen if /home/${user.name}/sync already exists
   # impermanence does not change ownership if directory already exists
   systemd.tmpfiles.rules = [
-    "d /persist/home/${user}/sync 0700 azmo azmo - - "
+    "d /persist/home/${user.name}/sync 0700 ${user.name} ${user.name} - - "
   ];
 }
