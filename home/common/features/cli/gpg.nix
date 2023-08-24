@@ -66,12 +66,12 @@ in {
     };
   };
   home.persistence = {
-    "/persist/home/${user}".directories = [".gnupg"];
+    "/persist/home/${user.name}".directories = [".gnupg"];
   };
 
   # ensure .gnupg is secure
   systemd.user.tmpfiles.rules = [
-    "z /home/${user}/.gnupg 0700 ${user} ${user} - -"
+    "z /home/${user.name}/.gnupg 0700 ${user.name} ${user.name} - -"
   ];
 
   #

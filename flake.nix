@@ -105,7 +105,11 @@
           hostname = "apollo";
           domain = "hosts.gordonschulz.de";
           hostid = "b39cf9a8";
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            sshKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"];
+          };
         };
         modules = [
           # > Our main nixos configuration file <
@@ -119,7 +123,11 @@
           hostname = "artemis";
           domain = "hosts.gordonschulz.de";
           hostid = "b32cb9a7";
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            sshKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"];
+          };
         };
         modules = [
           # > Our main nixos configuration file <
@@ -133,7 +141,11 @@
           hostname = "hephaestus";
           domain = "hosts.gordonschulz.de";
           hostid = "e120cab3";
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            sshKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ"];
+          };
         };
         modules = [
           # > Our main nixos configuration file <
@@ -163,7 +175,12 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            eMail = "gordon@gordonschulz.de";
+            gpgKey = "0xDEE550054AA972F6";
+          };
           desktop = {
             environment = "gnome";
             logitech = true;
@@ -180,7 +197,12 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            eMail = "gordon@gordonschulz.de";
+            gpgKey = "0xDEE550054AA972F6";
+          };
           desktop = {
             environment = "gnome";
             logitech = true;
@@ -197,7 +219,12 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
-          user = "azmo";
+          user = {
+            name = "azmo";
+            fullName = "Gordon Schulz";
+            eMail = "gordon@gordonschulz.de";
+            gpgKey = "0xDEE550054AA972F6";
+          };
           desktop = {
             environment = "gnome";
             logitech = false;
