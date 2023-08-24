@@ -5,6 +5,7 @@
   lib,
   ...
 }: {
+  # autostart solaar
   home.file."${config.xdg.configHome}/autostart/solaar.desktop" = lib.mkIf (desktop.logitech == true) {
     # TODO: mkOutOfStoreSymlink isn't great, but I could not find a better way without using .text and writing my own
     #source = config.lib.file.mkOutOfStoreSymlink "/run/current-system/sw/share/applications/solaar.desktop";
@@ -20,4 +21,6 @@
       Categories=Utility;GTK;
     '';
   };
+  # autostart 1password
+  home.file."${config.xdg.configHome}/autostart/1password.desktop".text = builtins.readFile "${pkgs._1password-gui}/share/applications/1password.desktop";
 }
