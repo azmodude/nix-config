@@ -11,55 +11,59 @@ keys:
 creation_rules:
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *apollo
-      - *artemis
-      - *hephaestus
-      - *workvm
+      - age:
+          - *azmo
+          - *apollo
+          - *artemis
+          - *hephaestus
+          - *workvm
   - path_regex: hosts/common/users/azmo/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *apollo
-      - *artemis
-      - *hephaestus
+      - age:
+          - *azmo
+          - *apollo
+          - *artemis
+          - *hephaestus
   - path_regex: hosts/common/users/j525980/secrets.ya?ml$
     key_groups:
-    - age:
-      - *j525980
-      - *workvm
+      - age:
+          - *j525980
+          - *workvm
   - path_regex: hosts/apollo/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *apollo
+      - age:
+          - *azmo
+          - *apollo
   - path_regex: hosts/artemis/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *artemis
+      - age:
+          - *azmo
+          - *artemis
   - path_regex: hosts/hephaestus/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *hephaestus
+      - age:
+          - *azmo
+          - *hephaestus
   - path_regex: hosts/work-vm/secrets.ya?ml$
     key_groups:
-    - age:
-      - *j525980
-      - *workvm
+      - age:
+          - *j525980
+          - *workvm
 
   - path_regex: home/common/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
-      - *j525980
+      - age:
+          - *azmo
+          - *j525980
   - path_regex: home/azmo/secrets.ya?ml$
     key_groups:
-    - age:
-      - *azmo
+      - age:
+          - *azmo
+  - path_regex: home/azmo/accounts/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *azmo
   - path_regex: home/j525980/secrets.ya?ml$
     key_groups:
-    - age:
-      - *j525980
+      - age:
+          - *j525980
