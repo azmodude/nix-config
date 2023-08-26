@@ -8,6 +8,7 @@ flatpak install --user -y flathub com.discordapp.Discord
 flatpak install --user -y flathub com.hamrick.VueScan
 flatpak install --user -y md.obsidian.Obsidian
 flatpak install --user -y org.flameshot.Flameshot
+flatpak install --user -y com.github.tchx84.Flatseal
 
 case "${XDG_CURRENT_DESKTOP}" in
 GNOME)
@@ -39,7 +40,8 @@ artemis)
 
 	# configure MangoHud
 	for flatpak in com.valvesoftware.Steam com.heroicgameslauncher.hgl com.usebottles.bottles net.lutris.Lutris; do
-		flatpak override --user --env=MANGOHUD=1 ${flatpak}
+		# don't auto-enable MANGOHUD
+		flatpak override --user --env=MANGOHUD=0 ${flatpak}
 		flatpak override --user --filesystem=xdg-config/MangoHud:ro ${flatpak}
 	done
 	;;
