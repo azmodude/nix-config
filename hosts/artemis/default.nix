@@ -34,6 +34,7 @@
       ../common/optional/restic.nix
       ../common/optional/btrfs
       ../common/optional/fwupd.nix
+      ../common/optional/gaming.nix
       ../common/optional/lxd.nix
       ../common/optional/libvirt.nix
       ../common/optional/desktop/cups.nix
