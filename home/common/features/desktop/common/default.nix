@@ -6,6 +6,7 @@
     ./fonts.nix
     ./gnome-keyring.nix
     ./mime.nix
+    ./multimedia.nix
     ./thunderbird.nix
     ./vscode.nix
     ./wezterm.nix
