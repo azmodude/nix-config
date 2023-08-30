@@ -39,10 +39,6 @@
     };
   };
 
-  swapDevices = [
-    {device = "/dev/lvm-crypt-system/swap";}
-  ];
-
   services.btrfs.autoScrub = {
     enable = true;
     # avoid scrubbing multiple times, just do the root
