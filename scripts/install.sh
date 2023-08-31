@@ -57,7 +57,7 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	sudo true
 
-	[[ ${HAS_DISKO} -eq 1 ]] && sudo nix run github:nix-community/disko --extra-experimental-features 'nix-command flakes' --no-write-lock-file -- --mode zap_create_mount "hosts/${TARGET_HOST}/disks.nix"
+	[[ ${HAS_DISKO} -eq 1 ]] && sudo nix run github:nix-community/disko --extra-experimental-features 'nix-command flakes' --no-write-lock-file -- --mode disko "hosts/${TARGET_HOST}/disks.nix"
 	# create empty snapshot of btrfs-root until disko supports it
 	findmnt -o FSTYPE /mnt | grep -q btrfs && sudo mkdir -p /mnt/.snapshots/system && sudo btrfs subvolume snapshot /mnt/ /mnt/.snapshots/system/@.blank
 
