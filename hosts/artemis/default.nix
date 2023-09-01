@@ -31,8 +31,11 @@
 
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix
-      ../common/optional/restic.nix
       ../common/optional/btrfs
+      ../common/optional/swap-physical.nix
+      ../common/optional/swap-zram.nix
+
+      ../common/optional/restic.nix
       ../common/optional/fwupd.nix
       ../common/optional/gaming.nix
       ../common/optional/lxd.nix
