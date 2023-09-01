@@ -32,6 +32,7 @@
       ../common/optional/encrypted-root.nix
       ../common/optional/restic.nix
       ../common/optional/btrfs
+      ../common/optional/swap-physical.nix
       ../common/optional/swap-zram.nix
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
