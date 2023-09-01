@@ -28,12 +28,13 @@
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
 
-      ../common/optional/laptop.nix
       ../common/optional/encrypted-root.nix
-      ../common/optional/restic.nix
       ../common/optional/btrfs
       ../common/optional/swap-physical.nix
       ../common/optional/swap-zram.nix
+
+      ../common/optional/laptop.nix
+      ../common/optional/restic.nix
       ../common/optional/fwupd.nix
       ../common/optional/lxd.nix
       ../common/optional/libvirt.nix
