@@ -1,6 +1,7 @@
 {
   disks ? ["/dev/nvme0n1"],
-  swapsize ? "16G",
+  zramSwapwritebackSize ? "4G",
+  physicalSwapSize ? "16G",
   ...
 }: {
   disko.devices = {
@@ -50,14 +51,18 @@
       lvm-crypt-system = {
         type = "lvm_vg";
         lvs = {
-          a-swap = {
-            size = swapsize;
+          aaa-zramSwapwriteBackDevice = {
+            size = zramSwapwritebackSize;
+            name = "zramSwapwritebackDevice";
+          };
+          bbb-physicalSwap = {
+            size = physicalSwapSize;
             name = "swap";
             content = {
               type = "swap";
             };
           };
-          b-root = {
+          ccc-root = {
             size = "100%FREE";
             name = "root";
             content = {
