@@ -95,10 +95,6 @@
                   mountpoint = "/persist";
                   mountOptions = ["defaults" "compress=zstd" "noatime"];
                 };
-                "data/@persist/games" = {
-                  mountpoint = "/persist/games";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
               };
             };
           };
