@@ -133,7 +133,7 @@ with lib.hm.gvariant; {
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = ["drive-menu@gnome-shell-extensions.gcampax.github.com"];
-      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "caffeine@patapon.info" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io" "dash-to-dock@micxgx.gmail.com" "pano@elhan.io" "places-menu@gnome-shell-extensions.gcampax.github.com"];
+      enabled-extensions = ["workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "native-windows-placement@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "caffeine@patapon.info" "drive-menu@gnome-shell-extensions.gcampax.github.com" "gsconnect@andyholmes.github.io" "dash-to-dock@micxgx.gmail.com" "pano@elhan.io" "places-menu@gnome-shell-extensions.gcampax.github.com" "hibernate-status@dromi"];
       favorite-apps = ["firefox.desktop" "vivaldi-stable.desktop" "org.wezfurlong.wezterm.desktop" "code.desktop"];
       welcome-dialog-last-shown-version = "43.2";
     };
@@ -188,6 +188,7 @@ with lib.hm.gvariant; {
       gnomeExtensions.caffeine
       gnomeExtensions.gsconnect
       gnomeExtensions.pano
+      gnomeExtensions.hibernate-status-button
       papirus-icon-theme
       yaru-theme
       # (catppuccin-papirus-folders.override {
