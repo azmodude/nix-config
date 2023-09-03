@@ -27,7 +27,6 @@
 
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
-      ./games.nix
 
       ../common/optional/encrypted-root.nix
       ../common/optional/encrypted-root-ssh-unlock.nix

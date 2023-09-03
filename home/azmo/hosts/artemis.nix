@@ -18,13 +18,4 @@
     ]
     ++ lib.optional (builtins.isString desktop.environment) ../../common/features/desktop/common
     ++ lib.optional (builtins.isString desktop.environment) ../../common/features/desktop/${desktop.environment};
-
-  home.persistence = {
-    "/persist/games" = {
-      directories = [
-        "Games"
-      ];
-      allowOther = true;
-    };
-  };
 }
