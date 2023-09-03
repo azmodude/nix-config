@@ -4,7 +4,7 @@
       btrbk.settings = {
         timestamp_format = "long";
         snapshot_preserve_min = "2d";
-        snapshot_preserve = "7d";
+        snapshot_preserve = "14d";
 
         volume = {
           "/.btrfs-root" = {
