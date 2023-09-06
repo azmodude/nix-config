@@ -43,13 +43,14 @@
   };
   home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.VISUAL = "nvim";
+
   programs.astronvim = {
     enable = true;
     userConfig = pkgs.fetchFromGitHub {
       owner = "azmodude";
       repo = "astronvim";
-      rev = "ae4bc3eb6e80439bda8deaab844c41d4cb00692a";
-      sha256 = "12rahza1gbxddhidfjkr5x20w31hzv5ikjz9fcqz082ckiisa0ic";
+      rev = "4c85ffe13e1a54adc980f96db6118374a1101cc3";
+      sha256 = "sha256-NTSC86Fk4nULntZ68z/r6QETv9X04G/8XAxl7PV2jHI=";
     };
   };
 }
