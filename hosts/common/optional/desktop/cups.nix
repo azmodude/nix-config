@@ -2,7 +2,7 @@
   services.printing = {
     enable = true;
     startWhenNeeded = true;
-    drivers = [pkgs.hplipWithPlugin];
+    drivers = with pkgs; [hplip cups-filters];
   };
   services.avahi = {
     enable = true;
