@@ -99,4 +99,11 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  # report changed after activation
+  home.activation.report-changes = config.lib.dag.entryAnywhere ''
+    echo
+    ${pkgs.nvd}/bin/nvd diff $oldGenPath $newGenPath
+    echo
+  '';
 }

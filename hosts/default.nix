@@ -20,5 +20,16 @@
     #    ./_mixins/users/root
     #    ./_mixins/users/${username}
   ];
+
   users.mutableUsers = false;
+
+  # use nvd to report changes after activation
+  system.activationScripts.diff = {
+    supportsDryActivation = true;
+    text = ''
+      echo
+      ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      echo
+    '';
+  };
 }
