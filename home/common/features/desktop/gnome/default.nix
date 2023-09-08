@@ -203,6 +203,14 @@ with lib.hm.gvariant; {
       "/persist/home/${user.name}".directories = [".local/share/keyrings"];
     };
   };
+  # add gsconnect assocations
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+      "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+    };
+  };
   # ensure keyrings are secured
   systemd.user.tmpfiles.rules = [
     "z /home/${user.name}/.local/share/keyrings 0700 ${user.name} ${user.name} - -"
