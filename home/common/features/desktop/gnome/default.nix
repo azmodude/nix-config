@@ -36,6 +36,8 @@ with lib.hm.gvariant; {
       font-name = "Inter 10";
       gtk-theme = "Adwaita-dark";
       icon-theme = "Yaru";
+      cursor-theme = "Catppuccin-Macchiato-Light-Cursors";
+      cursor-size = 32;
       monospace-font-name = "Monospace 10";
       show-battery-percentage = true;
     };
@@ -191,6 +193,7 @@ with lib.hm.gvariant; {
       gnomeExtensions.hibernate-status-button
       papirus-icon-theme
       yaru-theme
+      catppuccin-cursors.macchiatoLight
       # (catppuccin-papirus-folders.override {
       #   flavor = "macchiato";
       #   accent = "lavender";
