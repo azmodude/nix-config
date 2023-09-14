@@ -26,8 +26,15 @@
        xcursor_size = tonumber(stdout)
       end
 
-      return {
-       -- ...your existing config
+      -- Pull in the wezterm API
+      local wezterm = require("wezterm")
+
+      -- This table will hold the configuration.
+      local config = {}
+
+      config = wezterm.config_builder()
+
+      config = {
        color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
         font = wezterm.font_with_fallback(
         {
@@ -35,19 +42,26 @@
           "Symbols Nerd Font"
         }),
         font_size = 11,
+        window_padding = {
+          left = 5,
+          right = 5,
+          top = 2,
+          bottom = 2,
+        },
         hide_tab_bar_if_only_one_tab = true,
+        use_fancy_tab_bar = true,
         xcursor_theme = xcursor_theme,
         xcursor_size = xcursor_size,
         window_frame = {
-         font = wezterm.font { family = "Inter", weight = "Bold" },
+         font = wezterm.font { family = "Inter", weight = "Regular" },
          font_size = 10.0,
         },
-        window_padding = {
-         left = 5,
-         right = 5,
-        },
-        front_end = "WebGpu"
+        front_end = "WebGpu",
+        window_background_opacity = 1.0,
+        text_background_opacity = 1.0,
+        term = "wezterm",
       }
+      return config
     '';
   };
 }
