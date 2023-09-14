@@ -5,7 +5,7 @@
     ./btop.nix
     ./direnv.nix
     ./editorconfig.nix
-    ./exa.nix
+    ./eza.nix
     ./fzf.nix
     ./git.nix
     ./gpg.nix
