@@ -1,5 +1,5 @@
 {config, ...}: {
-  users.users.azmo.passwordFile = config.sops.secrets.azmo-password.path;
+  users.users.azmo.hashedPasswordFile = config.sops.secrets.azmo-password.path;
   sops.secrets.azmo-password = {
     sopsFile = ./secrets.yaml;
     neededForUsers = true;
