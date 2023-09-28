@@ -53,7 +53,7 @@
         xcursor_theme = xcursor_theme,
         xcursor_size = xcursor_size,
         window_frame = {
-         font = wezterm.font { family = "Inter", weight = "Regular" },
+         font = wezterm.font { family = "Inter", weight = "Medium" },
          font_size = 10.0,
         },
         front_end = "WebGpu",
