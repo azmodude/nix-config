@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   user,
   ...
 }: {
@@ -9,4 +10,5 @@
     "L+ /persist/home/${user.name}/Pictures/synced - - - - /persist/home/${user.name}/sync/workstations/pictures"
     "L+ /persist/home/${user.name}/projects/synced - - - - /persist/home/${user.name}/sync/workstations/projects"
   ];
+  home.packages = with pkgs; [syncthingtray];
 }
