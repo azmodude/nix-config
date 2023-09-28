@@ -9,6 +9,7 @@ flatpak install --user -y flathub com.hamrick.VueScan
 flatpak install --user -y md.obsidian.Obsidian
 flatpak install --user -y org.flameshot.Flameshot
 flatpak install --user -y com.github.tchx84.Flatseal
+flatpak install --user -y org.kde.okular
 
 case "${XDG_CURRENT_DESKTOP}" in
 GNOME)
@@ -29,10 +30,10 @@ artemis)
 	flatpak install --user -y com.usebottles.bottles
 	flatpak install --user -y com.valvesoftware.Steam.Utility.steamtinkerlaunch
 	flatpak install --user -y net.davidotek.pupgui2
-	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.gamescope
-	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
-	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.OBSVkCapture//22.08
-	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.vkBasalt//22.08
+	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.gamescope//23.08
+	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
+	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.OBSVkCapture//23.08
+	flatpak install --user -y org.freedesktop.Platform.VulkanLayer.vkBasalt//23.08
 	flatpak install --user -y com.heroicgameslauncher.hgl
 
 	# allow bottles to create desktop links
