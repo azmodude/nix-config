@@ -43,7 +43,7 @@ in {
           smartBorders = "on";
           smartGaps = true;
         };
-        terminal = "${pkgs.kitty}/bin/kitty";
+        terminal = "${pkgs.wezterm}/bin/wezterm";
       };
       extraConfig = ''
         ${catppuccin-macchiato-i3}
