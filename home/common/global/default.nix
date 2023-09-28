@@ -93,6 +93,8 @@
   systemd.user.tmpfiles.rules = [
     "d /home/${user.name}/bin 0755 ${user.name} ${user.name} - -"
     "z /home/${user.name}/.config/1Password 0700 ${user.name} ${user.name} - -"
+    "d /home/${user.name}/.config/sops 0700 ${user.name} ${user.name} - -"
+    "f /home/${user.name}/.config/sops/age/keys.txt 0600 ${user.name} ${user.name} - -"
     "Z /home/${user.name}/.config/sops 0700 ${user.name} ${user.name} - -"
     "z /home/${user.name}/.config/sops/age/keys.txt 0600 ${user.name} ${user.name} - -"
   ];
