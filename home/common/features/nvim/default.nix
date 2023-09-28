@@ -40,6 +40,8 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
+    withPython3 = true;
+    withNodeJs = true;
   };
   home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.VISUAL = "nvim";
