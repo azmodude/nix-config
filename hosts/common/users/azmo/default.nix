@@ -4,4 +4,5 @@
     sopsFile = ./secrets.yaml;
     neededForUsers = true;
   };
+  environment.localBinInPath = true;
 }
