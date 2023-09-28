@@ -71,16 +71,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 			exit 1
 		fi
 	fi
-	if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_rsa_key" ]]; then
-		sudo mkdir -p "/mnt/persist/etc/ssh"
-		echo "ERROR! No ssh_host_rsa_key found in /mnt/persist/etc/ssh."
-		echo "Please copy the proper host key to /mnt/persist/etc/ssh/ssh_host_rsa_key to ensure proper functionality."
-		read -p "Did you copy the key? [y/N] " -n 1 -r
-		if [[ ! -e "/mnt/persist/etc/ssh/ssh_host_rsa_key" ]]; then
-			echo "ERROR! Ensure SSH Key configuration for host is correct."
-			exit 1
-		fi
-	fi
 
 	sudo nixos-install --no-root-password --flake ".#${TARGET_HOST}"
 
