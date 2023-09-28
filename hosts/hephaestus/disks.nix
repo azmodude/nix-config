@@ -1,7 +1,7 @@
 {
   disks ? ["/dev/nvme0n1"],
   zramSwapwritebackSize ? "4G",
-  physicalSwapSize ? "8G",
+  physicalSwapSize ? "16G",
   ...
 }: {
   disko.devices = {
