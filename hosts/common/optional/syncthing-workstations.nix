@@ -1,6 +1,12 @@
 {user, ...}: {
   services.syncthing = {
     settings = {
+      gui = {
+        address = "127.0.0.1:8384";
+        # this is probably a bit insecure, but since we are exposing the API and stuff to only localhost
+        # ... if someone has access to localhost, it's probably gameover anyway
+        apiKey = "gzdwDH4s6Xd3Hst2uuMbG7rAVXcoPQnb";
+      };
       folders = {
         "workstations-documents" = {
           path = "/home/${user.name}/sync/workstations/documents";
