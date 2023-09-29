@@ -16,17 +16,18 @@
 #       sed -i -r "39s/\\$\{PLUGIN_DIR\}/\/tmp/g" $target/catppuccin.tmux
 #     '';
 #   };
-let
-  catppuccin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (oldAttrs: rec {
-    version = "unstable-4348b09";
-    src = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "tmux";
-      rev = "4e48b09";
-      sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
-    };
-  });
-in {
+# let
+#   catppuccin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (oldAttrs: rec {
+#     version = "unstable-bb129ad";
+#     src = pkgs.fetchFromGitHub {
+#       owner = "catppuccin";
+#       repo = "tmux";
+#       rev = "bb129ad37a2fb199a387f52cdffb5457301cdd7c";
+#       sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
+#     };
+#   });
+# in {
+{
   programs.tmux = {
     enable = true;
     customPaneNavigationAndResize = true;
@@ -59,13 +60,12 @@ in {
         plugin = tmuxPlugins.vim-tmux-focus-events;
       }
       {
-        plugin = catppuccin;
+        plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavour "macchiato"
-          set -g @catppuccin_window_tabs_enabled "on"
-          set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
-          set -g @catppuccin_user "on"
-          set -g @catppuccin_host "on"
+          set -g @catppuccin_status_modules "user host application directory session date_time"
+          set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M"
+          set -g @catppuccin_date_time_icon "󰥔"
         '';
       }
     ];
