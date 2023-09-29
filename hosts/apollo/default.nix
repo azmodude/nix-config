@@ -43,6 +43,7 @@
       ../common/optional/desktop/sane.nix
       ../common/optional/syncthing-common.nix
       ../common/optional/syncthing-workstations.nix
+      ../common/optional/wireguard-home.nix
       # Only include desktop components if one is supplied.
       # - https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
     ]
