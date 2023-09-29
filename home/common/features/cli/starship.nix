@@ -48,7 +48,7 @@
         format = "[@$hostname]($style) in ";
         style = "#8aadf4";
         ssh_only = false;
-        ssh_symbol = "旅";
+        ssh_symbol = "󰣀 ";
       };
       shlvl = {
         threshold = 2;
@@ -129,7 +129,7 @@
       aws.symbol = "  ";
       conda.symbol = " ";
       dart.symbol = " ";
-      directory.read_only = " ";
+      directory.read_only = " ";
       docker_context.symbol = " ";
       elixir.symbol = " ";
       elm.symbol = " ";
@@ -150,9 +150,9 @@
       ruby.symbol = " ";
       rust.symbol = " ";
       scala.symbol = " ";
-      shlvl.symbol = "溜";
+      shlvl.symbol = " ";
       swift.symbol = "ﯣ ";
-      terraform.symbol = "行";
+      terraform.symbol = "󱁢 ";
     };
   };
 }
