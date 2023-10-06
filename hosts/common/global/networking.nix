@@ -13,6 +13,7 @@
     useDHCP = lib.mkDefault true;
     firewall = {
       enable = true;
+      allowedTCPPorts = [8010]; # vlc chromecast support
     };
   };
 }
