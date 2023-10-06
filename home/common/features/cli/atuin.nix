@@ -6,9 +6,10 @@
       sync_frequency = "5m";
       filter_mode = "global";
       filter_mode_shell_up_key_binding = "host";
+      inline_height = "40";
       update_check = "false";
       show_preview = "true";
-      inline_height = "40";
+      workspaces = "true";
     };
   };
   sops = {
