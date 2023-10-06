@@ -189,15 +189,15 @@ with lib.hm.gvariant; {
   };
   home = {
     packages = with pkgs; [
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.dash-to-dock
       gnomeExtensions.appindicator
-      gnomeExtensions.workspace-indicator
+      gnomeExtensions.blur-my-shell
       gnomeExtensions.caffeine
+      gnomeExtensions.dash-to-dock
       gnomeExtensions.gsconnect
-      gnomeExtensions.pano
       gnomeExtensions.hibernate-status-button
+      gnomeExtensions.pano
       gnomeExtensions.tiling-assistant
+      gnomeExtensions.workspace-indicator
       papirus-icon-theme
       yaru-theme
       catppuccin-cursors.macchiatoLight
