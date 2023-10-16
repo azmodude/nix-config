@@ -5,7 +5,6 @@
     extraPackages = with pkgs; [
       # astronvim
       ripgrep
-      nodejs
       gcc
       fzf
       python3
@@ -36,6 +35,10 @@
       gotools
       # markdown
       marksman
+      markdownlint-cli
+      # javascript
+      nodejs
+      yarn
     ];
     defaultEditor = true;
     vimAlias = true;
