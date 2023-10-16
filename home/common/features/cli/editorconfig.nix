@@ -15,6 +15,10 @@
         indent_style = "space";
         indent_size = 2;
       };
+      "*.lua" = {
+        indent_style = "space";
+        indent_size = 2;
+      };
       "*.md" = {
         trim_trailing_whitespace = false;
       };
