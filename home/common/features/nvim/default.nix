@@ -49,8 +49,22 @@
   home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.VISUAL = "nvim";
 
+  xdg.configFile = {
+    nvim = {
+      enable = true;
+      source = pkgs.fetchFromGitHub {
+        owner = "azmodude";
+        repo = "lazyvim";
+        rev = "62994f5bfee1b7e4bf4d8b1b7a13f742ca7d3433";
+        sha256 = "05bkxnph7g3rz4k2bc30z6rc5slhdwkm4iaifgp56asa5x402pnr";
+      };
+      # make files symbolic links to have .config/nvim writable by lazyvim
+      recursive = true;
+    };
+  };
+
   programs.astronvim = {
-    enable = true;
+    enable = false;
     userConfig = pkgs.fetchFromGitHub {
       owner = "azmodude";
       repo = "astronvim";
