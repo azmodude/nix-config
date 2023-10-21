@@ -15,8 +15,8 @@
         encryptByDefault = false;
         signByDefault = false;
       };
-      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."email/fastmail/gordon/password".path}";
       msmtp.enable = true;
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/user/${toString user.uid}/secrets/email/fastmail/gordon/password";
       realName = "${user.fullName}";
       signature = {
         showSignature = true;
@@ -39,8 +39,8 @@
         encryptByDefault = false;
         signByDefault = false;
       };
-      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."email/gmail/gordon/password".path}";
       msmtp.enable = true;
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/user/${toString user.uid}/secrets/email/gmail/gordon/password";
       realName = "${user.fullName}";
       signature = {
         showSignature = true;
@@ -56,7 +56,7 @@
     yahoo-throwaway = {
       address = "meierfred33@yahoo.de";
       userName = "meierfred33@yahoo.de";
-      passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."email/yahoo/throwaway/password".path}";
+      passwordCommand = "${pkgs.coreutils}/bin/cat /run/user/${toString user.uid}/secrets/email/yahoo/throwaway/password";
       realName = "Fred Meier";
       flavor = "plain";
       imap = {
