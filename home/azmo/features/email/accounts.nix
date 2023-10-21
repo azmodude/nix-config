@@ -16,6 +16,7 @@
         signByDefault = false;
       };
       passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."email/fastmail/gordon/password".path}";
+      msmtp.enable = true;
       realName = "${user.fullName}";
       signature = {
         showSignature = true;
@@ -39,6 +40,7 @@
         signByDefault = false;
       };
       passwordCommand = "${pkgs.coreutils}/bin/cat ${config.sops.secrets."email/gmail/gordon/password".path}";
+      msmtp.enable = true;
       realName = "${user.fullName}";
       signature = {
         showSignature = true;
