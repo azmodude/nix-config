@@ -59,7 +59,7 @@ creation_rules:
     key_groups:
       - age:
           - *azmo
-  - path_regex: home/azmo/accounts/secrets.ya?ml$
+  - path_regex: home/azmo/features/email/secrets.ya?ml$
     key_groups:
       - age:
           - *azmo

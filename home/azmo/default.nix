@@ -1,6 +1,6 @@
 {
   imports = [
-    ./accounts
+    ./features/email
     ./features/git.nix
     ./features/packages.nix
     ./features/rclone.nix
