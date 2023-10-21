@@ -177,6 +177,7 @@
           inherit inputs outputs;
           user = {
             name = "azmo";
+            uid = 1000;
             fullName = "Gordon Schulz";
             eMail = "gordon@gordonschulz.de";
             gpgKey = "0xDEE550054AA972F6";
@@ -199,6 +200,7 @@
           inherit inputs outputs;
           user = {
             name = "azmo";
+            uid = 1000;
             fullName = "Gordon Schulz";
             eMail = "gordon@gordonschulz.de";
             gpgKey = "0xDEE550054AA972F6";
@@ -221,6 +223,7 @@
           inherit inputs outputs;
           user = {
             name = "azmo";
+            uid = 1000;
             fullName = "Gordon Schulz";
             eMail = "gordon@gordonschulz.de";
             gpgKey = "0xDEE550054AA972F6";
