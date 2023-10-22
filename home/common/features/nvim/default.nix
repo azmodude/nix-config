@@ -33,6 +33,7 @@
       gopls
       gofumpt
       gotools
+      golines
       # markdown
       marksman
       markdownlint-cli
