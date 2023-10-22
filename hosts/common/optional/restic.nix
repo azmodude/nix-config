@@ -7,7 +7,9 @@
       paths = ["/home"];
       exclude = [
         "/home/*/Downloads"
-        "/home/*/Games"
+        "/home/*/Games/*"
+        # only WoW Interface and WTF, game lives in $HOME/.var/app/com.usebottles.bottles/...
+        "!/home/*/Games/WoW"
         "/home/*/.cache"
         "/home/*/.local/state"
         "/home/*/.local/share/containers"
