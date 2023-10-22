@@ -11,6 +11,7 @@
     [
       ../../common/global
       ../../common/features/cli
+      ../../common/features/development
       ../../common/features/nvim
       ../../common/features/sops.nix
       ../../common/features/syncthing.nix
