@@ -38,4 +38,9 @@
       };
     };
   };
+  # put an symbolic link to our .editorconfig in $HOME in /persist/home/%u
+  # else lookup by editors fail since they are on another filesystem
+  systemd.user.tmpfiles.rules = [
+    "L+ /persist/home/%u/.editorconfig - - - - %h/.editorconfig"
+  ];
 }
