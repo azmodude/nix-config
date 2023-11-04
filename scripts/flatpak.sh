@@ -4,12 +4,13 @@
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # install common flatpaks
+flatpak install --user -y flathub com.spotify.Client
 flatpak install --user -y flathub com.discordapp.Discord
 flatpak install --user -y flathub com.hamrick.VueScan
-flatpak install --user -y md.obsidian.Obsidian
-flatpak install --user -y org.flameshot.Flameshot
-flatpak install --user -y com.github.tchx84.Flatseal
-flatpak install --user -y org.kde.okular
+flatpak install --user -y flathub md.obsidian.Obsidian
+flatpak install --user -y flathub org.flameshot.Flameshot
+flatpak install --user -y flathub com.github.tchx84.Flatseal
+flatpak install --user -y flathub org.kde.okular
 
 case "${XDG_CURRENT_DESKTOP}" in
 GNOME)
