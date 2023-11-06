@@ -6,8 +6,8 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland.override {
+      nativeMessagingHosts = [pkgs.tridactyl-native];
       cfg = {
-        enableTridactylNative = true;
         mesa = true;
         pipewire = true;
         ffmpeg_5 = true;
