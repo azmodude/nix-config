@@ -3,6 +3,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      commit-mono
       dejavu_fonts
       jetbrains-mono
       inter
