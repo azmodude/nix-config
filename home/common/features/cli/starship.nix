@@ -92,7 +92,8 @@
       };
       status = {
         disabled = false;
-        map_symbol = true;
+        map_symbol = false;
+        symbol = " ";
       };
       time = {
         disabled = true;
