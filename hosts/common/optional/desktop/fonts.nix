@@ -4,11 +4,13 @@
     packages = with pkgs; [
       (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       dejavu_fonts
+      jetbrains-mono
       inter
       # Iosevka Jetbrains Mono Variant
       (iosevka-bin.override {variant = "ss14";})
       liberation_ttf
       noto-fonts
+      open-sans
       roboto
       roboto-serif
       roboto-slab
