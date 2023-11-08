@@ -33,6 +33,7 @@
     enable = true;
     settings = {
       # catppuccin-macchiato
+      # TODO: Can we get this directly from the GitHub Repository?
       gui = {
         icons = true;
         theme = {
