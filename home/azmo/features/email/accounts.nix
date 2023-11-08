@@ -3,7 +3,9 @@
   pkgs,
   user,
   ...
-}: {
+}: let
+  signatureText = "Best,\n/${user.fullName}";
+in {
   accounts.email.accounts = {
     fastmail-gordon = {
       address = "gordon@gordonschulz.de";
@@ -15,19 +17,35 @@
         encryptByDefault = false;
         signByDefault = false;
       };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        patterns = ["*" "!Snoozed"];
+      };
       msmtp.enable = true;
+      neomutt = {
+        enable = true;
+      };
+      notmuch = {
+        enable = true;
+        neomutt.virtualMailboxes = [
+          {
+            name = "fastmail-inbox";
+            query = "tag:inbox";
+          }
+        ];
+      };
       passwordCommand = "${pkgs.coreutils}/bin/cat /run/user/${toString user.uid}/secrets/email/fastmail/gordon/password";
       realName = "${user.fullName}";
       signature = {
-        showSignature = true;
-        text =
-          ''
-            Best,
-              /''
-          + "${user.fullName}";
+        showSignature = "append";
+        text = "${signatureText}";
       };
       thunderbird = {
         enable = true;
+        perIdentitySettings = id: {
+          "mail.identity.id_${id}.htmlSigText" = "${signatureText}";
+        };
       };
     };
     gmail-gordon = {
@@ -43,14 +61,14 @@
       passwordCommand = "${pkgs.coreutils}/bin/cat /run/user/${toString user.uid}/secrets/email/gmail/gordon/password";
       realName = "${user.fullName}";
       signature = {
-        showSignature = true;
-        text = ''
-          Best,
-            /${user.fullName}
-        '';
+        showSignature = "append";
+        text = "${signatureText}";
       };
       thunderbird = {
         enable = true;
+        perIdentitySettings = id: {
+          "mail.identity.id_${id}.htmlSigText" = "${signatureText}";
+        };
       };
     };
     yahoo-throwaway = {
@@ -62,6 +80,22 @@
       imap = {
         host = "imap.mail.yahoo.com";
         port = 993;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+      };
+      neomutt = {
+        enable = true;
+      };
+      notmuch = {
+        enable = true;
+        neomutt.virtualMailboxes = [
+          {
+            name = "yahoo-throwaway-inbox";
+            query = "tag:inbox";
+          }
+        ];
       };
       smtp = {
         host = "smtp.mail.yahoo.com";
