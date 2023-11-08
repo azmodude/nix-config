@@ -1,6 +1,6 @@
 {
   imports = [
     ./accounts.nix
-    ./msmtp.nix
+    ./programs.nix
   ];
 }
