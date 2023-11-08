@@ -7,6 +7,7 @@
     ./gnome-keyring.nix
     ./mime.nix
     ./multimedia.nix
+    ./spotify.nix
     ./thunderbird.nix
     ./vscode.nix
     ./wezterm.nix
