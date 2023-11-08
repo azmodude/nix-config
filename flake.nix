@@ -175,6 +175,7 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
+          hostname = "apollo";
           user = {
             name = "azmo";
             uid = 1000;
@@ -198,6 +199,7 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
+          hostname = "artemis";
           user = {
             name = "azmo";
             uid = 1000;
@@ -221,6 +223,7 @@
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
+          hostname = "hephaestus";
           user = {
             name = "azmo";
             uid = 1000;
