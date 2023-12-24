@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       auto_sync = true;
+      enter_accept = true;
       sync_frequency = "5m";
       filter_mode = "global";
       filter_mode_shell_up_key_binding = "host";
