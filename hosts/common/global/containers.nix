@@ -13,7 +13,7 @@
   };
   # add dnsname plugin for cni
   virtualisation.containers.containersConf.cniPlugins = with pkgs; [cni-plugins dnsname-cni];
-  environment.systemPackages = with pkgs; [distrobox docker-compose podman-compose];
+  environment.systemPackages = with pkgs; [distrobox docker-compose podman-compose exfat];
 
   environment.persistence = {
     "/persist".directories = [
