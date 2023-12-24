@@ -41,7 +41,7 @@ in {
   programs.dconf.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
   };
   services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
