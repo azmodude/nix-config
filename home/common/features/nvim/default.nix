@@ -40,6 +40,8 @@
       # javascript
       nodejs
       yarn
+      # yaml
+      yaml-language-server
     ];
     defaultEditor = true;
     vimAlias = true;
@@ -56,8 +58,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "azmodude";
         repo = "lazyvim";
-        rev = "578f81251e27aab4c2fbbc5aeef916504dc7c7cc";
-        sha256 = "0ly6d9bzwvk3c5kz2gsy61gs66kiz9j1mp4503bn2i8j36rdas7r";
+        rev = "66fe5f69b4989cfff58c1785d57743e3cfdebd31";
+        sha256 = "1g8llfl7lk085da2lwgi50lrcqkrs85vv8hy1g3f18qkq0br8clw";
       };
       # make files symbolic links to have .config/nvim writable by lazyvim
       recursive = true;
