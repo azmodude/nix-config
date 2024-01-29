@@ -85,7 +85,7 @@
       enable = true;
       enableRootSlice = true;
       enableSystemSlice = true;
-      enableUserServices = true;
+      enableUserSlices = true;
     };
   };
 
