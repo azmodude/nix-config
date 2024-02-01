@@ -34,7 +34,7 @@ in {
         "i2c"
         "mysql"
         "docker"
-        "lxd"
+        "incus-admin"
         "podman"
         "git"
         "libvirtd"
