@@ -36,7 +36,7 @@
       ../common/optional/laptop.nix
       ../common/optional/restic.nix
       ../common/optional/fwupd.nix
-      ../common/optional/lxd.nix
+      ../common/optional/incus.nix
       ../common/optional/libvirt.nix
       ../common/optional/desktop/cups
       ../common/optional/desktop/sane.nix
