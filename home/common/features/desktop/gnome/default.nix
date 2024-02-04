@@ -8,8 +8,8 @@
 with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
-      picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/elementaryos-default";
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/odin.jpg";
+      picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/odin-dark.jpg";
     };
 
     "org/gnome/desktop/calendar" = {
