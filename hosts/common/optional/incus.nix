@@ -7,8 +7,8 @@
       networks = [
         {
           config = {
-            ipv4.address = "auto";
-            ipv6.address = "auto";
+            "ipv4.address" = "auto";
+            "ipv6.address" = "auto";
           };
           description = "Default network";
           name = "incusbr0";
