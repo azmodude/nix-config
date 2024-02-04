@@ -135,7 +135,6 @@
       directory.read_only = " ";
       docker_context.symbol = " ";
       elixir.symbol = " ";
-      elm.symbol = " ";
       gcloud.symbol = " ";
       git_branch.symbol = " ";
       golang.symbol = " ";
