@@ -96,7 +96,9 @@
         symbol = " ";
       };
       time = {
-        disabled = true;
+        disabled = false;
+        time_format = "%Y-%b-%d %R";
+        style = "bold yellow";
       };
 
       # Cloud
