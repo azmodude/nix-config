@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # sunshine
   environment.systemPackages = [pkgs.sunshine];
-  # some kernel magic required
+  # some kernel magic required for sunshine
   boot.kernelModules = ["uinput"];
   services.udev.extraRules = ''
     KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
@@ -9,7 +9,7 @@
   # configure avahi for discovery
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     publish = {
       userServices = true;
       hinfo = true;
