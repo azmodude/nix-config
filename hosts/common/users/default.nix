@@ -49,6 +49,8 @@ in {
 
   # ensure persist home exists and is secure
   systemd.tmpfiles.rules = [
+    "d /home/${user.name} 0700 ${user.name} ${user.name} - -"
+    "z /home/${user.name} 0700 ${user.name} ${user.name} - -"
     "d /persist/home/${user.name} 0700 ${user.name} ${user.name} - -"
     "z /persist/home/${user.name} 0700 ${user.name} ${user.name} - -"
   ];
