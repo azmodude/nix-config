@@ -18,7 +18,7 @@
               maxAge = "7776000"; # 90 days
             };
           };
-          devices = ["artemis" "hephaestus" "apollo"];
+          devices = ["artemis" "hephaestus" "apollo" "zeus"];
           ignorePerms = false;
         };
         "workstations-pictures" = {
@@ -31,7 +31,7 @@
               maxAge = "7776000"; # 90 days
             };
           };
-          devices = ["artemis" "hephaestus" "apollo"];
+          devices = ["artemis" "hephaestus" "apollo" "zeus"];
           ignorePerms = false;
         };
         "workstations-projects" = {
@@ -44,7 +44,7 @@
               maxAge = "7776000"; # 90 days
             };
           };
-          devices = ["artemis" "hephaestus" "apollo"];
+          devices = ["artemis" "hephaestus" "apollo" "zeus"];
           ignorePerms = false;
         };
         "workstations-calibre" = {
@@ -57,7 +57,7 @@
               maxAge = "7776000"; # 90 days
             };
           };
-          devices = ["artemis" "hephaestus" "apollo"];
+          devices = ["artemis" "hephaestus" "apollo" "zeus"];
           ignorePerms = false;
         };
       };
@@ -70,6 +70,9 @@
         };
         hephaestus = {
           id = "DMZFY3M-OPJKLBJ-EFSIXWI-L3ALBEC-5FJJGHD-UEE7IOV-QTOEOFE-R6S7ZA7";
+        };
+        zeus = {
+          id = "7FNHSVF-LKIIARR-KUIZIAR-F6EGUVF-BIZONAO-XHRRZNV-3DNEDST-KHVYVAG";
         };
       };
     };
