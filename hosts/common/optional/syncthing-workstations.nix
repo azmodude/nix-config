@@ -9,7 +9,7 @@
       };
       folders = {
         "workstations-documents" = {
-          path = "/home/${user.name}/sync/workstations/documents";
+          path = "/home/${user.name}/sync/workstations-documents";
           id = "workstations-documents";
           versioning = {
             type = "staggered";
@@ -22,7 +22,7 @@
           ignorePerms = false;
         };
         "workstations-pictures" = {
-          path = "/home/${user.name}/sync/workstations/pictures";
+          path = "/home/${user.name}/sync/workstations-pictures";
           id = "workstations-pictures";
           versioning = {
             type = "staggered";
@@ -35,7 +35,7 @@
           ignorePerms = false;
         };
         "workstations-projects" = {
-          path = "/home/${user.name}/sync/workstations/projects";
+          path = "/home/${user.name}/sync/workstations-projects";
           id = "workstations-projects";
           versioning = {
             type = "staggered";
@@ -48,7 +48,7 @@
           ignorePerms = false;
         };
         "workstations-calibre" = {
-          path = "/home/${user.name}/sync/workstations/calibre";
+          path = "/home/${user.name}/sync/workstations-calibre";
           id = "workstations-calibre";
           versioning = {
             type = "staggered";
