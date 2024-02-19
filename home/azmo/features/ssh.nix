@@ -1,5 +1,6 @@
 {
   # write SSH public keys
+  home.file.".ssh/keys.public/aws.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7pcvaaw9WD8bwN4cY0B/1aGBoCqI7rRogDQVLZAtR5";
   home.file.".ssh/keys.public/general.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUkEk7GV/qWMR9SJFYSJSxwnPxR8fG2Fn9VILHcyPYQ";
   home.file.".ssh/keys.public/cloud-general.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP6UF18GhwVcmv4UUqcxBcu9muWUiKbRqT5yaQ6BmQ2j";
   home.file.".ssh/keys.public/git.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQh4341SBJaXdFAvDtAvS9zs4tiS5v8jod0OhgzBXpV";
