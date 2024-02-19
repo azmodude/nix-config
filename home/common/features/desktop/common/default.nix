@@ -10,6 +10,7 @@
     ./spotify.nix
     ./thunderbird.nix
     ./vscode.nix
+    ./vuescan.nix
     ./wezterm.nix
   ];
 }
