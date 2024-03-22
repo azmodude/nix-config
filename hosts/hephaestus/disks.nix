@@ -10,14 +10,14 @@
         type = "disk";
         device = builtins.elemAt disks 0;
         content = {
-          type = "table";
-          format = "gpt";
-          partitions = [
-            {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              priority = 1;
               name = "ESP";
               start = "1MiB";
               end = "10GiB";
-              bootable = true;
+              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -28,23 +28,23 @@
                   "umask=0077"
                 ];
               };
-            }
-            {
-              name = "luks";
-              start = "10GiB";
-              end = "100%";
+            };
+            luks = {
+              size = "100%";
               content = {
                 type = "luks";
                 name = "crypt-system";
                 extraFormatArgs = ["--label crypt-system"];
-                extraOpenArgs = ["--allow-discards"];
+                settings = {
+                  allowDiscards = true;
+                };
                 content = {
                   type = "lvm_pv";
                   vg = "lvm-crypt-system";
                 };
               };
-            }
-          ];
+            };
+          };
         };
       };
     };
@@ -52,18 +52,21 @@
       lvm-crypt-system = {
         type = "lvm_vg";
         lvs = {
-          aaa-zramSwapwriteBackDevice = {
+          zramSwapwriteBackDevice = {
+            priority = 1;
             size = zramSwapwritebackSize;
             name = "zramSwapwritebackDevice";
           };
-          bbb-physicalSwap = {
+          physicalSwap = {
+            priority = 2;
             size = physicalSwapSize;
             name = "swap";
             content = {
               type = "swap";
             };
           };
-          ccc-root = {
+          root = {
+            priority = 3;
             size = "100%FREE";
             name = "root";
             content = {
