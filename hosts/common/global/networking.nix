@@ -15,5 +15,8 @@
       enable = true;
       allowedTCPPorts = [8010]; # vlc chromecast support
     };
+    nftables = {
+      enable = true;
+    };
   };
 }
