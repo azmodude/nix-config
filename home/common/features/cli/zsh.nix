@@ -9,7 +9,9 @@
       enable = true;
     };
     enableVteIntegration = true;
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     enableCompletion = true;
     autocd = true;
     dirHashes = {
