@@ -3,6 +3,7 @@
     fd
     just
     lf
+    mtr
     rclone
     rsync
     ripgrep
