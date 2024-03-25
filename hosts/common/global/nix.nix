@@ -20,13 +20,15 @@
       options = "--delete-older-than 7d";
     };
 
+    # this should no longer be neccessary and is handled by
+    # https://github.com/NixOS/nixpkgs/commit/e456032addae76701eb17e6c03fc515fd78ad74f
     # Add each flake input as a registry
     # To make nix3 commands consistent with the flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    # registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
-    # Map registries to channels
-    # Very useful when using legacy commands
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    # Add nixpkgs input to NIX_PATH
+    # This lets nix2 commands still use <nixpkgs>
+    # nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
   };
   environment.systemPackages = with pkgs; [nix-prefetch-scripts];
 }
