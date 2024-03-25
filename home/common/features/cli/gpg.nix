@@ -20,8 +20,8 @@
     }
     else if desktop.environment == "gnome"
     then {
-      package = pkgs.pinentry-gnome;
-      name = "gnome3";
+      package = pkgs.pinentry-gnome3;
+      name = "pinentry-gnome3";
     }
     else {
       package = pkgs.pinentry-curses;
@@ -33,7 +33,7 @@ in {
   services.gpg-agent = {
     enable = true;
     enableSshSupport = false;
-    pinentryFlavor = pinentry.name;
+    pinentryPackage = pinentry.package;
     enableExtraSocket = true;
   };
 
