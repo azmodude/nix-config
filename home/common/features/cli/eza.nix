@@ -1,7 +1,8 @@
 {
   programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
     extraOptions = [
       "--group-directories-first"
       "--group"
