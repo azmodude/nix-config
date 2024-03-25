@@ -8,7 +8,8 @@
       jetbrains-mono
       inter
       # Iosevka Jetbrains Mono Variant
-      (iosevka-bin.override {variant = "ss14";})
+      #(iosevka-bin.override {variant = "SS14";})
+      iosevka-bin
       liberation_ttf
       noto-fonts
       open-sans
