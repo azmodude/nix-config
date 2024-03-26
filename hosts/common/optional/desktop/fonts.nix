@@ -1,27 +1,33 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  iosevka-variants = ["SS14" "Etoile" "Aile" "Curly" "CurlySlab" "Slab"];
+  iosevka = lib.lists.forEach iosevka-variants (x: (pkgs.iosevka-bin.override {variant = "${x}";}));
+in {
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [
-      (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-      commit-mono
-      dejavu_fonts
-      jetbrains-mono
-      inter
-      # Iosevka Jetbrains Mono Variant
-      #(iosevka-bin.override {variant = "SS14";})
-      iosevka-bin
-      liberation_ttf
-      noto-fonts
-      open-sans
-      roboto
-      roboto-serif
-      roboto-slab
-      roboto-mono
-      source-sans
-      source-serif
-      source-code-pro
-      victor-mono
-    ];
+    packages = with pkgs;
+      [
+        (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+        commit-mono
+        dejavu_fonts
+        jetbrains-mono
+        inter
+        liberation_ttf
+        noto-fonts
+        open-sans
+        roboto
+        roboto-serif
+        roboto-slab
+        roboto-mono
+        source-sans
+        source-serif
+        source-code-pro
+        victor-mono
+      ]
+      ++ iosevka;
 
     fontconfig = {
       antialias = true;
