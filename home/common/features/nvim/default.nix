@@ -11,12 +11,6 @@
       gdu
       bottom
       tree-sitter
-      # python
-      mypy
-      pylint
-      black
-      isort
-      pyright
       # docker
       nodePackages.dockerfile-language-server-nodejs
       # broken as of 08/20
@@ -29,11 +23,6 @@
       lua-language-server
       stylua
       selene
-      # go
-      gopls
-      gofumpt
-      gotools
-      golines
       # markdown
       marksman
       markdownlint-cli
