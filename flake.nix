@@ -71,7 +71,7 @@
     # Acessible through 'nix develop' or 'nix-shell' (legacy)
     devShells = forAllSystems (
       system: let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = nixpkgs-unstable.legacyPackages.${system};
         checks = {
           pre-commit-check = pre-commit-hooks.lib.${system}.run {
             src = ./.;
