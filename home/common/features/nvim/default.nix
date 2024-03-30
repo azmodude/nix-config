@@ -46,8 +46,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "azmodude";
         repo = "lazyvim";
-        rev = "aca98d0666d793a8ccd2e79724a33f86e96000ad";
-        sha256 = "1wpsf8qcbfmszny37zfc6vvl7jn66ngccrgrzzffc6m9wh83ls5v";
+        rev = "b26ad055e4cb2ea67818bdd0cebcd737d7592c28";
+        sha256 = "0sz2qzxhgv5ld3vwbbiklpj6jn6h3z11zfy0hdvmiz1yz8y522kz";
       };
       # make files symbolic links to have .config/nvim writable by lazyvim
       recursive = true;
