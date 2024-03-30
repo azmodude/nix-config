@@ -10,6 +10,25 @@
         end
        end
 
+      function xcursor_theme_for_appearance()
+        -- might be able to remove once wezterm gets proper wayland support
+        local wezterm = require("wezterm")
+        local xcursor_size = nil
+        local xcursor_theme = nil
+
+        local success, stdout, stderr = wezterm.run_child_process({"gsettings", "get", "org.gnome.desktop.interface", "cursor-theme"})
+        if success then
+          xcursor_theme = stdout:gsub("'(.+)'\n", "%1")
+        end
+
+        local success, stdout, stderr = wezterm.run_child_process({"gsettings", "get", "org.gnome.desktop.interface", "cursor-size"})
+        if success then
+          xcursor_size = tonumber(stdout)
+        end
+
+        return xcursor_theme, xcursor_size
+      end
+
        -- Pull in the wezterm API
       local wezterm = require("wezterm")
 
@@ -21,6 +40,8 @@
       if wezterm.config_builder then
         config = wezterm.config_builder()
       end
+
+      local xcursor_theme, xcursor_size = xcursor_theme_for_appearance()
 
       config = {
         initial_rows = 50,
@@ -48,6 +69,8 @@
         text_background_opacity = 1.0,
         term = "wezterm",
         front_end = "WebGpu",
+        xcursor_theme = xcursor_theme,
+        xcursor_size = xcursor_size,
 
         keys = {
           {
