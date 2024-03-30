@@ -13,6 +13,7 @@ in {
         (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
         commit-mono
         dejavu_fonts
+        fira-code
         jetbrains-mono
         inter
         liberation_ttf
