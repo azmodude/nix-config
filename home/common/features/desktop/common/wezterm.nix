@@ -57,6 +57,34 @@
         hide_tab_bar_if_only_one_tab = true,
         font = wezterm.font("Iosevka SS14", { weight = "Light" }),
         font_size = 11,
+        font_rules = {
+          {
+            intensity = 'Bold',
+            italic = true,
+            font = wezterm.font {
+              family = 'VictorMono',
+              weight = 'Bold',
+              style = 'Italic',
+            },
+          },
+          {
+            italic = true,
+            intensity = 'Half',
+            font = wezterm.font {
+              family = 'VictorMono',
+              weight = 'DemiBold',
+              style = 'Italic',
+            },
+          },
+          {
+            italic = true,
+            intensity = 'Normal',
+            font = wezterm.font {
+              family = 'VictorMono',
+              style = 'Italic',
+            },
+          },
+        },
         freetype_load_target = "Normal",
         freetype_render_target = "Normal",
         freetype_interpreter_version = 40,
