@@ -13,8 +13,7 @@
       tree-sitter
       # docker
       nodePackages.dockerfile-language-server-nodejs
-      # broken as of 08/20
-      #hadolint
+      hadolint
       # shell
       shellcheck
       shfmt
