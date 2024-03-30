@@ -36,7 +36,9 @@
         hide_tab_bar_if_only_one_tab = true,
         font = wezterm.font("Iosevka SS14", { weight = "Light" }),
         font_size = 11,
-        freetype_render_target = "HorizontalLcd",
+        freetype_load_target = "Normal",
+        freetype_render_target = "Normal",
+        freetype_interpreter_version = 40,
         cursor_blink_rate = 0,
         window_frame = {
           font = wezterm.font({ family = "Inter", weight = "Regular" }),
