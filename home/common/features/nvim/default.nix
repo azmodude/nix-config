@@ -19,6 +19,7 @@
       shfmt
       nodePackages.bash-language-server
       # lua
+      luajitPackages.luacheck
       lua-language-server
       stylua
       selene
@@ -46,8 +47,8 @@
       source = pkgs.fetchFromGitHub {
         owner = "azmodude";
         repo = "lazyvim";
-        rev = "b2e4fd1f12682f653a523d7d8c8d912fa24f2df6";
-        sha256 = "138gkk8fwhzfwfj8fv3rg8kc5pbip6hl1bl0gh3hrj0cniliwsq8";
+        rev = "0a1b2028247d27b13c5609c2b9a8c43317c57d0e";
+        sha256 = "1ani2awzp3m8f9qm80nwacv75fd2hkh80mg51r9z96xlak061rvv";
       };
       # make files symbolic links to have .config/nvim writable by lazyvim
       recursive = true;
