@@ -84,6 +84,15 @@
                 description = "Run gitleaks to check for credentials";
                 entry = "${pkgs.gitleaks}/bin/gitleaks protect --verbose --redact --staged";
               };
+              # ggshield = {
+              #   enable = true;
+              #   name = "ggshield";
+              #   description = "Run ggshield to check for credentials";
+              #   entry = "${pkgs.ggshield.overrideAttrs {
+              #     doCheck = false;
+              #     doInstallCheck = false;
+              #   }}/bin/ggshield secret scan pre-commit";
+              # };
             };
           };
         };
