@@ -13,6 +13,15 @@
     };
     extraConfig = {
       diff.colorMoved = "dimmed-zebra";
+      diff.tool = "difftastic";
+      diff.guitool = "bc";
+      difftool.difftastic.cmd = "${pkgs.difftastic}/bin/difft --background dark \"$LOCAL\" \"$REMOTE\"";
+      difttool.bc.cmd = "${pkgs.bcompare}/bin/bcompare";
+      difftool.bc.trustExitCode = true;
+      difftool.prompt = false;
+      merge.guitool = "bc";
+      mergetool.bc.cmd = "${pkgs.bcompare}/bin/bcompare";
+      mergetool.bc.trustExitcode = true;
       feature.manyFiles = true;
       fetch.prune = true;
       init.defaultBranch = "main";
@@ -21,12 +30,16 @@
       rebase.autoSquash = true;
       submodule.recurse = true;
     };
+    aliases = {
+      dft = "-c pager.difftool=true difftool --tool=difftastic";
+    };
     lfs.enable = true;
     ignores = [".direnv" "result"];
-    difftastic = {
-      enable = true;
-      background = "dark";
-    };
+    # this sets difftatic as the default difftool, which breaks shit-ton of things
+    # difftastic = {
+    #   enable = false;
+    #   background = "dark";
+    # };
   };
 
   programs.lazygit = {
