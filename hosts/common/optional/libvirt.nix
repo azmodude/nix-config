@@ -31,6 +31,7 @@
       user = "libvirtd";
     };
   };
+  networking.firewall.trustedInterfaces = ["virbr0" "virbr1"];
   environment.persistence = {
     "/persist".directories = [
       "/var/lib/libvirt"
