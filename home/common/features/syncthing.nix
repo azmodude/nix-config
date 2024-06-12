@@ -10,5 +10,4 @@
     "L+ /persist/home/${user.name}/Pictures/sync - - - - /persist/home/${user.name}/sync/workstations-pictures"
     "L+ /persist/home/${user.name}/projects/sync - - - - /persist/home/${user.name}/sync/workstations-projects"
   ];
-  home.packages = with pkgs; [syncthingtray];
 }
