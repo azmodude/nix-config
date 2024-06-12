@@ -78,7 +78,8 @@
     };
   };
   environment.persistence = {
-    "/persist".directories = [
+    "/persist" = {
+      directories = [
       {
         directory = "/home/${user.name}/sync";
         user = "${user.name}";
@@ -86,6 +87,8 @@
         mode = "u=rwx,g=,o=";
       }
     ];
+      hideMounts = true;
+    };
   };
   # workaround a race condition that might happen if /home/${user.name}/sync already exists
   # impermanence does not change ownership if directory already exists

@@ -33,8 +33,11 @@
   };
   networking.firewall.trustedInterfaces = ["virbr0" "virbr1"];
   environment.persistence = {
-    "/persist".directories = [
+    "/persist" = {
+      directories = [
       "/var/lib/libvirt"
-    ];
+      ];
+      hideMounts = true;
+    };
   };
 }

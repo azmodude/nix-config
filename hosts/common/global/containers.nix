@@ -16,8 +16,11 @@
   environment.systemPackages = with pkgs; [distrobox docker-compose podman-compose exfat];
 
   environment.persistence = {
-    "/persist".directories = [
+    "/persist" = {
+      directories = [
       "/var/lib/containers"
     ];
+    hideMounts = true;
+    };
   };
 }
