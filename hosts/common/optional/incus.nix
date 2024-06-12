@@ -58,7 +58,8 @@
   ];
 
   environment.persistence = {
-    "/persist".directories = [
+    "/persist" = {
+      directories = [
       {
         directory = "/var/lib/incus";
         user = "root";
@@ -66,5 +67,7 @@
         mode = "u=rwx,g=rwx,o=";
       }
     ];
+    hideMounts = true;
+    };
   };
 }

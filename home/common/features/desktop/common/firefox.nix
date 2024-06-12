@@ -40,8 +40,10 @@
       BROWSER = "firefox";
     };
     persistence = {
-      "/persist/home/${user.name}".directories = [".mozilla/firefox"];
+      "/persist/home/${user.name}" = {
+        directories = [".mozilla/firefox"];
     };
+  };
   };
 
   xdg.mimeApps.defaultApplications = {

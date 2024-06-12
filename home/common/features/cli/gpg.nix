@@ -66,7 +66,9 @@ in {
     };
   };
   home.persistence = {
-    "/persist/home/${user.name}".directories = [".gnupg"];
+    "/persist/home/${user.name}" = {
+      directories = [".gnupg"];
+    };
   };
 
   # ensure .gnupg is secure

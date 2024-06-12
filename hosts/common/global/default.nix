@@ -64,7 +64,10 @@
 
   environment = {
     persistence = {
-      "/persist".directories = ["/var/lib/systemd" "/srv"];
+      "/persist" = {
+        directories = ["/var/lib/systemd" "/srv"];
+        hideMounts = true;
+      };
     };
     enableAllTerminfo = true;
   };

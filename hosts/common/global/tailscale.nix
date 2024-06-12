@@ -44,6 +44,9 @@
   };
 
   environment.persistence = {
-    "/persist".directories = ["/var/lib/tailscale"];
+    "/persist" = {
+      directories = ["/var/lib/tailscale"];
+      hideMounts = true;
+    };
   };
 }

@@ -124,7 +124,9 @@ in {
   };
   home = {
     persistence = {
-      "/persist/home/${user.name}".directories = ["${maildirBasePath}"];
+      "/persist/home/${user.name}" = {
+        directories = ["${maildirBasePath}"];
+      };
     };
   };
 }
