@@ -23,6 +23,4 @@
   };
   # autostart 1password
   home.file."${config.xdg.configHome}/autostart/1password.desktop".text = builtins.readFile "${pkgs._1password-gui}/share/applications/1password.desktop";
-  # autostart syncthingtray
-  home.file."${config.xdg.configHome}/autostart/syncthingtray.desktop".text = builtins.readFile "${pkgs.syncthingtray}/share/applications/syncthingtray.desktop";
 }
