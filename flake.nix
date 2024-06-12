@@ -119,7 +119,6 @@
           desktop = "gnome";
           hostname = "apollo";
           domain = "hosts.gordonschulz.de";
-          hostid = "b39cf9a8";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
@@ -137,7 +136,6 @@
           desktop = "gnome";
           hostname = "artemis";
           domain = "hosts.gordonschulz.de";
-          hostid = "b32cb9a7";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
@@ -155,7 +153,6 @@
           desktop = "gnome";
           hostname = "hephaestus";
           domain = "hosts.gordonschulz.de";
-          hostid = "e120cab3";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
@@ -173,7 +170,6 @@
       #     desktop = "i3";
       #     hostname = "work-vm";
       #     domain = "f-i.de";
-      #     hostid = "d6fb2da4";
       #     user = "j525980";
       #   };
       #   modules = [
