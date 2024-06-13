@@ -9,6 +9,8 @@
   };
   home.file = {
     ".vuescan/vuescan.ini" = {
+      # force writing the config since vuescan tampers with the config even if there a no changes
+      force = true;
       text = ''
         [VueScan]
         [Input]
