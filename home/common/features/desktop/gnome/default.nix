@@ -34,9 +34,9 @@ with lib.hm.gvariant; {
       font-antialiasing = "rgba";
       font-hinting = "slight";
       font-name = "Inter 10";
-      gtk-theme = "Adwaita-dark";
+      gtk-theme = "Adwaita";
       icon-theme = "Yaru";
-      cursor-theme = "Catppuccin-Macchiato-Light-Cursors";
+      cursor-theme = "catppuccin-macchiato-light-cursors";
       cursor-size = 32;
       monospace-font-name = "Monospace 10";
       show-battery-percentage = true;
