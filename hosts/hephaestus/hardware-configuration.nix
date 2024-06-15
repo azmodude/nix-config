@@ -16,7 +16,12 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    zfs.extraPools = ["rpool"];
+    supportedFilesystems = {
+        btrfs = true;
+        zfs = true;
+      };
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     initrd = {

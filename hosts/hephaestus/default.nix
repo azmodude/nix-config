@@ -28,9 +28,10 @@
       # Import your generated (nixos-generate-config) hardware configuration
       ./hardware-configuration.nix
 
-      ../common/optional/encrypted-root.nix
-      ../common/optional/btrfs
-      ../common/optional/swap-physical.nix
+      # ../common/optional/encrypted-root.nix
+      # ../common/optional/btrfs
+      # ../common/optional/swap-physical.nix
+      ../common/optional/zfs
       ../common/optional/swap-zram.nix
 
       ../common/optional/laptop.nix

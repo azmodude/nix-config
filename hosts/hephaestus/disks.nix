@@ -1,7 +1,7 @@
 {
-  disks ? ["/dev/nvme0n1"],
-  zramSwapwritebackSize ? "4G",
-  physicalSwapSize ? "16G",
+  disks ? ["/dev/vda"],
+  zramSwapwritebackSize ? "4",
+  physicalSwapSize ? "16",
   ...
 }: {
   disko.devices = {
@@ -30,18 +30,25 @@
               };
             };
             luks = {
-              size = "100%";
+              name = "luks";
+              start = "10GiB";
+              size = toString (zramSwapwritebackSize + physicalSwapSize + 1) + "G";
               content = {
                 type = "luks";
                 name = "crypt-system";
                 extraFormatArgs = ["--label crypt-system"];
-                settings = {
-                  allowDiscards = true;
-                };
+                extraOpenArgs = ["--allow-discards"];
                 content = {
                   type = "lvm_pv";
                   vg = "lvm-crypt-system";
                 };
+              };
+            }
+              zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "rpool";
               };
             };
           };
@@ -53,57 +60,105 @@
         type = "lvm_vg";
         lvs = {
           zramSwapwriteBackDevice = {
-            priority = 1;
-            size = zramSwapwritebackSize;
+            size = zramSwapwritebackSize + "G";
             name = "zramSwapwritebackDevice";
           };
           physicalSwap = {
-            priority = 2;
-            size = physicalSwapSize;
+            size = physicalSwapSize + "G";
             name = "swap";
             content = {
               type = "swap";
             };
           };
-          root = {
-            priority = 3;
-            size = "100%FREE";
-            name = "root";
-            content = {
-              type = "btrfs";
-              extraArgs = ["-f" "--label btrfs-root"];
-              subvolumes = {
-                "system" = {};
-                "system/@" = {
-                  mountpoint = "/";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
-                "system/@snapshots" = {
-                  mountpoint = "/.snapshots";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
-                "system/@nix" = {
-                  mountpoint = "/nix";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
-                "system/@var-log" = {
-                  mountpoint = "/var/log";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
-                "data" = {};
-                "data/@home" = {
-                  mountpoint = "/home";
-                  mountOptions = ["defaults" "compress=zstd" "relatime"];
-                };
-                "data/@persist" = {
-                  mountpoint = "/persist";
-                  mountOptions = ["defaults" "compress=zstd" "noatime"];
-                };
-              };
+        }
+      }
+    };
+    zpool = {
+      rpool = {
+        type = "zpool";
+        rootFsOptions = {
+          acltype = "posixacl";
+          dnodesize = "auto";
+          canmount = "off";
+          xattr = "sa";
+          relatime = "on";
+          normalization = "formD";
+          mountpoint = "none";
+          encryption = "aes-256-gcm";
+          keyformat = "passphrase";
+          keylocation = "prompt";
+          #keylocation = "file:///tmp/pass-zpool-rpool";
+          compression = "zstd";
+          "com.sun:auto-snapshot" = "false";
+        };
+        postCreateHook = ''
+          zfs set keylocation="prompt" rpool
+        '';
+        options = {
+          ashift = "12";
+          autotrim = "on";
+        };
+
+        datasets = {
+          local = {
+            type = "zfs_fs";
+            options.mountpoint = "none";
+          };
+          safe = {
+            type = "zfs_fs";
+            options.mountpoint = "none";
+          };
+          "local/reserved" = {
+            type = "zfs_fs";
+            options = {
+              mountpoint = "none";
+              reservation = "5GiB";
             };
           };
-        };
-      };
-    };
-  };
+          "local/root" = {
+            type = "zfs_fs";
+            mountpoint = "/";
+            options.mountpoint = "legacy";
+            postCreateHook = ''
+              zfs snapshot rpool/local/root@blank
+            '';
+          };
+          "local/nix" = {
+            type = "zfs_fs";
+            mountpoint = "/nix";
+            options = {
+              atime = "off";
+              canmount = "on";
+              mountpoint = "legacy";
+              "com.sun:auto-snapshot" = "true";
+            };
+          };
+          # "local/log" = {
+          #   type = "zfs_fs";
+          #   mountpoint = "/var/log";
+          #   options = {
+          #     mountpoint = "legacy";
+          #     "com.sun:auto-snapshot" = "true";
+          #   };
+          # };
+          "safe/home" = {
+            type = "zfs_fs";
+            mountpoint = "/home";
+            options = {
+              mountpoint = "legacy";
+              "com.sun:auto-snapshot" = "true";
+            };
+          };
+          "safe/persist" = {
+            type = "zfs_fs";
+            mountpoint = "/persist";
+            options = {
+              mountpoint = "legacy";
+              "com.sun:auto-snapshot" = "true";
+            };
+          };
+        }; # datasets
+      }; # rpool
+    }; # zpool
+  }; # devices
 }
