@@ -72,11 +72,11 @@
             content = {
               type = "btrfs";
               extraArgs = ["-f" "--label btrfs-root"];
-               postCreateHook = ''
+              postCreateHook = ''
                 MNTPOINT=$(mktemp -d)
                 mount "/dev/disk/by-label/btrfs-root" "$MNTPOINT" -o subvolid=5
                 trap 'umount $MNTPOINT; rm -rf $MNTPOINT' EXIT
-                btrfs subvolume snapshot -r $MNTPOINT/system/@ $MNTPOINT/system/@-blank
+                btrfs subvolume snapshot -r $MNTPOINT/system/@ $MNTPOINT/system/@snapshots/@.blank
               '';
               subvolumes = {
                 "system" = {};
