@@ -5,6 +5,7 @@
 }: {
   programs.zsh = {
     enable = true;
+    dotDir = ".zsh";
     syntaxHighlighting = {
       enable = true;
     };
@@ -63,7 +64,7 @@
       utility.safeOps = true;
     };
     zplug = {
-      enable = true;
+      enable = false;
       plugins = [
         {
           name = "hlissner/zsh-autopair";
@@ -71,6 +72,61 @@
         }
         {name = "zsh-users/zsh-completions";}
         {name = "mdumitru/fancy-ctrl-z";}
+      ];
+    };
+    antidote = {
+      enable = true;
+      useFriendlyNames = true;
+      plugins = [
+        "mattmc3/zephyr path:plugins/completion"
+        "mattmc3/zephyr path:plugins/color"
+        "mattmc3/zephyr path:plugins/homebrew"
+        "mattmc3/zephyr path:plugins/utility"
+        "mattmc3/zephyr path:plugins/zfunctions"
+        # zsh specific
+        "ohmyzsh/ohmyzsh path:plugins/sudo"
+
+        # utility specific
+        "bigH/git-fuzzy path:bin kind:path"
+
+        "ohmyzsh/ohmyzsh path:plugins/git"
+        "ohmyzsh/ohmyzsh path:plugins/1password"
+        "ohmyzsh/ohmyzsh path:plugins/direnv"
+        "ohmyzsh/ohmyzsh path:plugins/github"
+        "ohmyzsh/ohmyzsh path:plugins/git-auto-fetch"
+        "ohmyzsh/ohmyzsh path:plugins/git-escape-magic"
+        "ohmyzsh/ohmyzsh path:plugins/git-extras"
+        "ohmyzsh/ohmyzsh path:plugins/git-flow-avh"
+        "ohmyzsh/ohmyzsh path:plugins/git-lfs"
+        "ohmyzsh/ohmyzsh path:plugins/gnu-utils"
+        "ohmyzsh/ohmyzsh path:plugins/extract"
+        "ohmyzsh/ohmyzsh path:plugins/rsync"
+        "ohmyzsh/ohmyzsh path:plugins/taskwarrior"
+        "ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath"
+        "ohmyzsh/ohmyzsh path:plugins/vscode"
+        "ohmyzsh/ohmyzsh path:plugins/vagrant"
+        "ohmyzsh/ohmyzsh path:plugins/universalarchive"
+        "ohmyzsh/ohmyzsh path:plugins/transfer"
+        # development
+        "ohmyzsh/ohmyzsh path:plugins/python"
+        "ohmyzsh/ohmyzsh path:plugins/pyenv"
+        "ohmyzsh/ohmyzsh path:plugins/pip"
+        "ohmyzsh/ohmyzsh path:plugins/pylint"
+        "ohmyzsh/ohmyzsh path:plugins/systemd"
+        "ohmyzsh/ohmyzsh path:plugins/ansible"
+        "ohmyzsh/ohmyzsh path:plugins/golang"
+        "ohmyzsh/ohmyzsh path:plugins/npm"
+        "ohmyzsh/ohmyzsh path:plugins/gh kind:fpath"
+        # k8s
+        "ohmyzsh/ohmyzsh path:plugins/helm"
+        "ohmyzsh/ohmyzsh path:plugins/kubectl"
+        "ohmyzsh/ohmyzsh path:plugins/istioctl"
+
+        # misc stuff
+        "mdumitru/fancy-ctrl-z"
+        "zsh-users/zsh-completions"
+        "zdharma-continuum/fast-syntax-highlighting"
+        "hlissner/zsh-autopair"
       ];
     };
     localVariables = {
