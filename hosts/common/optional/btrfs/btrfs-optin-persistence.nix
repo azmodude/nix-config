@@ -5,30 +5,47 @@
 }: let
   hostname = config.networking.hostName;
   wipeScript = ''
-    mkdir -p /btrfs
-    mount -o subvol=/ /dev/disk/by-label/${hostname} /btrfs
+    mkdir /tmp -p
+    MNTPOINT=$(mktemp -d)
+    (
+      mount -t btrfs -o subvol=/ /dev/disk/by-label/btrfs-root "$MNTPOINT"
+      trap 'umount "$MNTPOINT"' EXIT
 
-    if [ -e "/btrfs/root/dontwipe" ]; then
-      echo "Not wiping root"
-    else
-      echo "Cleaning subvolume"
-      btrfs subvolume list -o /btrfs/root | cut -f9 -d ' ' |
-      while read subvolume; do
-        btrfs subvolume delete "/btrfs/$subvolume"
-      done && btrfs subvolume delete /btrfs/root
+      echo "Creating needed directories"
+      mkdir -p "$MNTPOINT"/persist/var/{log,lib/{nixos,systemd}}
+      if [ -e "$MNTPOINT/persist/dont-wipe" ]; then
+        echo "Skipping wipe"
+      else
+        echo "Cleaning root subvolume"
+        btrfs subvolume list -o "$MNTPOINT/system/@" | cut -f9 -d ' ' |
+        while read -r subvolume; do
+          btrfs subvolume delete "$MNTPOINT/$subvolume"
+        done && btrfs subvolume delete "$MNTPOINT/system/@"
 
-      echo "Restoring blank subvolume"
-      btrfs subvolume snapshot /btrfs/root-blank /btrfs/root
-    fi
-
-    umount /btrfs
-    rm /btrfs
+        echo "Restoring blank subvolume"
+        btrfs subvolume snapshot "$MNTPOINT/system/@-blank" "$MNTPOINT/system/@"
+      fi
+    )
   '';
+  phase1Systemd = config.boot.initrd.systemd.enable;
 in {
-  boot.initrd.supportedFilesystems = ["btrfs"];
-
-  # Use postDeviceCommands if on old phase 1
-  # boot.initrd.postDeviceCommands = lib.mkBefore wipeScript;
+   boot.initrd = {
+    supportedFilesystems = ["btrfs"];
+    postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
+    systemd.services.restore-root = lib.mkIf phase1Systemd {
+      description = "Rollback btrfs rootfs";
+      wantedBy = ["initrd.target"];
+      requires = ["dev-disk-by\\x2dlabel-btrfs\\x2droot.device"];
+      after = [
+        "dev-disk-by\\x2dlabel-btrfs\\x2droot.device"
+        "systemd-cryptsetup@crypt\\x2dsystem.service"
+      ];
+      before = ["sysroot.mount"];
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = wipeScript;
+    };
+  };
 
   fileSystems = {
     "/persist" = {
