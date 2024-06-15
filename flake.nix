@@ -77,7 +77,7 @@
             src = ./.;
             hooks = {
               alejandra.enable = true;
-              convco.enable = true;
+              commitizen.enable = true;
               gitleaks = {
                 enable = true;
                 name = "gitleaks";
