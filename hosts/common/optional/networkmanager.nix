@@ -23,5 +23,13 @@
     group = "root";
     restartUnits = ["NetworkManager.service"];
   };
+  sops.secrets.wifi-home = {
+    sopsFile = ../secrets.yaml;
+    path = "/etc/NetworkManager/system-connections/wifi-home.nmconnection";
+    mode = "0600";
+    owner = "root";
+    group = "root";
+    restartUnits = ["NetworkManager.service"];
+  };
   environment.systemPackages = with pkgs; [wireguard-tools];
 }
