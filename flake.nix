@@ -152,6 +152,7 @@
           inherit inputs home-manager outputs;
           desktop = "gnome";
           hostname = "hephaestus";
+          machineid = "068e5cf7e101448f8b86a4f1ce52ce21";
           domain = "hosts.gordonschulz.de";
           user = {
             name = "azmo";
