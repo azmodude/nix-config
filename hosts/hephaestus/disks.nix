@@ -1,7 +1,7 @@
 {
   disks ? ["/dev/vda"],
-  zramSwapwritebackSize ? "4",
-  physicalSwapSize ? "16",
+  zramSwapwritebackSize ? 4,
+  physicalSwapSize ? 16,
   ...
 }: {
   disko.devices = {
@@ -31,7 +31,7 @@
             };
             luks = {
               name = "luks";
-              start = "10GiB";
+              #start = "10GiB";
               size = toString (zramSwapwritebackSize + physicalSwapSize + 1) + "G";
               content = {
                 type = "luks";
@@ -43,7 +43,7 @@
                   vg = "lvm-crypt-system";
                 };
               };
-            }
+            };
               zfs = {
               size = "100%";
               content = {
@@ -60,18 +60,18 @@
         type = "lvm_vg";
         lvs = {
           zramSwapwriteBackDevice = {
-            size = zramSwapwritebackSize + "G";
+            size = toString (zramSwapwritebackSize) + "G";
             name = "zramSwapwritebackDevice";
           };
           physicalSwap = {
-            size = physicalSwapSize + "G";
+            size = toString (physicalSwapSize) + "G";
             name = "swap";
             content = {
               type = "swap";
             };
           };
-        }
-      }
+        };
+      };
     };
     zpool = {
       rpool = {
