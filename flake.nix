@@ -119,6 +119,7 @@
           desktop = "gnome";
           hostname = "apollo";
           domain = "hosts.gordonschulz.de";
+          machineid = "23e7aacca73d40eaa1a8f131aaf68e5d";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
@@ -136,6 +137,7 @@
           desktop = "gnome";
           hostname = "artemis";
           domain = "hosts.gordonschulz.de";
+          machineid = "bb0415295e70436eb2931305083c953b";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
@@ -152,8 +154,8 @@
           inherit inputs home-manager outputs;
           desktop = "gnome";
           hostname = "hephaestus";
-          machineid = "068e5cf7e101448f8b86a4f1ce52ce21";
           domain = "hosts.gordonschulz.de";
+          machineid = "068e5cf7e101448f8b86a4f1ce52ce21";
           user = {
             name = "azmo";
             fullName = "Gordon Schulz";
