@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  machineid,
   ...
 }: let
   hostname = config.networking.hostName;
@@ -11,8 +12,6 @@
       mount -t btrfs -o subvol=/ /dev/disk/by-label/btrfs-root "$MNTPOINT"
       trap 'umount "$MNTPOINT"' EXIT
 
-      echo "Creating needed directories"
-      mkdir -p "$MNTPOINT"/persist/var/{log,lib/{nixos,systemd}}
       if [ -e "$MNTPOINT/persist/dont-wipe" ]; then
         echo "Skipping wipe"
       else
@@ -23,13 +22,13 @@
         done && btrfs subvolume delete "$MNTPOINT/system/@"
 
         echo "Restoring blank subvolume"
-        btrfs subvolume snapshot "$MNTPOINT/system/@-blank" "$MNTPOINT/system/@"
+        btrfs subvolume snapshot "$MNTPOINT/system/@snapshots/@.blank" "$MNTPOINT/system/@"
       fi
     )
   '';
   phase1Systemd = config.boot.initrd.systemd.enable;
 in {
-   boot.initrd = {
+  boot.initrd = {
     supportedFilesystems = ["btrfs"];
     postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
     systemd.services.restore-root = lib.mkIf phase1Systemd {
@@ -54,6 +53,32 @@ in {
       options = ["subvol=data/@persist" "compress=zstd"];
       # /persist needs to be mounted early so sops-nix can access the host_key for decryption
       neededForBoot = true;
+    };
+  };
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      "/etc/NetworkManager/system-connections"
+      {
+        directory = "/var/lib/colord";
+        user = "colord";
+        group = "colord";
+        mode = "u=rwx,g=rx,o=";
+      }
+    ];
+    # files = [
+    #   "/etc/machine-id"
+    # ];
+  };
+  environment.etc = {
+    machine-id = {
+      text = machineid;
+      mode = "0644";
+      user = "root";
+      group = "root";
     };
   };
 }
