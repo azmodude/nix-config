@@ -4,15 +4,13 @@
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # install common flatpaks
-flatpak install --user -y flathub com.spotify.Client
 flatpak install --user -y flathub com.discordapp.Discord
-flatpak install --user -y flathub com.hamrick.VueScan
 flatpak install --user -y flathub md.obsidian.Obsidian
 flatpak install --user -y flathub org.flameshot.Flameshot
 flatpak install --user -y flathub com.github.tchx84.Flatseal
 flatpak install --user -y flathub org.kde.okular
 
-case "${XDG_CURRENT_DESKTOP}" in
+case "$XDG_CURRENT_DESKTOP" in
 GNOME)
 	#flatpak override --user --env=GTK_THEME=io.elementary.stylesheet.bubblegum:dark
 	#flatpak remote-add --user --if-not-exists appcenter  https://flatpak.elementary.io/appcenter.flatpakrepo
@@ -43,12 +41,12 @@ artemis)
 	# configure MangoHud
 	for flatpak in com.valvesoftware.Steam com.heroicgameslauncher.hgl com.usebottles.bottles net.lutris.Lutris; do
 		# don't auto-enable MANGOHUD
-		flatpak override --user --env=MANGOHUD=0 ${flatpak}
-		flatpak override --user --filesystem=xdg-config/MangoHud:ro ${flatpak}
+		flatpak override --user --env=MANGOHUD=0 "$flatpak"
+		flatpak override --user --filesystem=xdg-config/MangoHud:ro "$flatpak"
 	done
 	;;
 esac
 
 # allow flatpaks access to our symlink'ed icons and fonts
-flatpak --user override --filesystem=$HOME/.local/share/fonts
-flatpak --user override --filesystem=$HOME/.icons
+flatpak --user override --filesystem="$HOME/.local/share/fonts"
+flatpak --user override --filesystem="$HOME/.icons"
