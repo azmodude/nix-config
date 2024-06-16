@@ -164,7 +164,8 @@ with lib.hm.gvariant; {
       preferred-monitor-by-connector = "eDP-1";
       preview-size-scale = 0.5;
       scroll-action = "cycle-windows";
-      show-show-apps-button = true;
+      show-show-apps-button = false;
+      show-mounts-only-mounted = false;
     };
 
     "org/gnome/shell/extensions/pano" = {
