@@ -17,6 +17,7 @@
               name = "ESP";
               start = "1MiB";
               end = "10GiB";
+              bootable = true;
               type = "EF00";
               content = {
                 type = "filesystem";
