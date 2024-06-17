@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     #package = pkgs.neovim-nightly;
@@ -38,17 +42,53 @@
     withPython3 = true;
     withNodeJs = true;
   };
+
   home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.VISUAL = "nvim";
 
+  systemd.user.services = {
+    neovim-clone = {
+      Unit = {
+        Description = "Clone neovim/lazyvim config from GitHub";
+        ConditionPathExists = "!${config.xdg.configHome}/nvim";
+        Wants = "network-online.target";
+        After = "network-online.target";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
+      Service = {
+        Type = "exec";
+        ExecStart = "${pkgs.git}/bin/git clone https://github.com/azmodude/lazyvim ${config.xdg.configHome}/nvim";
+      };
+    };
+  };
+  systemd.user.services = {
+    neovim-update = {
+      Unit = {
+        Description = "Update neovim/lazyvim config from GitHub";
+        ConditionPathExists = "${config.xdg.configHome}/nvim";
+        Wants = "network-online.target";
+        After = "network-online.target";
+      };
+      Install = {
+        WantedBy = ["default.target"];
+      };
+      Service = {
+        Type = "exec";
+        ExecStart = "${pkgs.git}/bin/git -C ${config.xdg.configHome}/nvim pull";
+      };
+    };
+  };
+
   xdg.configFile = {
     nvim = {
-      enable = true;
+      enable = false;
       source = pkgs.fetchFromGitHub {
         owner = "azmodude";
         repo = "lazyvim";
-        rev = "6d776706e5085e5543936124fbe8d54330164065";
-        sha256 = "195hb2lmyclm5xgr3pmfssmpbv36mm9m01kkgy61s5i9cfl6klk2";
+        rev = "65c9f5500a6f8b04cc4d397528d8e552bf35c931";
+        sha256 = "10w5xh2g09xa3sphcpz0fs5y503341jvgj1k8km0q5xvicq5ffgw";
       };
       # make files symbolic links to have .config/nvim writable by lazyvim
       recursive = true;
