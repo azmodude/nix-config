@@ -81,4 +81,8 @@ in {
       group = "root";
     };
   };
+  security.sudo.extraConfig = ''
+    # Rollback results in sudo lectures after each reboot
+    Defaults lecture = never
+  '';
 }
