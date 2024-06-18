@@ -38,7 +38,7 @@
     sensibleOnTop = true;
     terminal = "tmux-256color";
     extraConfig = ''
-      set-option -ga terminal-overrides ",*256col*:Tc:RGB"
+      set-option -ga terminal-overrides ',*256col*:Tc,wezterm,alacritty:Tc'
     '';
     plugins = with pkgs; [
       {
@@ -60,13 +60,13 @@
         plugin = tmuxPlugins.vim-tmux-focus-events;
       }
       {
-        plugin = tmuxPlugins.catppuccin;
         extraConfig = ''
           set -g @catppuccin_flavour "macchiato"
-          set -g @catppuccin_status_modules "user host application directory session date_time"
+          set -g @catppuccin_status_modules_right "user host application directory session date_time"
           set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M"
           set -g @catppuccin_date_time_icon "󰥔"
         '';
+        plugin = tmuxPlugins.catppuccin;
       }
     ];
   };
