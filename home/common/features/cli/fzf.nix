@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.fzf = {
     enable = true;
-    defaultOptions = ["--height 40%" "--border"];
+    defaultOptions = ["--height 60%" "--border"];
     fileWidgetCommand = "${pkgs.fd}/bin/fd --type f --exclude .git";
     fileWidgetOptions = ["--preview '${pkgs.bat}/bin/bat -n --color=always {}'" "--preview-window=right:50%:wrap"];
     changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d --exclude .git";
