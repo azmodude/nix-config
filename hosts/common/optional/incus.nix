@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   virtualisation.incus = {
     enable = true;
+    package = pkgs.incus; # also possible is incus-lts
     socketActivation = true;
     preseed = {
       config = {};
@@ -60,14 +61,14 @@
   environment.persistence = {
     "/persist" = {
       directories = [
-      {
-        directory = "/var/lib/incus";
-        user = "root";
-        group = "incus-admin";
-        mode = "u=rwx,g=rwx,o=";
-      }
-    ];
-    hideMounts = true;
+        {
+          directory = "/var/lib/incus";
+          user = "root";
+          group = "incus-admin";
+          mode = "u=rwx,g=rwx,o=";
+        }
+      ];
+      hideMounts = true;
     };
   };
 }
